@@ -64,7 +64,7 @@ Take some time and poke around in this repository, especially if you have never 
 
 This can be done in two ways. If you'd like to create the repository on your own in command line, you are free to do so. The TAs may be able to help. These instructions will show the steps for the other method: creating the repository through the Github interface.
 
-1. Navigate to the umn-csci-3081-S19 (https://github.umn.edu/orgs/umn-csci-3081-f19) organization page. If you are still in the csci3081-shared-upstream repository, you can click on the organization name at the top of the page, just under the black header bar. Otherwise, you'll find it in your profile (click on the icon on the top right and select _Your Profile_).
+1. Navigate to the umn-csci-3081-F19 (https://github.umn.edu/orgs/umn-csci-3081-f19) organization page. If you are still in the csci3081-shared-upstream repository, you can click on the organization name at the top of the page, just under the black header bar. Otherwise, you'll find it in your profile (click on the icon on the top right and select _Your Profile_).
 
 2. Click on the green button on the right that says 'New'.
 
@@ -134,11 +134,11 @@ to confirm that you are in the directory repo-&lt;student-umnid&gt;.
 IF you completed the ssh key section above:
 
 ```
-$ git remote add upstream git@github.umn.edu:umn-csci-3081-S19/csci3081-shared-upstream.git
+$ git remote add upstream git@github.umn.edu:umn-csci-3081-F19/csci3081-shared-upstream.git
 ```
 OTHERWISE, if you did not complete the ssh key section above and will use your X.500 username and password to log in to the UMN github server:
 ```
-$ git remote add upstream https://github.umn.edu/umn-csci-3081-S19/csci3081-shared-upstream.git
+$ git remote add upstream https://github.umn.edu/umn-csci-3081-F19/csci3081-shared-upstream.git
 ```
 
 > Note: If you get an error saying that the remote already exists, you can remove it and add again with the command `% git remote rm upstream`.
@@ -161,7 +161,7 @@ Now, get the student support code by _pulling_ from the _support-code_ branch of
 $ git pull upstream support-code --allow-unrelated-histories
 $ ls
 ```
-**_What just happened?_** You downloaded the contents of the shared-upstream branch into your local support-code branch. Listing the contents of the current directory now shows the existence of the Labs/ directory. Within that directory is Lab01_Git_Basics/ and within that subdirectory are the files main.cpp, makefile, and README.md (which is the same file you're reading right now, except now there is a copy on your machine).
+**_What just happened?_** You downloaded the contents of the shared-upstream branch into your local support-code branch. Listing the contents of the current directory now shows the existence of the labs/ directory. Within that directory is Lab01_Git_Basics/ and within that subdirectory are the files main.cpp, makefile, and README.md (which is the same file you're reading right now, except now there is a copy on your machine).
 
 You are now in the support-code branch. Branches are useful for keeping _sets_ or _versions_ of your codebase separate. This is commonly used to separate good, style-compliant, error-free working production code (_master_) from development versions (_develop_) and versions that individual developers are working on to fix a bug or add a feature (e.g., bug_34_typos_everywhere).
 
