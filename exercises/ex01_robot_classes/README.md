@@ -1,8 +1,8 @@
 ### Classes in C++
 
-Consider these exercises to be part of the assigned reading. Look through the related reading resources if you are unfamiliar with how to define a C++ class or how to instantiate a class object. As you work through this exercise, if you get stuck or are unfamiliar with a concept, refer to the reading resources.
+These exercises are a part of your assigned reading. Look through the related reading resources if you are unfamiliar with how to define a C++ class or how to instantiate a class object. As you work through this exercise, if you get stuck or are unfamiliar with a concept, refer to the reading resources.
 
-Questions are meant to test your understanding of the concepts. You do not need to formally answer them or turn anything in, HOWEVER the retrieval practice (i.e. quiz) will be based on the concepts covered in these exercises. So if you can answer those questions, you should do well on the quiz. Furthermore, we will go over the exercises during lecture and do some in-class follow-up exercises.
+Questions are meant to test your understanding of the concepts. You do not need to formally answer them or turn anything in, HOWEVER the retrieval practice (i.e. quiz) will be based on the concepts covered in these exercises. So if you can answer those questions, you should do well on the quiz. Furthermore, we will go over the key concepts covered by the exercises during lecture and do some in-class follow-up exercises.
 
 You are encouraged to form a study group and do these exercises together. You can practice pair programming techniques, in which the person "coding" is not the one at the keyboard. I suggest that the person with the least C++ programming be the one at the keyboard first. You can trade roles in the middle of the exercise.
 
