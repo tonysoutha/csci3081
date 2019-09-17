@@ -1,6 +1,6 @@
 ### Feedback for Lab 02
 
-Run on September 16, 19:07:31 PM.
+Run on September 16, 19:09:49 PM.
 
 
 #### Necessary Files and Structure
@@ -23,7 +23,7 @@ Run on September 16, 19:07:31 PM.
 
 + Fail: Check that no files with extension ".o" exist in directory "."
 
- "duck.o" found
+ "main.o" found
 
 + Skip: Check that no files with extension ".out" exist in directory "."
 
