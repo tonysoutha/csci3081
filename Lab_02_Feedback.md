@@ -1,6 +1,6 @@
 ### Feedback for Lab 02
 
-Run on September 16, 19:10:06 PM.
+Run on September 16, 19:10:12 PM.
 
 
 #### Necessary Files and Structure
@@ -23,7 +23,7 @@ Run on September 16, 19:10:06 PM.
 
 + Fail: Check that no files with extension ".o" exist in directory "."
 
- "mute_quack.o" found
+ "quack_quack.o" found
 
 + Skip: Check that no files with extension ".out" exist in directory "."
 
