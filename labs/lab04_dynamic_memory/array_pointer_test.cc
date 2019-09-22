@@ -23,29 +23,27 @@ ArrayPointerTest::ArrayPointerTest(int count) {
   cout << "Initializing ducks1." << endl;
   // Write code here to create count_ ducks for array ducks1 (if required)
   for (int i = 0; i < count_; i++) {
-    Duck d;
-    ducks1_[i] = d;
+    ducks1_[i] = Duck();
   }
 
   cout << "Initializing ducks2\n" ;
   // Write code here to create count_ ducks for array ducks2 (if required)
+  ducks2_ = new Duck[count_];
   for (int i = 0; i < count_; i++) {
-    Duck d;
-    ducks2_[i] = d;
+    ducks2_[i] = Duck();
   }
 
   cout << "Initializing ducks3\n";
   // Write code here to create count_ ducks for array ducks3 (if required)
   for (int i = 0; i < count_; i++) {
-    Duck d;
-    ducks3_[i] = &d;
+    ducks3_[i] = new Duck();
   }
 
   cout << "Initializing ducks4\n";
   // Write code here to create count_ ducks for array ducks4 (if required)
+  ducks4_ = new Duck * [count_];
   for (int i = 0; i < count_; i++) {
-    Duck d;
-    ducks4_[i] = &d;
+    ducks4_[i] = new Duck();
   }
 }
 
@@ -108,10 +106,6 @@ ArrayPointerTest::~ArrayPointerTest() {
 
   cout << "Deleting ducks1\n";
   // Write code here to delete the ducks of ducks1_ (if required)
-  // for (int i = 0; i < count_; i++) {
-  //   delete ducks1_[i];
-  // }
-  delete[] &ducks1_;
 
   cout << "Deleting ducks2\n";
   // Write code here to delete the ducks of ducks2_ (if required)
@@ -119,7 +113,6 @@ ArrayPointerTest::~ArrayPointerTest() {
 
   cout << "Deleting ducks3\n";
   // Write code here to delete the ducks of ducks2_ (if required)
-  delete[] &ducks3_;
 
   cout << "Deleting ducks4\n";
   // Write code here to delete the ducks of ducks2_ (if required)
