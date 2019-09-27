@@ -114,7 +114,8 @@ __Below are the mutants that your tests will need to find for the Full Feedback_
  * __Mutant:__ Dates from GetUsDate are not in the right format (same as GetDate?)
  * __Mutant:__ operator-: Probably a copy paste error
  * __Mutant:__ Days between calculation seems to be much larger than it should be.
- * __Mutant:__ A test failed on the correct version of the program.Developer thought months should be zero-indexedDates constructed with epoch are about 70 years in the future
+ * __Mutant:__ A test failed on the correct version of the program.Developer thought months should be zero-indexed
+ * __Mutant:__ Dates constructed with epoch are about 70 years in the future
  * __Mutant:__ 1/1/2016 to 3/1/2016 is 60 days, but this version returns 59
  
 ***Note:*** The assessment will include more mutants, so it is important to test above and beyond those tests above.  You will only need to pass 90% of the mutant tests in the assessment to get full credit.  Partial credit will be awarded for the mutants that are found.
