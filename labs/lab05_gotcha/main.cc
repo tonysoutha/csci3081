@@ -144,6 +144,7 @@ void ReadyForTransport(Object ** dynamic, Object ** local ) {
   std::cout << "About to copy local object into passed object." << std::endl;
   *local = &local_object;
   std::cout << "When uncommented, about to delete." << std::endl;
+  if (*dynamic != NULL) { delete *dynamic; }
   // delete *dynamic;
   // delete dynamic;
   // delete *local;
