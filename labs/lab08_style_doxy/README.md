@@ -1,4 +1,4 @@
-## Lab 7 - Google Style Guide Compliance and Doxygen
+## Lab 8 - Google Style Guide Compliance and Doxygen
 
 **_Note: cpplint.py is a bit slow on some of the CSE Lab machines.  Please refer to [Option #1 below](https://github.umn.edu/umn-csci-3081-f19/csci3081-shared-upstream/blob/support-code/labs/lab08_style_doxy/README.md#alternative-options-for-running-cpplintpy) for a solution._** You can use the other provided options, but you are encouraged to use Option #1.
 
@@ -140,7 +140,7 @@ installed.
 1. Create the configuration file.
   To start generating documentation, you must first generate a Doxygen
   configuration file in the docs directory. Run the following command from the
-  lab07 directory.
+  lab08 directory.
 
   ```
   mkdir docs
