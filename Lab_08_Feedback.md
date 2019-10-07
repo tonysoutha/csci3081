@@ -1,6 +1,6 @@
 ### Feedback for Lab 08
 
-Run on October 05, 14:22:35 PM.
+Run on October 06, 21:20:32 PM.
 
 
 #### Necessary Files and Structure
@@ -9,17 +9,13 @@ Run on October 05, 14:22:35 PM.
 
 + Pass: Check that directory "labs" exists.
 
-+ Fail: Check that directory "labs/lab08_style_doxy" exists.
++ Pass: Check that directory "labs/lab08_style_doxy" exists.
 
-     "labs/lab08_style_doxy" not found.
++ Pass: Change into directory "labs/lab08_style_doxy".
 
-+ Skip: Change into directory "labs/lab08_style_doxy".
++ Fail: Check that directory "docs" exists.
 
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that directory "docs" exists.
-
-  This test was not run because of an earlier failing test.
+     "docs" not found.
 
 + Skip: Check that file "docs/Doxyfile" exists.
 
@@ -37,11 +33,13 @@ Run on October 05, 14:22:35 PM.
   This test was not run because of an earlier failing test.
 
 
-#### Google Style Compliance I
+#### Google Style Compliance
 
-+ Skip: Cpplint checking for for Google C++ compliance
 
-  This test was not run because of an earlier failing test.
+***Note: The Gitbot is currently skipping these tests. The feedback that includes the Linter tests are run separately as a batch process (click link below)***
+
+
+Link to style feedback: [Lab_08_Style_Feedback.md](Lab_08_Style_Feedback.md)
 
 
 #### Doxygen
