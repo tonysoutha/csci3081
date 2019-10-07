@@ -1,6 +1,6 @@
 ### Style Feedback for Lab 08
 
-Run on October 06, 20:30:04 PM.
+Run on October 07, 09:46:37 AM.
 
 
 #### Necessary Files and Structure
@@ -9,17 +9,13 @@ Run on October 06, 20:30:04 PM.
 
 + Pass: Check that directory "labs" exists.
 
-+ Fail: Check that directory "labs/lab08_style_doxy" exists.
++ Pass: Check that directory "labs/lab08_style_doxy" exists.
 
-     "labs/lab08_style_doxy" not found.
++ Pass: Change into directory "labs/lab08_style_doxy".
 
-+ Skip: Change into directory "labs/lab08_style_doxy".
++ Fail: Check that directory "docs" exists.
 
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that directory "docs" exists.
-
-  This test was not run because of an earlier failing test.
+     "docs" not found.
 
 + Skip: Check that file "docs/Doxyfile" exists.
 
