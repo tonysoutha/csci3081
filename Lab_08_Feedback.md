@@ -1,6 +1,6 @@
 ### Feedback for Lab 08
 
-Run on October 07, 17:14:36 PM.
+Run on October 07, 17:15:44 PM.
 
 
 #### Necessary Files and Structure
@@ -40,9 +40,7 @@ Link to style feedback: [Lab_08_Style_Feedback.md](Lab_08_Style_Feedback.md)
 
 + Pass: Generating documentation by running doxygen
 
-+ Fail: Check that file "../src/mainpage.h" exists.
-
-     "../src/mainpage.h" not found.
++ Pass: Check that file "../src/mainpage.h" exists.
 
 + Pass: Check that file "html/classPassenger.html" exists.
 
