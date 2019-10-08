@@ -1,6 +1,6 @@
 ### Fuller Feedback for Lab 06
 
-Run on October 01, 02:05:59 AM.
+Run on October 08, 13:01:04 PM.
 
 
 #### System Files and Lab Directory Structure
@@ -40,7 +40,7 @@ Run on October 01, 02:05:59 AM.
 + Pass: Check that file "date_unittest" exists.
 
 + Pass: Get all google tests.
-    3 tests found.
+    10 tests found.
 
 
 
@@ -62,6 +62,41 @@ Run on October 01, 02:05:59 AM.
 
 
 
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.EpochTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.GetDateTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.DateTodayTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.DaysBetweenTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.GetUsDateTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.OperatorTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.LeadingZeroesTest.
+
+
+
 + Pass: 100% of the tests passed.
 
 
@@ -70,8 +105,7 @@ Run on October 01, 02:05:59 AM.
 
 #### Testing Mutant 1 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - Dates constructed with epoch are about 70 years in the future
++ Pass: At least one test failed for Mutant 1
 
 
 #### Testing Mutant 2 for failure
@@ -81,8 +115,7 @@ Run on October 01, 02:05:59 AM.
 
 #### Testing Mutant 3 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - Dates from GetDate are missing a character
++ Pass: At least one test failed for Mutant 3
 
 
 #### Testing Mutant 4 for failure
@@ -93,8 +126,7 @@ Run on October 01, 02:05:59 AM.
 
 #### Testing Mutant 5 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - 1/1/2016 to 3/1/2016 is 60 days, but this version returns 59
++ Pass: At least one test failed for Mutant 5
 
 
 #### Testing Mutant 6 for failure
@@ -104,8 +136,7 @@ Run on October 01, 02:05:59 AM.
 
 #### Testing Mutant 7 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - operator-: Probably a copy paste error
++ Pass: At least one test failed for Mutant 7
 
 
 #### Testing Mutant 8 for failure
