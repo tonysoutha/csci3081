@@ -1,5 +1,7 @@
-#ifndef PASSENGER_H
-#define PASSENGER_H
+// Copyright 2019 Tony Southa
+
+#ifndef SRC_PASSENGER_H_
+#define SRC_PASSENGER_H_
 
 #include <iostream>
 #include <string>
@@ -7,14 +9,13 @@
 /**
  * @brief The class for Passengers.
  */
-class Passenger { // : public Reporter {
+class Passenger {  // : public Reporter {
  public:
 /**
  * @param[in] first parameter takes in an int for the time for the passenger
    @param[in] second parameter takes in a string of the passenger's name
  */
-
-  Passenger(int = -1, std::string = "Nobody");
+  explicit Passenger(int = -1, std::string = "Nobody");
   void Update();
   void GetOnBus();
   int GetTotalWait() const;
@@ -31,6 +32,5 @@ class Passenger { // : public Reporter {
   int time_on_bus_;
   int id_;
   static int count_;  // global count, used to set ID for new instances
-
 };
-#endif
+#endif  // SRC_PASSENGER_H_
