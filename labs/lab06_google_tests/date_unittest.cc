@@ -16,7 +16,7 @@ class DateTest : public ::testing::Test {
   epoch_day = Date(10);
   days_btw1 = Date(2016, 1, 1);
   days_btw2 = Date(2016, 3, 1);
-  today = Date(2019, 09, 30);
+  today = Date();
   leadingzeroes = Date(2010, 1, 6);
   }
  protected:
@@ -118,7 +118,7 @@ TEST_F(DateTest, GetDateTest) {
 }
 
 TEST_F(DateTest, DateTodayTest) {
-  EXPECT_EQ(today.GetDate(), "2019-09-30") << "today's date is incorrect";
+  EXPECT_EQ(today.GetDate(), "2019-10-09") << "today's date is incorrect";
 }
 
 TEST_F(DateTest, DaysBetweenTest) {
