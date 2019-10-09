@@ -1,6 +1,6 @@
 ### Fuller Feedback for Lab 06
 
-Run on October 09, 13:30:26 PM.
+Run on October 09, 16:57:49 PM.
 
 
 #### System Files and Lab Directory Structure
@@ -120,8 +120,7 @@ Run on October 09, 13:30:26 PM.
 
 #### Testing Mutant 4 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - Today's date month off by one
++ Pass: At least one test failed for Mutant 4
 
 
 #### Testing Mutant 5 for failure
