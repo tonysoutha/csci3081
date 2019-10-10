@@ -1,8 +1,8 @@
 ### Assessment for Lab 06
 
-#### Total score: _72.88_ / _100_
+#### Total score: _80.95_ / _100_
 
-Run on October 01, 10:25:35 AM.
+Run on October 10, 06:27:50 AM.
 
 
 #### System Files and Lab Directory Structure
@@ -42,7 +42,7 @@ Run on October 01, 10:25:35 AM.
 + Pass: Check that file "date_unittest" exists.
 
 + Pass: Get all google tests.
-    3 tests found.
+    10 tests found.
 
 
 
@@ -64,7 +64,49 @@ Run on October 01, 10:25:35 AM.
 
 
 
-+  _50_ / _50_ : Pass: 100% of the tests passed.
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.EpochTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.GetDateTest.
+
+
+
++ Fail: Check that a GoogleTest test passes.
+    fails the test: DateTest.DateTodayTest.
+<pre>
+[ RUN      ] DateTest.DateTodayTest
+./date_unittest.cc:121: Failure
+      Expected: today.GetDate()
+      Which is: "2019-10-10"
+To be equal to: "2019-10-09"
+today's date is incorrect</pre>
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.DaysBetweenTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.GetUsDateTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.OperatorTest.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.LeadingZeroesTest.
+
+
+
++  _45.0_ / _50_ : Fail: 90.0% of the tests passed, but the target is 100%.
 
 
 ### Testing Mutants
@@ -72,8 +114,7 @@ Run on October 01, 10:25:35 AM.
 
 #### Testing Mutant 1 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - Dates constructed with epoch are about 70 years in the future
++ Pass: At least one test failed for Mutant 1
 
 
 #### Testing Mutant 2 for failure
@@ -83,8 +124,7 @@ Run on October 01, 10:25:35 AM.
 
 #### Testing Mutant 3 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - Dates from GetDate are missing a character
++ Pass: At least one test failed for Mutant 3
 
 
 #### Testing Mutant 4 for failure
@@ -95,8 +135,7 @@ Run on October 01, 10:25:35 AM.
 
 #### Testing Mutant 5 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - 1/1/2016 to 3/1/2016 is 60 days, but this version returns 59
++ Pass: At least one test failed for Mutant 5
 
 
 #### Testing Mutant 6 for failure
@@ -106,8 +145,7 @@ Run on October 01, 10:25:35 AM.
 
 #### Testing Mutant 7 for failure
 
-+ Fail: There is no test case for this mutant (since all tests pass).
-   - Reason - operator-: Probably a copy paste error
++ Pass: At least one test failed for Mutant 7
 
 
 #### Testing Mutant 8 for failure
@@ -167,7 +205,7 @@ Run on October 01, 10:25:35 AM.
 
 #### Results
 
-+  _22.88_ / _50_ : Fail: 41.18% of the tests passed, but the target is 90.0%.
++  _35.95_ / _50_ : Fail: 64.71% of the tests passed, but the target is 90.0%.
 
-#### Total score: _72.88_ / _100_
+#### Total score: _80.95_ / _100_
 
