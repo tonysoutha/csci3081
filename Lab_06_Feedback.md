@@ -1,6 +1,6 @@
 ### Fuller Feedback for Lab 06
 
-Run on October 09, 20:32:50 PM.
+Run on October 10, 00:14:09 AM.
 
 
 #### System Files and Lab Directory Structure
@@ -72,8 +72,15 @@ Run on October 09, 20:32:50 PM.
 
 
 
-+ Pass: Check that a GoogleTest test passes.
-    passes the test: DateTest.DateTodayTest.
++ Fail: Check that a GoogleTest test passes.
+    fails the test: DateTest.DateTodayTest.
+<pre>
+[ RUN      ] DateTest.DateTodayTest
+./date_unittest.cc:121: Failure
+      Expected: today.GetDate()
+      Which is: "2019-10-10"
+To be equal to: "2019-10-09"
+today's date is incorrect</pre>
 
 
 
@@ -97,7 +104,7 @@ Run on October 09, 20:32:50 PM.
 
 
 
-+ Pass: 100% of the tests passed.
++ Fail: 90.0% of the tests passed, but the target is 100%.
 
 
 ### Testing Mutants
@@ -120,7 +127,8 @@ Run on October 09, 20:32:50 PM.
 
 #### Testing Mutant 4 for failure
 
-+ Pass: At least one test failed for Mutant 4
++ Fail: There is no test case for this mutant (since all tests pass).
+   - Reason - Today's date month off by one
 
 
 #### Testing Mutant 5 for failure
