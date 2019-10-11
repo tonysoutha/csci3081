@@ -30,4 +30,3 @@ void Stop::Report() const {
 	    (*it)->Report();
 	  }
 }
-
