@@ -28,7 +28,7 @@ The directory structure for this lab is identical to that of the project.
 
 - `src/Makefile`:
   - Builds the project source.
-  - Creates the `build/bin/StopTest` and `build/bin/PassengerTest` executables.
+  - Creates the `build/bin/StopTest.exe` and `build/bin/PassengerTest.exe` executables.
 
 - `build`: Created by the Makefiles. Should be added to your `.gitignore`.
   - `build/bin`: All executables generated for the project will appear in here.
@@ -42,15 +42,15 @@ The directory structure for this lab is identical to that of the project.
 
 2. _merge_ the new lab code into your master branch.
 
-3. Change directories to Lab 09: `cd Labs/lab09_project_intro`
+3. Change directories to Lab 09: `cd labs/lab09_project_intro`
 
 4. Copy your Passenger class files from Lab 08: `cp ../lab08_style_doxy/src/passenger.* ./src`
 
 5. At the top level from the OS command prompt: `make`. 
 
-6. At the command prompt: `./build/bin/PassengerTest`
+6. At the command prompt: `./build/bin/PassengerTest.exe`
 
-7. At the command prompt: `./build/bin/StopTest`.
+7. At the command prompt: `./build/bin/StopTest.exe`.
 
 <hr>
 
