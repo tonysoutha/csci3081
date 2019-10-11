@@ -151,8 +151,6 @@ git push --set-upstream origin fix/01-compilation-errors
 
 > **Assessment/Feedback of the lab and of the project is conducted on the devel branch, so any feedback that you get is based on the code in devel. HOWEVER, the feedback files are posted to the master branch.**
 
-> **COMPILATION failure when pushing to server: Some students might have the experience that compilation works on their personal machine but fails on the server. If you see a message in the lab10 feedback file that refers to pointer data members in the Controller class, that is an error related to the copy constructor (look in arena.h for how to explicitely delete the copy constructor Controller(const Controller&)).**
-
 The template provided in the git usage document can be added to git so that when the editor opens, you will see that content. To add the template, save the text preceded by '#' in the pdf as a file (_~/.gitmessage_ is the convention) and add to your git configuration:
 ```
 git config --global commit.template ~/.gitmessage
@@ -161,9 +159,9 @@ git config --global commit.template ~/.gitmessage
 
 ### Merge with devel
 
-If you are satisfied with the results (for this lab, this means that the project builds successfully after the renaming is complete), you want to merge this branch with _devel_ (not with _master_). You can do this in 2 ways. If you want to take a trial run or if someone else is in control of merging branches, you can submit a _pull request_. This is a request to pull in your position branch into the devel branch. You can do this from the Github interface under Pull Requests. Then you can _accept_ the pull request to merge the branches. **Make sure your pull request is into the _devel_ branch - select from the pulldown menus.**
+If you are satisfied with the results (for this lab, this means that the project builds successfully after the compilation errors are fixed. You can check by navigating to the project/build/bin directory. If an executable named: **transit_sim** is present, and executes without errors - you have fixed your compile errors). Next, you want to merge this branch with _devel_ (not with _master_). You can do this in 2 ways. If you want to take a trial run or if someone else is in control of merging branches, you can submit a _pull request_. This is a request to pull in your position branch into the devel branch. You can do this from the Github interface under Pull Requests. Then you can _accept_ the pull request to merge the branches. **Make sure your pull request is into the _devel_ branch - select from the pulldown menus.**
 
-Command line is easier and faster, although the pull request will give you more information about the impact of the merge.
+The Command line way below is easier and faster, although the pull request will give you more information about the impact of the merge.
 
 ```
 git checkout devel
@@ -179,9 +177,9 @@ Go to Github and click on the issue. Notice that the commit has been added to it
 
 We would normally suggest that you delete the branch, but then we won't be able to see your history of using branches. Until the completion of iteration2, please keep your branches.
 
-### Repeat
+### Repeat - for your remaining issue!!!
 
-For the other issue related to the Passenger class, repeat the above process of creating a branch, fixing the bug, merging the branch back into _devel_, and resolving the issue in Github. To fix the bug for this issue, replace the existing project files for Passenger with the files you fixed in lab 9 (or, if you have yet to complete lab 9, the files from lab 7 (style/doxy)).
+For the other (enhancement) issue related to the Passenger class, repeat the above process of creating a branch, fixing the bug, merging the branch back into _devel_, and resolving the issue in Github. To fix the bug for this issue, replace the existing project files for Passenger with the files you fixed in lab 9 (or, if you have yet to complete lab 9, the files from lab 7 (style/doxy)).
 
 <hr>
 
