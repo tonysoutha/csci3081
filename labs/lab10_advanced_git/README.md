@@ -81,11 +81,11 @@ To confirm which branch you are currently working and to see a list of all branc
 
 ### Creating an Issue
 
-There are 2 known issues in the project code that need fixing! The first is preventing compilation and the other is related to the Passenger class you were given in a prior lab. Go to your repo on Github and create two issues, naming and labeling them appropriately. When you create an issue for the compilation error, label it with "bug" (from the pull down menu) and let's pretend that you added this issue when you first encountered it, therefore you provided additional information. Put the following into the comment of the issue related to compilation:
+There are 2 known issues in the project code that need fixing! The first is preventing compilation and the other is related to the Passenger class you were given in a prior lab. Go to your repo on Github and create two issues, naming and labeling them appropriately. When you create an issue for the compilation error, label it with "bug" (by selecting/clickling on the labels "button", and then selecting/cliking on bug "button"). After selecting the type of issue, github will return you to the previous screen. You should then select/click-on the green button labeled "New Issue". Next, let's pretend that you added this issue when you first encountered it, therefore you provided additional information. Put the following into the comment of the issue related to compilation:
 
   "Simulator is not compiling. Compilation errors indicate the issue and where to locate the problem."
 
-In general when you create an issue for a bug for this iteration, you need to provide this type of documentation in which you describe the bug, how to repeat it, where is the likely cause, and what you think is the cause. This is a somewhat unusual issue because we generally address simple compilation errors right away, but this is good practice for creating issues and branches.
+In general when you create an issue for a bug for this iteration, you need to provide this type of documentation in which you describe the bug, how to repeat it, where is the likely cause, and what you think is the cause. This is a somewhat unusual issue because we generally address simple compilation errors right away, but this is good practice for creating issues and branches. Next, assign yourself to the issue (do this on the left part of the screen), and then finally, select the green "Submit Issue" button at the bottom of the issue screen to create the issue.
 
 Next, create an issue for the Passenger and label it with "enhancement". Put the following into the comment of the issue related to Passenger:
 
