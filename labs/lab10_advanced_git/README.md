@@ -108,9 +108,9 @@ Go to github and click on the pulldown menu in the upper left to see your branch
 
 ### Fix the Bugs
 
-1. Look at the error messages during compilation of the source code in the project directory and fix them.
+1. Look at the error messages during compilation of the source code by running `make` from the project/src/ directory and fix the bugs.
 
-Now compile: run `make` from the project/src/ directory! You don't want to merge your changes back into devel until it compiles.
+Now compile! You don't want to merge your changes back into devel until it compiles.
 
 If everything is working, you can commit - **BUT WAIT, read the next section before you commit anything!!!!**.
 
