@@ -44,7 +44,7 @@ The directory structure for this lab is identical to that of the project.
 
 3. Change directories to Lab 09: `cd Labs/lab09_project_intro`
 
-4. Copy your Passenger class files from Lab 07: `cp ../lab07_style_doxy/src/passenger.* ./src`
+4. Copy your Passenger class files from Lab 08: `cp ../lab08_style_doxy/src/passenger.* ./src`
 
 5. At the top level from the OS command prompt: `make`. 
 
