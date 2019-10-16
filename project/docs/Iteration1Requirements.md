@@ -1,6 +1,7 @@
 # TransitSim: a Proof-of-Concept Transit System Simulator
 
-## Iteration 1 - VERSION 1, October 15th - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
+## Iteration 1 - VERSION 2, October 16th - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
+Version 2 - removed stale link to Doxygen information, replaced with live and useful links
 <hr>
 
 | Date | Item | Description |
@@ -288,8 +289,9 @@ Style:
 - https://www.python.org/downloads/
 
 Documentation:
-- http://www.stack.nl/~dimitri/doxygen/
+- http://www.doxygen.nl/manual/docblocks.html
 - https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+- https://www-numi.fnal.gov/offline_software/srt_public_context/WebDocs/doxygen-howto.html
 
 IDEs:
 - Xemacs: https://www.xemacs.org/
