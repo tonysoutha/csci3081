@@ -17,7 +17,7 @@ void Stop::LoadPassengers(Bus * bus) {
     // loading some passengers onto a bus
     for (std::list<Passenger *>::iterator it = passengers_.begin();
         it != passengers_.end(); it++) {
-        bus.LoadPassenger(*it);
+        bus->LoadPassenger(*it);
     }
 }
 
