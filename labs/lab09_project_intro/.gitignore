@@ -1,3 +1,6 @@
 *.o
 *.out
 *.pvt
+*html/
+*latex/
+
