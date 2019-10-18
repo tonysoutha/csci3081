@@ -1,6 +1,6 @@
 ### Feedback for Lab 10
 
-Run on October 18, 10:46:17 AM.
+Run on October 18, 11:58:28 AM.
 
 
 ### Necessary Files and Structure
@@ -20,13 +20,13 @@ Run on October 18, 10:46:17 AM.
 
 + Pass: Run git ls-remote gather all branches in repo
 
-64c2efa2cede84be34553cafc444605b100bbe7b	refs/heads/devel
+		64c2efa2cede84be34553cafc444605b100bbe7b	refs/heads/devel
 
-04404c8980071f31f08ee13ebf1e3bbcb2b8564a	refs/heads/fix/01-compilation-errors
+		04404c8980071f31f08ee13ebf1e3bbcb2b8564a	refs/heads/fix/01-compilation-errors
 
-3f9040afd65ac2d9c456fa3c0249c9812048652c	refs/heads/fix/02-passenger-functionality
+		3f9040afd65ac2d9c456fa3c0249c9812048652c	refs/heads/fix/02-passenger-functionality
 
-066142fee9675559a5d5c7bdbc3c1941b528956a	refs/heads/master
+		794af781c4419fed1aef3726bc142e7c78c150a9	refs/heads/master
 
 
 
@@ -47,43 +47,43 @@ fix/02-passenger-functionality
 
 + Pass: Gather commit history
 
-[Tony Southa] 2019-10-18 (HEAD -> devel, origin/devel) local_simulator.cc file 
+		[Tony Southa] 2019-10-18 (HEAD -> devel, origin/devel) local_simulator.cc file 
 
-[Tony Southa] 2019-10-18 Adding doxyfile and mainpage 
+		[Tony Southa] 2019-10-18 Adding doxyfile and mainpage 
 
-[Tony Southa] 2019-10-18 local_simulator.cc file 
+		[Tony Southa] 2019-10-18 local_simulator.cc file 
 
-[Tony Southa] 2019-10-18 local_simulator.cc 
+		[Tony Southa] 2019-10-18 local_simulator.cc 
 
-[Tony Southa] 2019-10-18 Merge branch 'fix/02-passenger-functionality' into devel 
+		[Tony Southa] 2019-10-18 Merge branch 'fix/02-passenger-functionality' into devel 
 
-[Tony Southa] 2019-10-18 (origin/fix/02-passenger-functionality, fix/02-passenger-functionality) fix(passenger.cc): fix #2 Update, getTotalWait, and IsOnBus methods functional 
+		[Tony Southa] 2019-10-18 (origin/fix/02-passenger-functionality, fix/02-passenger-functionality) fix(passenger.cc): fix #2 Update, getTotalWait, and IsOnBus methods functional 
 
-[Tony Southa] 2019-10-17 Merge branch 'fix/01-compilation-errors' into devel 
+		[Tony Southa] 2019-10-17 Merge branch 'fix/01-compilation-errors' into devel 
 
-[Tony Southa] 2019-10-17 (origin/fix/01-compilation-errors, fix/01-compilation-errors) fix(local_simulator.cc): fix #1 change . operator to -> 
+		[Tony Southa] 2019-10-17 (origin/fix/01-compilation-errors, fix/01-compilation-errors) fix(local_simulator.cc): fix #1 change . operator to -> 
 
-[Tony Southa] 2019-10-16 Merge branch 'support-code' 
+		[Tony Southa] 2019-10-16 Merge branch 'support-code' 
 
-[Tony Southa] 2019-10-16 Merge branch 'support-code' of https://github.umn.edu/umn-csci-3081-F19/csci3081-shared-upstream into support-code 
-
-
-[Tony Southa] 2019-10-16 lab09 
+		[Tony Southa] 2019-10-16 Merge branch 'support-code' of https://github.umn.edu/umn-csci-3081-F19/csci3081-shared-upstream into support-code 
 
 
-[Tony Southa] 2019-10-16 lab09 
+		[Tony Southa] 2019-10-16 lab09 
 
 
-[Tony Southa] 2019-10-16 lab09 
+		[Tony Southa] 2019-10-16 lab09 
+
+
+		[Tony Southa] 2019-10-16 lab09 
 
 
 
-[Tony Southa] 2019-10-16 lab09 
+		[Tony Southa] 2019-10-16 lab09 
 
 
-[Tony Southa] 2019-10-16 Merge branch 'support-code' 
+		[Tony Southa] 2019-10-16 Merge branch 'support-code' 
 
-[Tony Southa] 2019-10-16 Merge branch 'support-code' of https://github.umn.edu/umn-csci-3081-F19/csci3081-shared-upstream into support-code 
+		[Tony Southa] 2019-10-16 Merge branch 'support-code' of https://github.umn.edu/umn-csci-3081-F19/csci3081-shared-upstream into support-code 
 
 
 
