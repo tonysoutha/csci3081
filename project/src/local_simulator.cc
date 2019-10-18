@@ -27,16 +27,9 @@ bool LocalSimulator::Update() {
   simulation_time_elapsed_++;
   std::cout << "~~~~~~~~~~~~~ The time is now " << simulation_time_elapsed_;
   std::cout << " ~~~~~~~~~~~~~" << std::endl;
-<<<<<<< HEAD
-  
-  pass_->Update();
-  pass_->Report();
-  
-=======
 
   pass_->Update();
   pass_->Report();
 
->>>>>>> 7baac5da796f5e9687456efc69014d59ec6818d5
   return true;
 }
