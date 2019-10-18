@@ -1,6 +1,6 @@
 ### Feedback for Lab 10
 
-Run on October 18, 09:28:50 AM.
+Run on October 18, 10:46:17 AM.
 
 
 ### Necessary Files and Structure
@@ -8,8 +8,6 @@ Run on October 18, 09:28:50 AM.
 + Pass: Check that directory "labs" exists.
 
 + Pass: Check that directory "labs/lab10_advanced_git" exists.
-
-+ Pass: Check that directory "project" exists.
 
 
 ### Git Usage
@@ -28,7 +26,7 @@ Run on October 18, 09:28:50 AM.
 
 3f9040afd65ac2d9c456fa3c0249c9812048652c	refs/heads/fix/02-passenger-functionality
 
-5711aeea8ce9342e7aa7ed50f6791ce516cd89d0	refs/heads/master
+066142fee9675559a5d5c7bdbc3c1941b528956a	refs/heads/master
 
 
 
@@ -118,13 +116,23 @@ Sufficient commits (found=16,required=4)
 
 + Pass: Run ghi for total number of open issues in Github repo (Found: 0)
 
-+ Pass: Run ghi for total number of closed issues in Github repo (Found: 0)
++ Pass: Run ghi for total number of closed issues in Github repo (Found: 2)
 
-+ Fail: Run ghi for total number of issues in Github repo (Found: 0, Expected: 2) 
+[CLOSED issue #2] :  Passenger not functional [enhancement] @SOUTH211
+
+[CLOSED issue #1] :  Compilation Error [bug] @SOUTH211
+
+
+
+
+
++ Pass: Run ghi for total number of issues in Github repo (Found: 2, Expected: 2) 
 
  [OPEN issue #] : 
 
-[CLOSED issue #] : 
+[CLOSED issue #2] :  Passenger not functional [enhancement] @SOUTH211
+
+[CLOSED issue #1] :  Compilation Error [bug] @SOUTH211
 
  
 
@@ -136,6 +144,8 @@ Sufficient commits (found=16,required=4)
 + Pass: Checkout devel branch.
 
 
+
++ Pass: Check that directory "project" exists.
 
 + Pass: Change into directory "project".
 
