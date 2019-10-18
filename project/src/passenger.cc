@@ -1,4 +1,4 @@
-// Copyright 2019 Kevin Wendt
+// Copyright 2019 Tony Southa
 
 #include "src/passenger.h"
 
@@ -9,14 +9,14 @@
 int Passenger::count_ = 0;
 
 // Passenger::Passenger(Stop * dest = NULL, std::string name = "Nobody") {
-Passenger::Passenger(int destination_stop_id, std::string name): name_(name),
-        destination_stop_id_(destination_stop_id), wait_at_stop_(0),
-        time_on_bus_(0), id_(count_) {
+Passenger::Passenger(int destination_stop_id, std::string name):\
+name_(name), destination_stop_id_(destination_stop_id), \
+wait_at_stop_(0), time_on_bus_(0), id_(count_) {
   count_++;
 }
 
 void Passenger::Update() {
-  wait_at_stop_++;
+  time_on_bus_++;
 }
 
 void Passenger::GetOnBus() {
@@ -24,11 +24,15 @@ void Passenger::GetOnBus() {
 }
 
 int Passenger::GetTotalWait() const {
-  return wait_at_stop_;
+  return time_on_bus_ + wait_at_stop_;
 }
 
 bool Passenger::IsOnBus() const {
-  return false;
+  if (time_on_bus_ > 0){
+    return true;
+  } else {
+    return false;
+  }
 }
 
 int Passenger::GetDestination() const {
