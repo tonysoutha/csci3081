@@ -3,7 +3,7 @@
  *
  * @Copyright 2019 3081 Staff, All rights reserved.
  */
- 
+
 #ifndef SRC_ROUTE_H_
 #define SRC_ROUTE_H_
 
@@ -19,7 +19,7 @@ class Route {
  public:
   Route(std::string name, Stop ** stops, double * distances, int num_stops);
   void Update();
-  void Report();
+  void Report(std::ostream&);
  private:
   std::list<Stop *> stops_;
   std::list<double> distances_between_;  // length = num_stops_ - 1
@@ -28,4 +28,3 @@ class Route {
   // double trip_time_; // derived data - total distance travelled on route
 };
 #endif  // SRC_ROUTE_H_
-

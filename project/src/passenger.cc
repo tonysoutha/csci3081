@@ -40,7 +40,6 @@ int Passenger::GetDestination() const {
 }
 
 void Passenger::Report(std::ostream & out) const {
-  out << stuff << std::endl;
   out << "Name: " << name_ << std::endl;
   out << "Destination: " << destination_stop_id_ << std::endl;
   out << "Total Wait: " << GetTotalWait() << std::endl;
