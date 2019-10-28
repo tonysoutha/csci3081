@@ -1,6 +1,7 @@
 # TransitSim: a Proof-of-Concept Transit System Simulator
 
-## Iteration 1 - VERSION 5, October 27th - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
+## Iteration 1 - VERSION 6, October 28th - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
+* Version 6 - Update GetTotalWait description in Priority 1
 * Version 5 - clarifications about Unit Test creation instructions
 * Version 4 - added Table of Contents, small wording adjustments
 * Version 3 - Changed Delivery Requirements for Iteration 1 Preliminary Delivery 1: Submit your diagram in a PDF file via the Canvas using the item named Iteration 1 Preliminary Deliverable 1
@@ -121,7 +122,7 @@ _NOTE: if you are familiar with graphics or animations, this is akin to a frame 
 
 ###### _ Get Total Wait _
 
-Returns the sum of all timesteps the Passenger has waited at a stop before getting on the bus. This time does *NOT* include the timestep during which the Passenger gets on a bus.
+Returns the sum of all timesteps the Passenger has waited at a stop before getting on the bus PLUS the time the passenger was on the bus. This time *does* include the timestep during which the Passenger gets on a bus (attributed to time on bus).
 
 ###### _ Report _
 
