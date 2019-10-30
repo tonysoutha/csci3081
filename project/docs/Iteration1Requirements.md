@@ -1,6 +1,7 @@
 # TransitSim: a Proof-of-Concept Transit System Simulator
 
-## Iteration 1 - VERSION 6, October 28th - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
+## Iteration 1 - VERSION 7, October 30th - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
+* Version 7 - removed the other stale link to Doxygen information, replaced with live and useful links
 * Version 6 - Update GetTotalWait description in Priority 1
 * Version 5 - clarifications about Unit Test creation instructions
 * Version 4 - added Table of Contents, small wording adjustments
