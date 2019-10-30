@@ -1,3 +1,4 @@
+// Copyright 2019 Tony Southa
 /* STUDENTS: YOU MUST ADD YOUR PASSENGER UNIT TESTS TO THIS FILE. FORMAT YOUR
  * TESTS TO FIT THE SPECIFICATIONS GIVEN BY THE TESTS PROVIDED IN THIS FILE.
  *
@@ -19,29 +20,50 @@
 *******************************************************/
 
 class PassengerTests : public ::testing::Test {
-
-	protected:
-  	
-  	Passenger* passenger;
-  	
-	virtual void SetUp() {
-    	passenger = new Passenger();
-  	}
-
-  	virtual void TearDown() {
-    	delete passenger;
-  	}
-
+ protected:
+    Passenger* passenger;
+    virtual void SetUp() {
+        passenger = new Passenger();
+    }
+    virtual void TearDown() {
+        delete passenger;
+    }
 };
-
 
 /*******************************************************************************
  * Test Cases
  ******************************************************************************/
 
 TEST_F(PassengerTests, Constructor) {
-  	EXPECT_EQ(passenger->IsOnBus(), false);
-  	passenger->GetOnBus();
-  	EXPECT_EQ(passenger->IsOnBus(), true);
-};
+    EXPECT_EQ(passenger->IsOnBus(), false);
+    passenger->GetOnBus();
+    EXPECT_EQ(passenger->IsOnBus(), true);
+}
 
+TEST_F(PassengerTests, GetTotalWait) {
+    EXPECT_EQ(passenger->GetTotalWait(), 0);
+    passenger->Update();
+    EXPECT_EQ(passenger->GetTotalWait(), 1);
+    passenger->GetOnBus();
+    EXPECT_EQ(passenger->GetTotalWait(), 2);
+}
+
+TEST_F(PassengerTests, Update) {
+    EXPECT_EQ(passenger->GetTotalWait(), 0);
+    passenger->Update();
+    EXPECT_EQ(passenger->GetTotalWait(), 1);
+    passenger->GetOnBus();
+    passenger->Update();
+    EXPECT_EQ(passenger->GetTotalWait(), 3);
+}
+
+TEST_F(PassengerTests, GetOnBus) {
+    passenger->GetOnBus();
+    EXPECT_EQ(passenger->GetTotalWait(), 1);
+}
+
+TEST_F(PassengerTests, IsOnBus) {
+    EXPECT_EQ(passenger->IsOnBus(), false);
+    passenger->GetOnBus();
+    EXPECT_EQ(passenger->IsOnBus(), true);
+}
