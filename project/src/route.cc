@@ -1,6 +1,6 @@
 #include "route.h"
 
-Route::Route(std::string name, Stop ** stops, double * distances, int num_stops) {
+Route::Route(std::string name, Stop ** stops, double * distances, int num_stops, PassengerGenerator *) {
   for (int i = 0; i < num_stops; i++) {
     stops_.push_back(stops[i]);
   }

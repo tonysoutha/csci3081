@@ -16,10 +16,11 @@ wait_at_stop_(0), time_on_bus_(0), id_(count_) {
 }
 
 void Passenger::Update() {
-  if (isOnBus()) {
+  if (IsOnBus()) {
     time_on_bus_++;
   } else {
-    wait_at_stop++;
+    wait_at_stop_++;
+  }
 }
 
 void Passenger::GetOnBus() {
