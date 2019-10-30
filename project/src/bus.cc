@@ -36,3 +36,7 @@ void Bus::Report(std::ostream & out) {
     (*it)->Report(out);
   }
 }
+
+bool Bus::IsTripComplete() {
+  return false;
+}
