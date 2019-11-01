@@ -2,7 +2,7 @@ The objective of this lab is to show you how to resolve a merge conflict in git.
 Merge conflicts occur when the same portions of a file or files is/are changed in different ways , and then the change or changes
 are committed in two different repositories (for example, your repository on the umn github server (github.umn.edu), 
 and the clone of your git repository on the CSELabs machines, or csci-shared-upstream on the github server and your repository
-on the CSELabs machines)and a merge is attempted via a git pull or git merge.
+on the CSELabs machines) - and then a merge is attempted via a git pull or git merge.
 
 See the following link for a more complete discussion
 (via tutorial) on merging with git: **https://www.atlassian.com/git/tutorials/using-branches/git-merge**
@@ -63,3 +63,15 @@ so, when you attempt a merge, git will reject the merge and indicate that you ha
 28)	git commit MergeIssue.cc
 29)	git push
 30) **You have resolved the merge conflict!!!**
+
+A couple of other helpful commands for dealing with merge conflicts include:
+
+git status
+git reset
+git reset --hard HEAD
+
+#### However, you should read about how the variants of the reset command work before using them!!!!!!
+**Do the tutorial here: https://www.atlassian.com/git/tutorials/undoing-changes/git-reset
+to help futher your understanding**
+
+## Congratulations, you have completed Lab 12!
