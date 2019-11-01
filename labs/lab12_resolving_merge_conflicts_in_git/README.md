@@ -41,28 +41,28 @@ csci3081-shared-upstream repository (which contains this lab, lab12) as you have
 18) Navigate to the lab12 directory / folder
 19) Edit the file: MergeIssue.cc
 20)	Change comment in the first line in the file to :  // Changed comment on remote repository
-18)	Save the file and exit your editor
-19)	git add MergeIssue.cc
-20)	git commit MergeIssue.cc
+21)	Save the file and exit your editor
+22)	git add MergeIssue.cc
+23)	git commit MergeIssue.cc
 
 **NOTE, you now have two different versions of the same file located on different instances of your repository
 so, when you attempt a merge, git will reject the merge and indicate that you have a merge conflict**
 
-21) From your remote repository on the CSELabs machine: git pull 
+24) From your remote repository on the CSELabs machine: git pull 
 
 ** Git will indicate you have a merge conflict and the file (or) files in which the merge conflict has occured**
 
 ** Next, resolve (fix) the merge conflict **
 
-22)	Edit the file MergeIssue.cc in your remote repository on the CSELabs machine
-23)	Locate the angle brackets in the file <<<<        >>>>
-24)	The brackets show location or locations of the merge conflict (or conflicts).
-25)	Select one of the comments, delete the other comment, and get rid of (that is, delete) the angle brackets
-26)	Save the file and exit your editor
-27) git add MergeIssue.cc
-28)	git commit MergeIssue.cc
-29)	git push
-30) **You have resolved the merge conflict!!!**
+25)	Edit the file MergeIssue.cc in your remote repository on the CSELabs machine
+26)	Locate the angle brackets in the file <<<<        >>>>
+27)	The brackets show location or locations of the merge conflict (or conflicts).
+28)	Select one of the comments, delete the other comment, and get rid of (that is, delete) the angle brackets
+29)	Save the file and exit your editor
+30) git add MergeIssue.cc
+31)	git commit MergeIssue.cc
+32)	git push
+33) **You have resolved the merge conflict!!!**
 
 A couple of other helpful commands for dealing with merge conflicts include:
 
