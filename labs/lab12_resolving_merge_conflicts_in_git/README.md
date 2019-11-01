@@ -21,8 +21,8 @@ csci3081-shared-upstream repository (which contains this lab, lab12) as you have
 
 1) git checkout support-code
 2) git pull upstream support-code
-3) git checkout master
-4) git merge master
+3) git checkout devel
+4) git merge devel
 5) Go to the lab12 folder
 6) Edit the file MergeIssue.cc
 7) Add a comment to first line in the file:  // Here is a comment
