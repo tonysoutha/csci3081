@@ -1,6 +1,7 @@
 # TransitSim: a Proof-of-Concept Transit System Simulator
 
-## Iteration 1 - VERSION 6, October 28th - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
+## Iteration 1 - VERSION 7, October 30th - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
+* Version 7 - removed the other stale link to Doxygen information, replaced with live and useful links
 * Version 6 - Update GetTotalWait description in Priority 1
 * Version 5 - clarifications about Unit Test creation instructions
 * Version 4 - added Table of Contents, small wording adjustments
@@ -227,7 +228,7 @@ There are many free tools that you can use to create the UML. **Submit your UML 
 
 ### 5.2 Doxygen <a name ="5.2">
 
-Doxygen automatically generates documentation of class and code structure when you follow some simple conventions for commenting within your code (_see_ http://www.stack.nl/~dimitri/doxygen/). We will be discussing Doxygen in class and in lab. To start with, look over the documentation provided with the code base to understand how to document classes, methods, parameters, and even _todo's_ and _bugs_ in your code. In lab, you learned how to compile with your Doxyfile and generate web pages. Please look over the generated web pages for missing and incorrect information. The requirements for Doxygen include:
+Doxygen automatically generates documentation of class and code structure when you follow some simple conventions for commenting within your code (_see_ http://www.doxygen.nl/manual/docblocks.html and other references in section 9 below). We will be discussing Doxygen in class and in lab. To start with, look over the documentation provided with the code base to understand how to document classes, methods, parameters, and even _todo's_ and _bugs_ in your code. In lab, you learned how to compile with your Doxyfile and generate web pages. Please look over the generated web pages for missing and incorrect information. The requirements for Doxygen include:
 
 - the file `/docs/Doxyfile` to generate documentation (this file is provided, so you shouldn't have to do anything with regard to this requirement).
 
