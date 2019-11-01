@@ -28,7 +28,7 @@ csci3081-shared-upstream repository (which contains this lab, lab12) as you have
 7) Add a comment to first line in the file:  // Here is a comment
 8) Save MergeIssue.cc and exit your editor
 9) git add MergeIssue.cc
-10) git	Commit MergeIssue.cc
+10) git	commit
 11) git	push to your repo on the github server (github.umn.edu)
 
 12) **Next, use your browser to go to your repository on the umn github server (github.umn.edu)**
@@ -43,7 +43,7 @@ csci3081-shared-upstream repository (which contains this lab, lab12) as you have
 20)	Change comment in the first line in the file to :  // Changed comment on remote repository
 21)	Save the file and exit your editor
 22)	git add MergeIssue.cc
-23)	git commit MergeIssue.cc
+23)	git commit
 
 **NOTE, you now have two different versions of the same file located on different instances of your repository
 so, when you attempt a merge, git will reject the merge and indicate that you have a merge conflict**
@@ -60,7 +60,7 @@ so, when you attempt a merge, git will reject the merge and indicate that you ha
 28)	Select one of the comments, delete the other comment, and get rid of (that is, delete) the angle brackets
 29)	Save the file and exit your editor
 30) git add MergeIssue.cc
-31)	git commit MergeIssue.cc
+31)	git commit
 32)	git push
 33) **You have resolved the merge conflict!!!**
 
