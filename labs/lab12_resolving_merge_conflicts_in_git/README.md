@@ -66,9 +66,9 @@ so, when you attempt a merge, git will reject the merge and indicate that you ha
 
 A couple of other helpful commands for dealing with merge conflicts include:
 
-git status
-git reset
-git reset --hard HEAD
+git status  
+git reset  
+git reset --hard HEAD  
 
 #### However, you should read about how the variants of the reset command work before using them!!!!!!
 **Do the tutorial here: https://www.atlassian.com/git/tutorials/undoing-changes/git-reset
