@@ -8,6 +8,7 @@ Stop::Stop(int id, double longitude, double latitude) : id_(id), longitude_(long
 }
 
 int Stop::AddPassengers(Passenger * pass) {
+  passengers_.push_back(pass);
   return 0;
 }
 

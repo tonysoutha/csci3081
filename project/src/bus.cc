@@ -11,11 +11,21 @@ Bus::Bus(std::string name, Route * out, Route * in, int capacity, double speed) 
 
 
 bool Bus::LoadPassenger(Passenger * new_passenger) {
-  return true;
+  if (passenger_max_capacity_ > 0) {
+    passenger_max_capacity_ --; 
+    passengers_.push_back(new_passenger);
+    new_passenger->GetOnBus();
+    return true;
+  } else {
+    return false;
+  }
 }
 
 bool Bus::Move() {
-	return true;
+  distance_remaining_ = distance_remaining_ - speed_;
+//  for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
+    
+return true;
 }
 
 //bool Refuel() {
@@ -24,7 +34,11 @@ bool Bus::Move() {
 //}
 
 void Bus::Update() { //using common Update format
+//  for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
+//    if ((*it)->
+//  }
   Move();
+  // at stop & which rout
 }
 
 void Bus::Report(std::ostream & out) {
@@ -37,6 +51,6 @@ void Bus::Report(std::ostream & out) {
   }
 }
 
-bool Bus::IsTripComplete() {
-  return false;
-}
+//bool Bus::IsTripComplete() {
+//  return false;
+//}

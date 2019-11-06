@@ -13,6 +13,7 @@ Route::Route(std::string name, Stop ** stops, double * distances, int num_stops,
 }
 
 void Route::Update() {
+  generator_ -> GeneratePassengers();
   for( std::list<Stop *>::iterator it = stops_.begin(); it != stops_.end(); it++) {
     (*it)->Update();
   }
