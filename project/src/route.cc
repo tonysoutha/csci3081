@@ -27,3 +27,17 @@ void Route::Report(std::ostream & out) {
     stop_counter++;
   }
 }
+
+Route * Route::Clone() {
+  Stop * stops [num_stops_];
+  int i = 0;
+  for (std::list<Stop *>::iterator it = stops_.begin(); it != stops_.end(); it++) { 
+    stops[i++] = *it;
+  }
+  double dist [num_stops_ - 1];
+  for (std::list<double>::iterator it = distances_between_.begin(); it != distances_between_.end(); it++) {
+    dist[i++] = *it;
+  }
+  Route * newRoute = new Route (name_, stops, dist, num_stops_, generator_);
+  return newRoute;
+}
