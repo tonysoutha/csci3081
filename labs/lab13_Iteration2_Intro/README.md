@@ -13,7 +13,7 @@ Once you've completed the previous step,  you should open the file **data_struct
 For your first deliverable for iteration 2, you should add the accessors below to the bus and route classes and then design, implement 
 and run unit tests (created using google test) to ensure the accessors function properly.
 
-More specifically, you should implment the following public accessors (getters) in the bus class
+More specifically, you should implment the following public functions and accessors/getters in the bus class
 
   * void UpdateBusData()  - called by the visualizer to instruct the bus object to populate the BusData struct with the latest information (see the file **data_structs.h** to determine what information the BusData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below.
   * BusData GetBusData() - called by the visualizer to obtain the BusData struct.
@@ -26,7 +26,7 @@ More specifically, you should implment the following public accessors (getters) 
   1. Store the name of the bus in the id atttribute of the Bus class's new attribute to store Bus Data ((i.e., a BusData struct - note, you'll have to add this to the Bus class as well.)
   2. get the current route
   3. get the previous stop on the current route
-  4. Compute and store the average of the lattitudes and longitudes belonging to the Bus object's current and previous stop; then store them in the position struct that belongs to the Bus class's new attribute to store Bus Data.
+  4. Compute and store the average of the lattitudes and longitudes belonging to the Bus object's current and previous stop; then store them in the position struct that belongs to the Bus class's new attribute to store Bus Data. You will need to figure out a way to get the busses previous stop.
   5. Populate the numPassengers and capacity attributes of the new attribute to store Bus Data.
  
 Next you should implement the following public accessors (getters) in the route class
@@ -34,11 +34,11 @@ Next you should implement the following public accessors (getters) in the route 
   * string GetName() - called by the visualizer to get the name of the bus
   * list<Stop \*> GetStops() - called by the visualizer to get the route's list of Stop pointers
   * void UpdateRouteData(); -   called by the visualizer to instruct the bus object to populate the RouteData struct with the latest information (see the file **data_structs.h** to determine what information the RouteData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below. 
-  * RouteData GetRouteData() - called by the visualizer to obtain the BusData struct.
+  * RouteData GetRouteData() - called by the visualizer to obtain the RouteData struct.
   
  **Outline of UpdateRouteData() accessor operation**
  
-  1. Store the name of the route id the id atttribute of the Route class's new attribute to store Route Data (i.e., a RouteData struct - note, you'll have to add this to the Route class as well.)
+  1. Store the name of the route in the id atttribute of the Route class's new attribute to store Route Data (i.e., a RouteData struct - note, you'll have to add this to the Route class as well.)
   2. Create a vector that holds StopData structs
   3. Loop through the stops stored in the route object and do the following:
   - store the stop id, position (latitude and longitude), and the number of passengers at the stop in a temporary StopData struct
