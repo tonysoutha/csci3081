@@ -6,7 +6,7 @@ https://github.umn.edu/umn-csci-3081-f19/csci3081-shared-upstream/blob/support-c
 
 Pay special attention to the deliverables required by the Preliminary 1 deliverable. 
 
-Next, you should copy the file included with this lab, **data_structs.h** to your _project/src_ directory of your 'devel' directory.
+Next, you should copy the file included with this lab, **data_structs.h** to your _project/src_ directory of your 'devel' branch. Keep in mind Lab10, the advanced git lab, and ask yourself (or your neighbors!): "Should we be doing everything in devel?" :thinking:
 
 Once you've completed the previous step,  you should open the file **data_structs.h** and review the structures that the visualizer requests from the transit simulation. The information in the structs is used by web-based visualizer to display infomation about buses, routes, and stops on the campus map _as the transit simulator executes_.  Note that the visualizer is a Web-Server that uses a REST-like interface to communicate with the transit_simulator (That is why you have to run it before running the transit simulation, and refresh it each time before  re-running your transit simulation). 
 
@@ -15,37 +15,40 @@ and run unit tests (created using google test) to ensure the functions work prop
 
 More specifically, you should implment the following public functions in the bus class
 
-  * void UpdateBusData()  - called by the visualizer to instruct the bus object to populate the BusData struct with the latest information (see the file **data_structs.h** to determine what information the BusData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below.
-  * BusData GetBusData() - called by the visualizer to obtain the BusData struct.
-  * string GetName() const - called by the visualizer to get the name of the bus 
-  * Stop * GetNextStop() - called by the visualizer to get the pointer to the bus's next stop
-  * size_t GetNumPassengers() - called by the visualizer to get the current number of passengers on the bus
-  * int GetCapacity() - called by the visualizer to get the maximum number of passengers that the bus can hold
+  * `void UpdateBusData()`  - called by the visualizer to instruct the bus object to populate the BusData struct with the latest information (see the file **data_structs.h** to determine what information the BusData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below.
+  * `BusData GetBusData()` - called by the visualizer to obtain the BusData struct.
+  * `string GetName() const` - called by the visualizer to get the name of the bus 
+  * `Stop * GetNextStop()` - called by the visualizer to get the pointer to the bus's next stop
+  * `size_t GetNumPassengers()` - called by the visualizer to get the current number of passengers on the bus
+  * `int GetCapacity()` - called by the visualizer to get the maximum number of passengers that the bus can hold
   
-**Outline of UpdateBusData() operation - this method populates a BusData struct**
-  1. You will need to make sure that you have a member variable BusData within the Bus class.
-  2. Store the name of the bus in the the BusData id atttribute.
-  3. get the current route
-  4. get the previous stop on the current route. You will need to figure out a way (write a new function, or more) to get the busses previous stop. 
-  5. Compute and store the average of the latitudes and longitudes belonging to the Bus object's current and previous stop; then store them in the in the BusDsata position attribute.  (This algorithm is somewhat clunky and not realistic. We may update this in the future)
-  6. Populate the numPassengers and capacity attributes of the new attribute to store Bus Data.
+**Outline of UpdateBusData() algorithm - this method populates a BusData struct**
+
+_Make sure to include a member variable BusData within the Bus class._
+
+  1. Store the name of the bus in the the BusData `id` atttribute.
+  2. Use the current route to get the previous stop (on the current route). You will need to figure out a way (write a new function, etc.) to get the bus's previous stop.
+  3. Compute and store the average of the latitudes and longitudes belonging to the current and previous stops.
+  4. Store the averages in the BusData `position` attribute.  (This algorithm is somewhat clunky and not realistic. We may update this in the future.)
+  5. Populate the `numPassengers` and `capacity` attributes within your BusData variable.
  
 Next you should implement the following public accessors and mutators in the route class
 
-  * string GetName() - called by the visualizer to get the name of the route
-  * list<Stop \*> GetStops() - called by the visualizer to get the route's list of Stop pointers
-  * void UpdateRouteData(); -   called by the visualizer to instruct the route object to populate the RouteData struct with the latest information (see the file **data_structs.h** to determine what information the RouteData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below. 
-  * RouteData GetRouteData() - called by the visualizer to obtain the RouteData struct.
+  * `string GetName()` - called by the visualizer to get the name of the route
+  * `list<Stop \*> GetStops()` - called by the visualizer to get the route's list of Stop pointers
+  * `void UpdateRouteData()` -   called by the visualizer to instruct the route object to populate the RouteData struct with the latest information (see the file **data_structs.h** to determine what information the RouteData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below. 
+  * `RouteData GetRouteData()` - called by the visualizer to obtain the RouteData struct.
   
- **Outline of UpdateRouteData() operation**
+ **Outline of UpdateRouteData() algorithm**
  
-  1. You will need to make sure that you have a member variable RouteData within the Bus class.
-  2. Store the name of the route in the RouteData id atttribute.
-  3. Create a vector that holds StopData structs
-  4. Loop through the stops stored in the route object and do the following:
+ _Make sure to include a member variable RouteData within the Bus class.__
+ 
+  1. Store the name of the route in the RouteData `id` atttribute.
+  2. Create a vector that holds StopData structs.
+  3. Loop through the Route's stops and do the following:
   - store the stop id, position (latitude and longitude), and the number of passengers at the stop in a temporary StopData struct
-  - store the data you copied into the temporary StopData struct in the vector of StopData structs you created in step 2 ("push_back")
-  5. After the loop finishes, store the vector of StopData structs in the stops attribute of the Route class's new attribute to store Route Data.
+  - store the temporary StopData struct in the vector of StopData structs you created in step 2 (i.e. "push_back" the struct)
+  4. After the loop finishes, store the vector of StopData structs in the `stops` attribute of the Route class's new attribute to store Route Data.
     
 **TEST THE FUNCTIONS YOU HAVE JUST CREATED**
 
