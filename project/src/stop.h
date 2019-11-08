@@ -23,6 +23,7 @@ class Stop {
   int AddPassengers(Passenger *);
   void Update();
   void Report(std::ostream&) const;
+  bool LoadPassengers(Bus * bus);
 
  private:
   int id_;

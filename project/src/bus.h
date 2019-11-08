@@ -27,7 +27,7 @@ class Bus {
   bool Move();
   void Update();
   void Report(std::ostream&);
-//  bool IsTripComplete();
+  bool IsTripComplete();
 
  private:
   std::list<Passenger *> passengers_;

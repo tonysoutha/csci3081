@@ -29,3 +29,10 @@ void Stop::Report(std::ostream & out) const {
     (*it)->Report(out);
   }
 }
+
+bool Stop::LoadPassengers(Bus * bus) {
+  for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
+    bus->LoadPassenger(*it);
+  }
+  return true;
+}
