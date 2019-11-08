@@ -11,11 +11,19 @@ Bus::Bus(std::string name, Route * out, Route * in, int capacity, double speed) 
 
 
 bool Bus::LoadPassenger(Passenger * new_passenger) {
-  return true;
+  if (passenger_max_capacity_ > 0) {
+    passenger_max_capacity_ --;
+    passengers_.push_back(new_passenger);
+    new_passenger->GetOnBus();
+    return true;
+  } else {
+    return false;
+  }
 }
 
 bool Bus::Move() {
-	return true;
+  distance_remaining_ = distance_remaining_ - speed_;
+  return true;
 }
 
 //bool Refuel() {
@@ -24,6 +32,46 @@ bool Bus::Move() {
 //}
 
 void Bus::Update() { //using common Update format
+  for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
+    (*it)->Update();
+  }
+  if ((outgoing_route_->IsRouteComplete()) == false) {
+    if (distance_remaining_ < 0) {
+      if ((outgoing_route_->IsAtEnd()) == true) {
+        outgoing_route_->SetRouteComplete();
+        while (passengers_.size() > 0) {
+          passengers_.pop_front();
+        }
+      } else {
+        for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
+          if ((*it)->GetDestination() == (outgoing_route_->GetDestinationStop())->GetId()) {
+            passengers_.erase(it);
+          }
+        }
+      (outgoing_route_->GetDestinationStop())->LoadPassengers(this);
+      outgoing_route_->NextStop();
+      distance_remaining_ = outgoing_route_->NextDistance();
+      }
+    } 
+  } else {
+    if (distance_remaining_ < 0) {
+      if ((incoming_route_->IsAtEnd()) == true) {
+        incoming_route_->SetRouteComplete();
+        while (passengers_.size() > 0) {
+          passengers_.pop_front();
+        }
+      } else {
+        for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
+          if ((*it)->GetDestination() == (outgoing_route_->GetDestinationStop())->GetId()) {
+            passengers_.erase(it);
+          }
+        }
+        (incoming_route_->GetDestinationStop())->LoadPassengers(this);
+        incoming_route_->NextStop();
+        distance_remaining_ = incoming_route_->NextDistance();
+     }
+   }
+  }
   Move();
 }
 

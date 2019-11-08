@@ -8,6 +8,7 @@ Stop::Stop(int id, double longitude, double latitude) : id_(id), longitude_(long
 }
 
 int Stop::AddPassengers(Passenger * pass) {
+  passengers_.push_back(pass);
   return 0;
 }
 
@@ -27,4 +28,11 @@ void Stop::Report(std::ostream & out) const {
   for(std::list<Passenger *>::const_iterator it = passengers_.begin(); it != passengers_.end(); it++) {
     (*it)->Report(out);
   }
+}
+
+bool Stop::LoadPassengers(Bus * bus) {
+  for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
+    bus->LoadPassenger(*it);
+  }
+  return true;
 }

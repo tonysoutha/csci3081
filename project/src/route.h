@@ -24,9 +24,12 @@ class Route {
   Route * Clone();
   void Update();
   void Report(std::ostream&);
-  //bool IsAtEnd() const;
-  //void NextStop();  // Change destination_stop_ to next stop
-  //Stop * GetDestinationStop() const;    // Get pointer to next stop
+  bool IsAtEnd() const;
+  void NextStop();  // Change destination_stop_ to next stop
+  Stop * GetDestinationStop() const;    // Get pointer to next stop
+  double NextDistance();
+  bool IsRouteComplete();
+  void SetRouteComplete();
   //double GetTotalRouteDistance() const;
   //double GetNextStopDistance() const;
  private:
@@ -36,8 +39,10 @@ class Route {
   std::list<double> distances_between_;  // length = num_stops_ - 1
   std::string name_;
   int num_stops_;
-  //int destination_stop_index_;  // always starts at zero, no init needed
-  //Stop * destination_stop_;
+  int stops_visited_;
+  int destination_stop_index_;  // always starts at zero, no init needed
+  Stop * destination_stop_;
+  bool route_complete;
   // double trip_time_; // derived data - total distance travelled on route
 };
 #endif  // SRC_ROUTE_H_
