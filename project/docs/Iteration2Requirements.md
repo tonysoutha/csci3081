@@ -1,6 +1,7 @@
 # ConfigSim and VisualizerSim: a Proof-of-Concept Transit System Vizualizer/Simulator
 
-## Iteration 2 - VERSION 1, November 7
+## Iteration 2 - VERSION 2 November 8 (clarified FileOutputSimulator make and execute commands)
+### VERSION 1, November 7
 - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
 
 <hr>
@@ -17,7 +18,7 @@ As you've now seen in class, we're now moving on to incorporate some more practi
 
 | <span id="a1">Date</a> | Item | Description |
 |:----:|:-----|:------------|
-| WED, Nov 13, 11:55pm | [Domain Structs and File Output Simulator](#pre1) | submit via Github to 'devel' |
+| WED, Nov 13, 11:55pm | [Domain Structs and File Output Simulator](#pre1) | submit via Github |
 | WED, Nov 20, 11:55pm | [Configuration Builds from Makefile](#pre2) | Pass automated tests |
 | WED, Nov 27, 11:55pm<sup>[1](#f1)</sup> | [Code Implementation and Testing](#final) | Automated tests and inspection |
 
@@ -49,7 +50,7 @@ Below we specify the  three sets of  functionality you are to design and deliver
 
 #### <span id="pre1">Preliminary 1: Domain Structures (Structs) and File Output Simulator</span>
 
-In order to better understand how the make process and Simulator code works, the first task asks students to make a new version of the TransitSim. The new version works almost identically to the original, but makes use of a file to capture the output, rather than using standard out (i.e., std::cout). Create this new driver and any other necessary code. Then, incorporate it into the makefile by adding a new set of targets so that a command can be issued to run the simulation and place all output into a file specified on the command line (e.g., 'make capture_transit_sim run13.txt' or something similar).
+In order to better understand how the make process and Simulator code works, the first task asks students to make a new version of the TransitSim. The new version works almost identically to the original, but makes use of a file to capture the output, rather than using standard out (i.e., std::cout). Create this new driver and any other necessary code. Then, incorporate it into the makefile by adding a new set of targets so that a command can be issued to run the simulation and place all output into a file specified on the command line (e.g., 'make capture_transit_sim' followed by '../build/bin/capture_transit_sim run13.txt' or something similar).
 
 Next, you need to extend your domain objects so that they can be used by the visualizer. The visualizer code is much like any other simulation. But, in order for it to work, the VisualizerSimulator (which will be provided to you) needs to be able to retrieve structs from the domain objects (for example busses, routes, and stops) that you've built. So, you will need to add an accessor that returns a C++ struct from your domain objects (specifically, Bus and Route) which meet the needs of the visualizer. Definition and examples of the structs that need to be generated and returned will be provided in lab on November 8.
 
