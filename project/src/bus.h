@@ -3,7 +3,7 @@
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */
-#ifndef SRC_BUS_H_
+#ifndef PROJECT_SRC_BUS_H_
 #define SRC_BUS_H_
 
 #include <iostream>
@@ -19,15 +19,47 @@ class PassengerLoader;
 class Route;
 class Stop;
 
+/**
+ * @brief Bus class that follows a route and picks up and unloads passengers
+ */
 class Bus {
  public:
-  Bus(std::string name, Route * out, Route * in, int capacity = 60,
-                                                 double speed = 1);
+  /**
+   * @brief Creation of a new bus
+   *
+   * @param[in] name of bus
+   * @param[in] outbound route
+   * @param[in] inbound route
+   * @param[in] max capacity of passengers
+   * @param[in] speed of bus (distance it will travel in one time step)
+   *
+   * @return Bus object that travels on the outbound and inbound route 
+   */
+  Bus(std::string name, Route * out, Route * in, int capacity = 60, double speed = 1);
+   /**
+   * @brief Loads a passenger onto the bus
+   *
+   * @param[in] a passenger object
+   *
+   * @return returns a bool based on whether the load was successful (bus was not at max capacity)
+   */
   bool LoadPassenger(Passenger *);  // returning revenue delta
+  /** 
+   * @brief Moves the bus, updating the distance based on the speed of the bus
+   *
+   * @return returns a bool based on whether the move was successful
+   */
   bool Move();
+  /**
+   * @brief Updates the passengers on the bus and performs the loading and unloading of passengers
+   */
   void Update();
+  /**
+   * @brief Prints information on the bus at the current time step.
+   *
+   * @param[in] ostream where the information will be outputted
+   */
   void Report(std::ostream&);
-  bool IsTripComplete();
 
  private:
   std::list<Passenger *> passengers_;
@@ -43,4 +75,4 @@ class Bus {
   // double fuel_;   // may not be necessary for our simulation
   // double max_fuel_;
 };
-#endif  // SRC_BUS_H_
+#endif  // PROJECT_SRC_BUS_H_
