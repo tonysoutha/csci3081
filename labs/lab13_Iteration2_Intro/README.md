@@ -15,7 +15,7 @@ and run unit tests (created using google test) to ensure the functions work prop
 
 More specifically, you should implment the following public functions in the bus class
 
-  * void UpdateBusData()  - called by the visualizer to instruct the bus object to populate the BusData struct with the latest information (see the file **data_structs.h** to determine what information the BusData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below.
+  * void UpdateBusData()  - called by the visualizer to instruct the bus object to populate the BusData struct with the latest information (see the file **data_structs.h** to determine what information the BusData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below. You will need a member variable BusData object.
   * BusData GetBusData() - called by the visualizer to obtain the BusData struct.
   * string GetName() const - called by the visualizer to get the name of the bus 
   * Stop * GetNextStop() - called by the visualizer to get the pointer to the bus's next stop
