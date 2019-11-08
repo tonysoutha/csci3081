@@ -25,8 +25,8 @@ More specifically, you should implment the following public functions in the bus
 **Outline of UpdateBusData() operation - this method populates a BusData struct**
   1. Store the name of the bus in the id atttribute of the Bus class's new attribute to store Bus Data ((i.e., a BusData struct - note, you'll have to add this to the Bus class as well.)
   2. get the current route
-  3. get the previous stop on the current route
-  4. Compute and store the average of the lattitudes and longitudes belonging to the Bus object's current and previous stop; then store them in the position struct that belongs to the Bus class's new attribute to store Bus Data. You will need to figure out a way to get the busses previous stop.
+  3. get the previous stop on the current route. You will need to figure out a way to get the busses previous stop.
+  4. Compute and store the average of the lattitudes and longitudes belonging to the Bus object's current and previous stop; then store them in the position struct that belongs to the Bus class's new attribute to store Bus Data.  
   5. Populate the numPassengers and capacity attributes of the new attribute to store Bus Data.
  
 Next you should implement the following public accessors and mutators in the route class
