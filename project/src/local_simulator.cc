@@ -182,11 +182,8 @@ bool LocalSimulator::Start() {
 
   bus_counters_.push_back(10000);
 
-<<<<<<< HEAD
   //This will eventually be replaced by configuration/command line argument
-=======
   // This will eventually be replaced by configuration/command line argument
->>>>>>> support-code
   bus_start_timings_.push_back(10);
 
   // Do we want a bus on start? Or let the update handle this?
