@@ -31,9 +31,9 @@ More specifically, you should implment the following public functions in the bus
  
 Next you should implement the following public accessors and mutators in the route class
 
-  * string GetName() - called by the visualizer to get the name of the bus
+  * string GetName() - called by the visualizer to get the name of the route
   * list<Stop \*> GetStops() - called by the visualizer to get the route's list of Stop pointers
-  * void UpdateRouteData(); -   called by the visualizer to instruct the bus object to populate the RouteData struct with the latest information (see the file **data_structs.h** to determine what information the RouteData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below. 
+  * void UpdateRouteData(); -   called by the visualizer to instruct the route object to populate the RouteData struct with the latest information (see the file **data_structs.h** to determine what information the RouteData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below. 
   * RouteData GetRouteData() - called by the visualizer to obtain the RouteData struct.
   
  **Outline of UpdateRouteData() operation**
