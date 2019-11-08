@@ -25,7 +25,7 @@ int main() {
   std::cout << "*************************/" << std::endl;
   
   for (int i = 0; i < rounds; i++) {
-	my_sim.Update();
+	  my_sim.Update();
   }
   
   std::cout << "/*************************" << std::endl << std::endl;

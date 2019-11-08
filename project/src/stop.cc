@@ -1,3 +1,5 @@
+// Copyright 2019 Tony Southa
+
 #include <iostream>
 #include <vector>
 
@@ -7,13 +9,14 @@ Stop::Stop(int id, double longitude, double latitude) : id_(id), longitude_(long
   // no initialization of list of passengers necessary
 }
 
-int Stop::AddPassengers(Passenger * pass) {
+int Stop::AddPassengers(Passenger * pass) { // Add pass to the passenger list for stop
+  passengers_.push_back(pass);
   return 0;
 }
 
-void Stop::Update() {
+void Stop::Update() { 
   for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
-    (*it)->Update();
+    (*it)->Update(); // Updates the passengers at the stop
   }
 }
 
@@ -21,10 +24,17 @@ int Stop::GetId() const{
   return id_;
 }
 
-void Stop::Report() const {
-  std::cout << "ID: " << id_ << std::endl;
-  std::cout << "Passengers waiting: " << passengers_.size() << std::endl;
+void Stop::Report(std::ostream & out) const {
+  out << "ID: " << id_ << std::endl;
+  out << "Passengers waiting: " << passengers_.size() << std::endl;
   for(std::list<Passenger *>::const_iterator it = passengers_.begin(); it != passengers_.end(); it++) {
-    (*it)->Report();
+    (*it)->Report(out);
   }
+}
+
+bool Stop::LoadPassengers(Bus * bus) { // Loads passengers at the stop onto the bus
+  for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
+    bus->LoadPassenger(*it);
+  }
+  return true;
 }
