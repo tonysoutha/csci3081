@@ -11,7 +11,7 @@ Next, you should copy the file included with this lab, **data_structs.h** to you
 Once you've completed the previous step,  you should open the file **data_structs.h** and review the structures that the visualizer requests from the transit simulation. The information in the structs is used by web-based visualizer to display infomation about buses, routes, and stops on the campus map _as the transit simulator executes_.  Note that the visualizer is a Web-Server that uses a REST-like interface to communicate with the transit_simulator (That is why you have to run it before running the transit simulation, and refresh it each time before  re-running your transit simulation). 
 
 For your first deliverable for iteration 2, you should add the accessors/getters and mutators/setters below to the bus and route classes and then design, implement 
-and run unit tests (created using google test) to ensure the functions function properly.
+and run unit tests (created using google test) to ensure the functions work properly.
 
 More specifically, you should implment the following public functions in the bus class
 
@@ -22,7 +22,7 @@ More specifically, you should implment the following public functions in the bus
   * size_t GetNumPassengers() - called by the visualizer to get the current number of passengers on the bus
   * int GetCapacity() - called by the visualizer to get the maximum number of passengers that the bus can hold
   
-**Outline of UpdateBusData() mutator operation - this method populates a BusData struct**
+**Outline of UpdateBusData() operation - this method populates a BusData struct**
   1. Store the name of the bus in the id atttribute of the Bus class's new attribute to store Bus Data ((i.e., a BusData struct - note, you'll have to add this to the Bus class as well.)
   2. get the current route
   3. get the previous stop on the current route
@@ -36,7 +36,7 @@ Next you should implement the following public accessors and mutators in the rou
   * void UpdateRouteData(); -   called by the visualizer to instruct the bus object to populate the RouteData struct with the latest information (see the file **data_structs.h** to determine what information the RouteData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below. 
   * RouteData GetRouteData() - called by the visualizer to obtain the RouteData struct.
   
- **Outline of UpdateRouteData() mutator operation**
+ **Outline of UpdateRouteData() operation**
  
   1. Store the name of the route in the id atttribute of the Route class's new attribute to store Route Data (i.e., a RouteData struct - note, you'll have to add this to the Route class as well.)
   2. Create a vector that holds StopData structs
