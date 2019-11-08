@@ -23,11 +23,12 @@ More specifically, you should implment the following public functions in the bus
   * int GetCapacity() - called by the visualizer to get the maximum number of passengers that the bus can hold
   
 **Outline of UpdateBusData() operation - this method populates a BusData struct**
-  1. Store the name of the bus in the id atttribute of the Bus class's new attribute to store Bus Data ((i.e., a BusData struct - note, you'll have to add this to the Bus class as well.)
-  2. get the current route
-  3. get the previous stop on the current route. You will need to figure out a way (write a new function, or more) to get the busses previous stop. 
-  4. Compute and store the average of the lattitudes and longitudes belonging to the Bus object's current and previous stop; then store them in the position struct that belongs to the Bus class's new attribute to store Bus Data.  
-  5. Populate the numPassengers and capacity attributes of the new attribute to store Bus Data.
+  1. You will need to make sure that you have a member variable BusData within the Bus class.
+  2. Store the name of the bus in the the BusData id atttribute.
+  3. get the current route
+  4. get the previous stop on the current route. You will need to figure out a way (write a new function, or more) to get the busses previous stop. 
+  5. Compute and store the average of the latitudes and longitudes belonging to the Bus object's current and previous stop; then store them in the in the BusDsata position attribute.  
+  6. Populate the numPassengers and capacity attributes of the new attribute to store Bus Data.
  
 Next you should implement the following public accessors and mutators in the route class
 
@@ -38,12 +39,13 @@ Next you should implement the following public accessors and mutators in the rou
   
  **Outline of UpdateRouteData() operation**
  
-  1. Store the name of the route in the id atttribute of the Route class's new attribute to store Route Data (i.e., a RouteData struct - note, you'll have to add this to the Route class as well.)
-  2. Create a vector that holds StopData structs
-  3. Loop through the stops stored in the route object and do the following:
+  1. You will need to make sure that you have a member variable RouteData within the Bus class.
+  2. Store the name of the route in the RouteData id atttribute.
+  3. Create a vector that holds StopData structs
+  4. Loop through the stops stored in the route object and do the following:
   - store the stop id, position (latitude and longitude), and the number of passengers at the stop in a temporary StopData struct
   - store the data you copied into the temporary StopData struct in the vector of StopData structs you created in step 2 ("push_back")
-  4. After the loop finishes, store the vector of StopData structs in the stops attribute of the Route class's new attribute to store Route Data.
+  5. After the loop finishes, store the vector of StopData structs in the stops attribute of the Route class's new attribute to store Route Data.
     
 **TEST THE FUNCTIONS YOU HAVE JUST CREATED**
 
