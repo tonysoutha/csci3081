@@ -6,7 +6,7 @@ https://github.umn.edu/umn-csci-3081-f19/csci3081-shared-upstream/blob/support-c
 
 Pay special attention to the deliverables required by the Preliminary 1 deliverable. 
 
-Next, you should copy the file included with this lab, **data_structs.h** to your _project/src_ directory.
+Next, you should copy the file included with this lab, **data_structs.h** to your _project/src_ directory of your 'devel' directory.
 
 Once you've completed the previous step,  you should open the file **data_structs.h** and review the structures that the visualizer requests from the transit simulation. The information in the structs is used by web-based visualizer to display infomation about buses, routes, and stops on the campus map _as the transit simulator executes_.  Note that the visualizer is a Web-Server that uses a REST-like interface to communicate with the transit_simulator (That is why you have to run it before running the transit simulation, and refresh it each time before  re-running your transit simulation). 
 
