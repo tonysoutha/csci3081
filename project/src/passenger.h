@@ -22,10 +22,28 @@ class Passenger {  // : public Reporter {
   *
   */
   explicit Passenger(int = -1, std::string = "Nobody");
+  /**
+  * @brief Updates passenger times after one time step
+  */
   void Update();
+  /**
+   * @brief Puts passenger on bus, setting its time on bus to 1
+   */
   void GetOnBus();
+  /**
+   * @brief Return the total waiting time on bus and at stop
+   */
   int GetTotalWait() const;
+  /**
+   * @brief Determine if passenger is on a bus
+   *
+   * @return true if passenger is on a bus false otherwise
+   */
   bool IsOnBus() const;
+  /**
+   * @brief Get the destination of a passenger
+   * @return the id # of the destination stop
+   */
   int GetDestination() const;
   void Report(std::ostream&) const;
  private:
