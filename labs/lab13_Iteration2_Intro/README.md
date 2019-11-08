@@ -27,7 +27,7 @@ More specifically, you should implment the following public functions in the bus
   2. Store the name of the bus in the the BusData id atttribute.
   3. get the current route
   4. get the previous stop on the current route. You will need to figure out a way (write a new function, or more) to get the busses previous stop. 
-  5. Compute and store the average of the latitudes and longitudes belonging to the Bus object's current and previous stop; then store them in the in the BusDsata position attribute.  
+  5. Compute and store the average of the latitudes and longitudes belonging to the Bus object's current and previous stop; then store them in the in the BusDsata position attribute.  (This algorithm is somewhat clunky and not realistic. We may update this in the future)
   6. Populate the numPassengers and capacity attributes of the new attribute to store Bus Data.
  
 Next you should implement the following public accessors and mutators in the route class
