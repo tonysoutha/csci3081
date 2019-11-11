@@ -1,6 +1,6 @@
 # ConfigSim and VisualizerSim: a Proof-of-Concept Transit System Vizualizer/Simulator
 
-## Iteration 2 - VERSION 3, November 11 (clarified necessity for project to build from _master_ branch and Google Style scope)
+## Iteration 2 - VERSION 3, November 11 (clarified necessity for project to build from _master_ branch and Google Style scope, visualization bus position)
 ### VERSION 2, November 8 (clarified FileOutputSimulator make and execute commands)
 ### VERSION 1, November 7
 - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
@@ -115,6 +115,7 @@ You can use this high-level grading rubric to better understand how we will grad
 50% - Program Functionality and Robustness (Typically graded by running the code, either using scripts or interactively)
 * Both program versions (configuration and visualization) build without error by running "make" in the root directory of the project, and the two programs run on the CSE Lab machines.
 * The code links with the visualizer code to produce working visualizations of a running simluation.
+* A Bus's position does not matter EXCEPT when a bus is at a stop. If a bus is dropping off/picking up, its position must show it is at the stop.
 * The configuration functionality is functional, allowing the use of a variety of configuration files.
 * Both unit tests and regression tests are implemented.
 * Tests cover valid/invalid command line options.
