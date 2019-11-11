@@ -14,22 +14,22 @@ struct Position {
 
 struct BusData {
     BusData() : id(""), pos(Position()), numPassengers(0), capacity(0) {}
-    std::string id;
-    Position pos;
+    std::string id; // some unique identifier for the bus
+    Position pos; // long lat position of bus
     int numPassengers;
     int capacity;
 };
 
 struct StopData {
     StopData() : id(""), pos(Position()), numPeople(0) {}
-    std::string id;
-    Position pos;
+    std::string id; // some unique identifier for the stop
+    Position pos; // long lat position of bus
     int numPeople;
 };
 
 struct RouteData {
     RouteData() : id(""), stops(std::vector<StopData>(0)) {}
-    std::string id;
+    std::string id; // some unique identifier for the route
     std::vector<StopData> stops;
 };
 

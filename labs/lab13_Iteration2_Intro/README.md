@@ -26,7 +26,7 @@ More specifically, you should implment the following public functions in the bus
 
 _Make sure to include a member variable BusData within the Bus class._
 
-  1. Store the name of the bus in the the BusData `id` atttribute.
+  1. Store a unique identifier for the bus(name) in the BusData `id` atttribute.
   2. Use the current route to get the previous stop (on the current route). You will need to figure out a way (write a new function, etc.) to get the bus's previous stop.
   3. Compute and store the average of the latitudes and longitudes belonging to the current and previous stops.
   4. Store the averages in the BusData `position` attribute.  (This algorithm is somewhat clunky and not realistic. We may update this in the future.)
@@ -35,18 +35,18 @@ _Make sure to include a member variable BusData within the Bus class._
 Next you should implement the following public accessors and mutators in the route class
 
   * `string GetName()` - called by the visualizer to get the name of the route
-  * `list<Stop \*> GetStops()` - called by the visualizer to get the route's list of Stop pointers
+  * `list<Stop *> GetStops()` - called by the visualizer to get the route's list of Stop pointers
   * `void UpdateRouteData()` -   called by the visualizer to instruct the route object to populate the RouteData struct with the latest information (see the file **data_structs.h** to determine what information the RouteData struct stores.). This a nontivial method, so we will outline its operation (which you have to implement), below. 
   * `RouteData GetRouteData()` - called by the visualizer to obtain the RouteData struct.
   
  **Outline of UpdateRouteData() algorithm**
  
- _Make sure to include a member variable RouteData within the Bus class.__
+ _Make sure to include a member variable RouteData within the Route class._ **Note: this mistakenly used to say "within the Bus class." There should NOT be a RouteData object within the Bus class.**
  
-  1. Store the name of the route in the RouteData `id` atttribute.
+  1. Store a unique identifier for the route(name) in the RouteData `id` atttribute.
   2. Create a vector that holds StopData structs.
   3. Loop through the Route's stops and do the following:
-  - store the stop id, position (latitude and longitude), and the number of passengers at the stop in a temporary StopData struct
+  - store a unique identifier for the stop(id) in the StopData `id` attribute, position (latitude and longitude), and the number of passengers at the stop in a temporary StopData struct
   - store the temporary StopData struct in the vector of StopData structs you created in step 2 (i.e. "push_back" the struct)
   4. After the loop finishes, store the vector of StopData structs in the `stops` attribute of the Route class's new attribute to store Route Data.
     
