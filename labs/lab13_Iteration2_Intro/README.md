@@ -41,7 +41,7 @@ Next you should implement the following public accessors and mutators in the rou
   
  **Outline of UpdateRouteData() algorithm**
  
- _Make sure to include a member variable RouteData within the Bus class.__
+ _Make sure to include a member variable RouteData within the Route class._ **Note: this mistakenly used to say "within the Bus class." There should NOT be a RouteData object within the Bus class.**
  
   1. Store the name of the route in the RouteData `id` atttribute.
   2. Create a vector that holds StopData structs.
