@@ -43,7 +43,7 @@ Next you should implement the following public accessors and mutators in the rou
  
  _Make sure to include a member variable RouteData within the Route class._ **Note: this mistakenly used to say "within the Bus class." There should NOT be a RouteData object within the Bus class.**
  
-  1. Store a unique identifier for the route(namme) in the RouteData `id` atttribute.
+  1. Store a unique identifier for the route(name) in the RouteData `id` atttribute.
   2. Create a vector that holds StopData structs.
   3. Loop through the Route's stops and do the following:
   - store a unique identifier for the stop(id) in the StopData `id` attribute, position (latitude and longitude), and the number of passengers at the stop in a temporary StopData struct
