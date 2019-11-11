@@ -1,7 +1,7 @@
 # ConfigSim and VisualizerSim: a Proof-of-Concept Transit System Vizualizer/Simulator
 
 ## Iteration 2 - VERSION 5, November 11 (updated bus position requirements in program functionality)
-### VERSION 4, November 12 (clarified that following Lab 10 branching model is required)
+### VERSION 4, November 11 (clarified that following Lab 10 branching model is required)
 ### VERSION 3, November 11 (clarified necessity for project to build from _master_ branch and Google Style scope)
 ### VERSION 2, November 8 (clarified FileOutputSimulator make and execute commands)
 ### VERSION 1, November 7
