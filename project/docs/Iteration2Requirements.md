@@ -1,6 +1,7 @@
 # ConfigSim and VisualizerSim: a Proof-of-Concept Transit System Vizualizer/Simulator
 
-## Iteration 2 - VERSION 3, November 11 (clarified necessity for project to build from _master_ branch and Google Style scope)
+## Iteration 2 - VERSION 4, November 12 (clarified that following Lab 10 branching model is required)
+### VERSION 3, November 11 (clarified necessity for project to build from _master_ branch and Google Style scope)
 ### VERSION 2, November 8 (clarified FileOutputSimulator make and execute commands)
 ### VERSION 1, November 7
 - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
@@ -121,6 +122,7 @@ You can use this high-level grading rubric to better understand how we will grad
 * Tests cover different numbers of options specified on the command line.
 * Tests cover all domain objects (Bus, Route, Stop, Passenger) including their interactions with other objects.
 * The project follows Google Style as demonstrated by passing the cpplint.py checks. ALL code in within project/src will be processed.
+* The project follows the branching model recommended in Lab 10, including use of branches and issues
 
 ##Important notes to remember
 
