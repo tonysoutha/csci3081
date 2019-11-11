@@ -1,6 +1,7 @@
 # ConfigSim and VisualizerSim: a Proof-of-Concept Transit System Vizualizer/Simulator
 
-## Iteration 2 - VERSION 2 November 8 (clarified FileOutputSimulator make and execute commands)
+## Iteration 2 - VERSION 3, November 11 (clarified necessity for project to build from _master_ branch and Google Style scope)
+### VERSION 2, November 8 (clarified FileOutputSimulator make and execute commands)
 ### VERSION 1, November 7
 - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
 
@@ -94,7 +95,7 @@ Regression tests:
 
 ## Assessment
 
-Your software **must compile on a cselabs machine or it will not be graded, and you will recieve a zero for your submission**. We will not grade your project unless it compiles. As long as you provide a version that compiles, we will evaluate those aspects that are partially functional for partial credit. In other words, <u>comment code out if it breaks compilation</u>.
+Your software **must compile on a cselabs machine or it will not be graded, and you will receive a zero for your submission**. Your software **must compile on the _master_ branch or it will not be graded, and you will receive a zero for your submission**. We will not grade your project unless it compiles. As long as you provide a version that compiles, we will evaluate those aspects that are partially functional for partial credit. In other words, <u>comment code out if it breaks compilation</u>.
 
 Your software will be assessed through automatic testing and by the TAs. If possible, we'll provide as much automated feedback as we can prior to the deadline. At the deadline, all submissions will be downloaded and the automated testing will no longer be available. Through both automated testing and the TAs, the process for testing will be to `make clean` then `make`. We **highly encourage** you to create a new folder on a **cselabs machine**, clone your repo on a **cselabs machine** in that folder, then run  `make clean` and `make` in your newly cloned repo, followed by a run of your tests to confirm all is working well before submitting your tests and code.
 
@@ -119,7 +120,7 @@ You can use this high-level grading rubric to better understand how we will grad
 * Tests cover valid/invalid command line options.
 * Tests cover different numbers of options specified on the command line.
 * Tests cover all domain objects (Bus, Route, Stop, Passenger) including their interactions with other objects.
-* The project follows Google Style as demonstrated by passing the cpplint.py checks.
+* The project follows Google Style as demonstrated by passing the cpplint.py checks. ALL code in within project/src will be processed.
 
 ##Important notes to remember
 
