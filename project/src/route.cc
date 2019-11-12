@@ -80,6 +80,8 @@ void Route::NextStop() {
 }
 
 double Route::NextDistance() {
+  // looks in the distances_between_ list to find
+  // the next distance in between stops
   std::list<double>::iterator it = distances_between_.begin();
   std::advance(it, destination_stop_index_-1);
   return *it;

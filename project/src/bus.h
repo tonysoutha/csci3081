@@ -3,7 +3,7 @@
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */
-#ifndef PROJECT_SRC_BUS_H_
+#ifndef SRC_BUS_H_
 #define SRC_BUS_H_
 
 #include <iostream>
@@ -33,7 +33,7 @@ class Bus {
    * @param[in] max capacity of passengers
    * @param[in] speed of bus (distance it will travel in one time step)
    *
-   * @return Bus object that travels on the outbound and inbound route 
+   * @return Bus object that travels on the outbound and inbound route
    */
   Bus(std::string name, Route * out, Route * in, int capacity = 60, double speed = 1);
    /**
@@ -44,7 +44,7 @@ class Bus {
    * @return returns a bool based on whether the load was successful (bus was not at max capacity)
    */
   bool LoadPassenger(Passenger *);  // returning revenue delta
-  /** 
+  /**
    * @brief Moves the bus, updating the distance based on the speed of the bus
    *
    * @return returns a bool based on whether the move was successful
@@ -75,4 +75,4 @@ class Bus {
   // double fuel_;   // may not be necessary for our simulation
   // double max_fuel_;
 };
-#endif  // PROJECT_SRC_BUS_H_
+#endif  // SRC_BUS_H_
