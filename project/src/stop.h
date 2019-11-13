@@ -15,6 +15,9 @@
 
 class Bus;
 
+/**
+* @brief Class that creates stops which hold passengers until they get on a bus
+*/
 class Stop {
  public:
   /**

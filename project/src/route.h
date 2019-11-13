@@ -17,6 +17,10 @@
 class PassengerGenerator;
 class Stop;
 
+/**
+* @brief Class that creates routes which are a collection of stops
+* and generates passengers at those stops
+**/
 class Route {
  public:
   /**
@@ -36,7 +40,7 @@ class Route {
   /**
    * @brief Creates a clone of the current route
    *
-   * @return New route 
+   * @return New route
    */
   Route * Clone();
   void Update();
