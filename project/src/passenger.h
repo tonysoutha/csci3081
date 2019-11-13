@@ -10,6 +10,9 @@
 #include <iostream>
 #include <string>
 
+/**
+* @brief Class that creates passengers who will ride the bus
+*/
 class Passenger {  // : public Reporter {
  public:
   /**

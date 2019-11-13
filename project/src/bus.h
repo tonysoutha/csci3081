@@ -20,7 +20,8 @@ class Route;
 class Stop;
 
 /**
- * @brief Bus class that follows a route and picks up and unloads passengers
+ * @brief Class that creates a bus that will follow a
+ * route and pick up and unload passengers
  */
 class Bus {
  public:
