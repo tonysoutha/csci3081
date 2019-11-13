@@ -4,8 +4,8 @@
  * @copyright 2019 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_STOP_H_
-#define SRC_STOP_H_
+#ifndef PROJECT_SRC_STOP_H_
+#define PROJECT_SRC_STOP_H_
 
 #include <list>
 #include <iostream>
@@ -15,6 +15,9 @@
 
 class Bus;
 
+/**
+* @brief Class that creates stops which hold passengers until they get on a bus
+*/
 class Stop {
  public:
   /**
@@ -56,4 +59,4 @@ class Stop {
   // data structure implementation?
   // int passengers_present_;
 };
-#endif  // SRC_STOP_H_
+#endif  // PROJECT_SRC_STOP_H_

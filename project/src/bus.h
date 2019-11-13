@@ -3,8 +3,8 @@
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */
-#ifndef SRC_BUS_H_
-#define SRC_BUS_H_
+#ifndef PROJECT_SRC_BUS_H_
+#define PROJECT_SRC_BUS_H_
 
 #include <iostream>
 #include <list>
@@ -20,7 +20,8 @@ class Route;
 class Stop;
 
 /**
- * @brief Bus class that follows a route and picks up and unloads passengers
+ * @brief Class that creates a bus that will follow a
+ * route and pick up and unload passengers
  */
 class Bus {
  public:
@@ -62,7 +63,7 @@ class Bus {
   void Report(std::ostream&);
 
  private:
-  std::list<Passenger *> passengers_;
+  std::list<Passenger *> passengers_; // passengers on the bus
   int passenger_max_capacity_;
   std::string name_;
   double speed_;  // could also be called "distance travelled in one time step"
@@ -75,4 +76,4 @@ class Bus {
   // double fuel_;   // may not be necessary for our simulation
   // double max_fuel_;
 };
-#endif  // SRC_BUS_H_
+#endif  // PROJECT_SRC_BUS_H_

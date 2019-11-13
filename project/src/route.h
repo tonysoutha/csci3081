@@ -4,8 +4,8 @@
  * @Copyright 2019 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_ROUTE_H_
-#define SRC_ROUTE_H_
+#ifndef PROJECT_SRC_ROUTE_H_
+#define PROJECT_SRC_ROUTE_H_
 
 #include <list>
 #include <iostream>
@@ -17,6 +17,10 @@
 class PassengerGenerator;
 class Stop;
 
+/**
+* @brief Class that creates routes which are a collection of stops
+* and generates passengers at those stops
+**/
 class Route {
  public:
   /**
@@ -26,7 +30,7 @@ class Route {
   * @param[in] Array of pointers to stops
   * @param[in] Array of distances
   * @param[in] Number of stops in route
-  * @param[in] Passenger Generator used to generate passengers on the route 
+  * @param[in] Passenger Generator used to generate passengers on the route
   *
   * @return route with name, array of stops and distances, number of stops, and a
   * passenger generator
@@ -34,9 +38,9 @@ class Route {
   Route(std::string name, Stop ** stops, double * distances, int num_stops,
         PassengerGenerator *);
   /**
-   * @brief Clones current route to a new one
+   * @brief Creates a clone of the current route
    *
-   * @return New cloned route of current one
+   * @return New route
    */
   Route * Clone();
   void Update();
@@ -56,7 +60,7 @@ class Route {
    */
   double NextDistance();
   /**
-   * @brief Tell us if the current route has been completed 
+   * @brief Tell us if the current route has been completed
    *
    * @return True if route is complete, false otherwise
    */
