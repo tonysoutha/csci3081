@@ -19,6 +19,7 @@ double * distances, int num_stops, PassengerGenerator * passgen) {
 }
 
 void Route::Update() {
+  // calls update on all stops and generates passengers at them
   generator_->GeneratePassengers();
   for (std::list<Stop *>::iterator it = stops_.begin();
   it != stops_.end(); it++) {
@@ -38,14 +39,15 @@ void Route::Report(std::ostream & out) {
 }
 
 Route * Route::Clone() {
-  Stop * stops[num_stops_];  // Create a new array for stops
+  Stop * stops = new Stop *[num_stops_];  // Create a new array for stops
   int i = 0;
   for (std::list<Stop *>::iterator it = stops_.begin();
   it != stops_.end(); it++) {
     stops[i++] = *it;
     // Place the stops in the list back into an array
   }
-  double dist[num_stops_ - 1];  // Create a new array for distances
+  double dist = new double[distances_between_.size()];
+  // Create a new array for distances
   int j = 0;
   for (std::list<double>::iterator it = distances_between_.begin();
   it != distances_between_.end(); it++) {
@@ -53,6 +55,8 @@ Route * Route::Clone() {
   }
   Route * newRoute = new Route (name_, stops, dist, num_stops_, generator_);
   // Create a new cloned route
+  delete[] stops;
+  delete[] dist;
   return newRoute;
 }
 

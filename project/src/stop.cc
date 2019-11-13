@@ -5,18 +5,19 @@
 
 #include "stop.h"
 
-Stop::Stop(int id, double longitude, double latitude) : id_(id), longitude_(longitude), latitude_(latitude) { //Defaults to Westbound Coffman Union stop
+Stop::Stop(int id, double longitude, double latitude) : id_(id), longitude_(longitude), latitude_(latitude) {
+  //Defaults to Westbound Coffman Union stop
   // no initialization of list of passengers necessary
 }
 
-int Stop::AddPassengers(Passenger * pass) { // Add pass to the passenger list for stop
+int Stop::AddPassengers(Passenger * pass) {  // Add pass to the passenger list for stop
   passengers_.push_back(pass);
   return 0;
 }
 
-void Stop::Update() { 
+void Stop::Update() {  // Calls update on all passengers at the stop
   for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
-    (*it)->Update(); // Updates the passengers at the stop
+    (*it)->Update();
   }
 }
 
@@ -32,7 +33,8 @@ void Stop::Report(std::ostream & out) const {
   }
 }
 
-bool Stop::LoadPassengers(Bus * bus) { // Loads passengers at the stop onto the bus
+bool Stop::LoadPassengers(Bus * bus) {
+// Calls the bus LoadPassenger method to load passengers from stop onto bus
   for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
     bus->LoadPassenger(*it);
   }

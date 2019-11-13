@@ -1,12 +1,11 @@
-
 /**
  * @file passenger.h
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */
 
-#ifndef PASSENGER_H_
-#define PASSENGER_H_
+#ifndef PROJECT_SRC_PASSENGER_H_
+#define PROJECT_SRS_PASSENGER_H_
 
 #include <iostream>
 #include <string>
@@ -54,4 +53,4 @@ class Passenger {  // : public Reporter {
   int id_;
   static int count_;   // global count, used to set ID for new instances
 };
-#endif  // PASSENGER_H_
+#endif  // PROJECT_SRC_PASSENGER_H_
