@@ -49,6 +49,9 @@ class Stop {
    * @return true if successful, false otherwise
    */
   bool LoadPassengers(Bus * bus);
+  double GetLongitude();
+  double GetLatitude();
+  int GetPassengersPresent();
 
  private:
   int id_;
@@ -57,6 +60,6 @@ class Stop {
   double latitude_;  // are we using long/lat coords?
   // derived information - not needed depending on passengers_
   // data structure implementation?
-  // int passengers_present_;
+  int passengers_present_;
 };
 #endif  // PROJECT_SRC_STOP_H_

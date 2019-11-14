@@ -13,6 +13,7 @@
 #include "src/passenger.h"
 #include "src/route.h"
 #include "src/stop.h"
+#include "data_structs.h"
 
 class PassengerUnloader;
 class PassengerLoader;
@@ -61,6 +62,12 @@ class Bus {
    * @param[in] ostream where the information will be outputted
    */
   void Report(std::ostream&);
+  void UpdateBusData();
+  BusData GetBusData();
+  std::string GetName() const;
+  Stop * GetNextStop();
+  size_t GetNumPassengers();
+  int GetCapacity();
 
  private:
   std::list<Passenger *> passengers_; // passengers on the bus
@@ -71,6 +78,9 @@ class Bus {
   Route * incoming_route_;
   double distance_remaining_;  // when negative?, unload/load procedure occurs
                               // AND next stop set
+  struct BusData bus_data_;
+  int num_passengers_;
+  struct Position bus_position_;
   // double revenue_; // revenue collected from passengers, doesn't include
                       // passengers who pay on deboard
   // double fuel_;   // may not be necessary for our simulation
