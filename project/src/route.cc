@@ -39,14 +39,14 @@ void Route::Report(std::ostream & out) {
 }
 
 Route * Route::Clone() {
-  Stop * stops = new Stop *[num_stops_];  // Create a new array for stops
+  Stop ** stops = new Stop *[num_stops_];  // Create a new array for stops
   int i = 0;
   for (std::list<Stop *>::iterator it = stops_.begin();
   it != stops_.end(); it++) {
     stops[i++] = *it;
     // Place the stops in the list back into an array
   }
-  double dist = new double[distances_between_.size()];
+  double * dist = new double[distances_between_.size()];
   // Create a new array for distances
   int j = 0;
   for (std::list<double>::iterator it = distances_between_.begin();
@@ -81,6 +81,9 @@ void Route::NextStop() {
       // Set the destination stop to the next stop in the list
     }
   }
+//  std::list<Stop *>::iterator it = stops_.begin();
+//  std::advance(it, destination_stop_index_);
+//  destination_stop_ = *it;
 }
 
 double Route::NextDistance() {
@@ -97,4 +100,39 @@ bool Route::IsRouteComplete() {
 
 void Route::SetRouteComplete() {
   route_complete = true;
+}
+
+Stop * Route::GetPreviousStop() {
+  std::list<Stop *>::iterator it = stops_.begin();
+  std::advance(it, destination_stop_index_-1);
+  return *it;
+}
+
+std::string Route::GetName() {
+  return name_;
+}
+
+std::list<Stop *> Route::GetStops() {
+  return stops_;
+}
+
+void Route::UpdateRouteData() {
+  route_data_.id = GetName();
+  std::vector<StopData> stop_data_vector_;
+  for (std::list<Stop *>::const_iterator it = stops_.begin();
+  it != stops_.end(); it++) {
+    struct StopData temp_stop_;
+    temp_stop_.id = (*it)->GetId();
+    struct Position stop_pos_;
+    stop_pos_.x = (*it)->GetLatitude();
+    stop_pos_.y = (*it)->GetLongitude();
+    temp_stop_.pos = stop_pos_;
+    temp_stop_.numPeople = (*it)->GetPassengersPresent();
+    stop_data_vector_.push_back(temp_stop_);
+  }
+  route_data_.stops = stop_data_vector_;
+}
+
+RouteData Route::GetRouteData() {
+  return route_data_;
 }

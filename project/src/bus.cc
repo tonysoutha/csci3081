@@ -10,14 +10,15 @@ Route * in, int capacity, double speed) {
   passenger_max_capacity_ = capacity;
   speed_ = speed;
   distance_remaining_ = 0;
+  num_passengers_ = 0;
 }
-
 
 bool Bus::LoadPassenger(Passenger * new_passenger) {
   if (passenger_max_capacity_ > 0) {
     passenger_max_capacity_--;
     passengers_.push_back(new_passenger);
     new_passenger->GetOnBus();
+    num_passengers_++;
     return true;
   } else {
     return false;
@@ -99,4 +100,46 @@ void Bus::Report(std::ostream & out) {
   it != passengers_.end(); it++) {
     (*it)->Report(out);
   }
+}
+
+std::string Bus::GetName() const {
+  return name_;
+}
+
+Stop * Bus::GetNextStop() {
+  if (outgoing_route_->IsRouteComplete()) {
+    return outgoing_route_->GetDestinationStop();
+  }
+  return incoming_route_->GetDestinationStop();
+}
+
+size_t Bus::GetNumPassengers() {
+  return num_passengers_;
+}
+
+int Bus::GetCapacity() {
+  return passenger_max_capacity_;
+}
+
+void Bus::UpdateBusData() {
+  bus_data_.id = GetName();
+  Stop * previous;
+  Stop * next;
+  if (outgoing_route_->IsRouteComplete()) {
+    previous = incoming_route_->GetPreviousStop();
+    next = incoming_route_->GetDestinationStop();
+  } else {
+    previous = outgoing_route_->GetPreviousStop();
+    next = outgoing_route_->GetDestinationStop();
+  }
+  bus_position_.x = ((previous->GetLatitude() + next->GetLatitude()) / 2);
+  bus_position_.y = ((previous->GetLongitude() + next->GetLongitude()) / 2);
+  bus_data_.pos = bus_position_;
+  bus_data_.numPassengers = GetNumPassengers();
+  bus_data_.capacity = GetCapacity();
+  return;
+}
+
+BusData Bus::GetBusData() {
+  return bus_data_;
 }

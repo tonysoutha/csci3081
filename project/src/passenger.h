@@ -5,7 +5,7 @@
  */
 
 #ifndef PROJECT_SRC_PASSENGER_H_
-#define PROJECT_SRS_PASSENGER_H_
+#define PROJECT_SRC_PASSENGER_H_
 
 #include <iostream>
 #include <string>
