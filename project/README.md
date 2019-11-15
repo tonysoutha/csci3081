@@ -19,6 +19,8 @@
 ###### <port_number> can be anything. Try and pick above 8000 and not multiples of 10.  
 Navigate to base project directory(project/)  
 make (make vis_sim, though you may have to cd into src/ for that) and start server (./build/bin/transit_sim <port_number>)  
+#### You must run by doing './build/bin/<target> <port_number>'  
+#### You cannot cd to bin/ and do './<target> <port_number>'  
 Navigate to the following address on your VOLE browser (Firefox/Chrome):
 ```
 http://127.0.0.1:<port_number>/web_graphics/project.html
@@ -31,7 +33,7 @@ http://127.0.0.1:<port_number>/web_graphics/project.html
 ssh -L <port number>:127.0.0.1:<port_number> <x500>@<cse_labs_computer>.cselabs.umn.edu
 ```
 Navigate to base project directory(project/)  
-make and start server (./build/bin/transit_sim <port_number>)  
+make (make vis_sim, though you may have to cd into src/ for that) and start server (./build/bin/transit_sim <port_number>)  
 #### You must run by doing './build/bin/<target> <port_number>'  
 #### You cannot cd to bin/ and do './<target> <port_number>'  
 Navigate to the following address on your LOCAL (Your personal machine) browser (Firefox/Chrome):
