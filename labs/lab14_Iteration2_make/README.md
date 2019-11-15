@@ -57,6 +57,7 @@ Optionally, once you have your makefile working, if you would like to cut down o
 
 Happy Programming!!! :computer:
 
+![example vis_sim webpage](vis_sim-example-webpage.png)
 
 #### Common Problems / Additional notes
 - the `web_interface` include issue will be fixed at the end of the lab (given you have completed the lab correctly)
