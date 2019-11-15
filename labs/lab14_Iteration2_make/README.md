@@ -15,8 +15,12 @@ yesterday (Thursday, 11/14)).
 First, incorporate the newest and latest versions of the project files by pulling from the class
 shared-upstream repository and merging your changes into your 'devel' branch.
 Then, navigate to the **project/src directory**.  
-Before beginning the lab, you should save a backup copy of the newest version makefile we gave you.
-(for example, copy the makefile into a file named makefile.bak)
+
+Before beginning the lab, save a backup copy of your current src makefile (for example, copy the makefile into a file named makefile.bak).
+Replace your old src makefile with the makefile provided in this lab. The lab will guide you on
+what changes need to be made regarding the visual simulation. In addition to the changes made during
+this lab, you should take any existing modifications to the makefile you made for Preliminary 1 (or otherwise)
+and incorporate them back into this new makefile.
 
 The visualization simulation relies on files in another directory that consist of C++ header and source code files that handle the web communication for the visualization. The configuration simulation will only require the files that can be found in the shared_upstream branch.
 
