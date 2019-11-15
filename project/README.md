@@ -26,6 +26,8 @@ $ make <sim target>
 $ cd ..
 $./build/bin/<sim executable> <port_number>
 ```
+#### You must run by doing `./build/bin/<sim executable> <port_number>`.
+#### You _cannot_ cd to bin/ and run `./<sim executable> <port_number>`
 3. Navigate to the following address on your VOLE browser (Firefox/Chrome):
 ```
 http://127.0.0.1:<port_number>/web_graphics/project.html
