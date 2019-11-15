@@ -34,7 +34,7 @@ When you reach the comment mentioning the need for include directives which are 
 -isystem$(CS3081DIR)/external/include/websockets  
 ```
 
-onto the end of the line. These need to be pasted either all on one line, one after another, or on separate lines with backslashes (`\`) to indicate that this is a multiline value. (See [this linke](https://www.gnu.org/software/make/manual/html_node/Splitting-Lines.html#Splitting-Lines) for more on Splitting Long Lines and see [this link](https://www.gnu.org/software/make/manual/html_node/Splitting-Recipe-Lines.html) for more on Splitting Recipe Lines.)
+onto the end of the line. These need to be pasted either all on one line, one after another, or on separate lines with backslashes (`\`) to indicate that this is a multiline value. (See [this link](https://www.gnu.org/software/make/manual/html_node/Splitting-Lines.html#Splitting-Lines) for more on Splitting Long Lines and see [this link](https://www.gnu.org/software/make/manual/html_node/Splitting-Recipe-Lines.html) for more on Splitting Recipe Lines.)
 
 **Don't stop at that point however**, keep going and making the changes specfied in the comments until you hit the end of the file. 
 
@@ -65,3 +65,9 @@ Happy Programming!!! :computer:
 - the `vis_sim` target needs to have _both_ the object files from your src code _and_ the object files from the web code
   - this should be reflected both in the list of `vis_sim` dependencies _and_ in the actual linking command itself
 - if you are getting "multiple definitions" errors, remove the `$<` from the command --unlike `_test`, the `vis_sim` command should _not_ include the `$<`
+- if you are getting `404 page not found` errors, despite having built the `vis_sim` executable, please refer back to the `project/README.md` and **carefully follow the steps to run the executable and view the webpage**. If your terminal has the following output, then the server has successfully started and _you should be able to view the webpage as shown above._
+```
+Usage: ./build/bin/ExampleServer <port number>
+Using default config file: config.txt
+starting server...
+```
