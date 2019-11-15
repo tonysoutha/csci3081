@@ -32,6 +32,8 @@ ssh -L <port number>:127.0.0.1:<port_number> <x500>@<cse_labs_computer>.cselabs.
 ```
 Navigate to base project directory(project/)  
 make and start server (./build/bin/transit_sim <port_number>)  
+#### You must run by doing './build/bin/<target> <port_number>'  
+#### You cannot cd to bin/ and do './<target> <port_number>'  
 Navigate to the following address on your LOCAL (Your personal machine) browser (Firefox/Chrome):
 ```
 http://127.0.0.1:<port_number>/web_graphics/project.html
