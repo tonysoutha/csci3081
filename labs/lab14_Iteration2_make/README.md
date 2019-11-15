@@ -14,7 +14,7 @@ yesterday (Thursday, 11/14)).
 
 First, incorporate the newest and latest versions of the project files by pulling from the class
 shared-upstream repository and merging your changes into your 'devel' branch.
-Then, navigate to the **project/src directory**.
+Then, navigate to the **project/src directory**.  
 Before beginning the lab, you should save a backup copy of the newest version makefile we gave you.
 (for example, copy the makefile into a file named makefile.bak)
 
@@ -32,11 +32,11 @@ create a variable or variables OR add/modify a directive already present in the 
 
 When you reach the comment mentioning the need for include directives which are necessary to create the executable for the visual simulation, cut and paste the following include directives:
 
--I$(CS3081DIR)/web 
--Isystem$(CS3081DIR)/external/include 
--Isystem$(CS3081DIR)/external/include/cppwebserver 
--Isystem$(CS3081DIR)/external/include/gtest 
--Isystem$(CS3081DIR)/external/include/websockets
+-I$(CS3081DIR)/web  
+-Isystem$(CS3081DIR)/external/include  
+-Isystem$(CS3081DIR)/external/include/cppwebserver  
+-Isystem$(CS3081DIR)/external/include/gtest  
+-Isystem$(CS3081DIR)/external/include/websockets  
 
 onto the end of the line (preferably, all on the same line)
 
@@ -53,11 +53,11 @@ You should then run it - the instructions for doing so are  in the project/READM
 
 Final, once you have your makefile working,
 If you would like to cut down on the amount of output the makefile produces when it runs, 
-you can add an '@' in front of each line similar to the lines below in the makefile:
-@echo "=======...
-@$(call make...)
-@(echo "======...
-@$(CXX)$(OMP)...
+you can add an '@' in front of each line similar to the lines below in the makefile:  
+@echo "=======...  
+@$(call make...)  
+@(echo "======...  
+@$(CXX)$(OMP)...  
 
 Happy Programming!!!
 
