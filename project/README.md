@@ -13,9 +13,9 @@
 
 ### Running the Simulator:
 
-#### Step by step for vole users
+#### Step by step for CSE Labs or vole users
 
-**Vole/Vole3D:**
+**CSE Labs machines or Vole/Vole3D:**
 **<port_number> can be anything. Try and pick numbers above 8000 and not multiples of 10.**
 
 1. Navigate to base project directory(project/)  
