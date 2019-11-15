@@ -33,10 +33,10 @@ create a variable or variables OR add/modify a directive already present in the 
 When you reach the comment mentioning the need for include directives which are necessary to create the executable for the visual simulation, cut and paste the following include directives:
 
 -I$(CS3081DIR)/web  
--Isystem$(CS3081DIR)/external/include  
--Isystem$(CS3081DIR)/external/include/cppwebserver  
--Isystem$(CS3081DIR)/external/include/gtest  
--Isystem$(CS3081DIR)/external/include/websockets  
+-isystem$(CS3081DIR)/external/include  
+-isystem$(CS3081DIR)/external/include/cppwebserver  
+-isystem$(CS3081DIR)/external/include/gtest  
+-isystem$(CS3081DIR)/external/include/websockets  
 
 onto the end of the line (preferably, all on the same line)
 
