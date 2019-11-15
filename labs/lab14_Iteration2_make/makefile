@@ -205,7 +205,8 @@ $(EXEFILE): $(addprefix $(OBJDIR)/, $(OBJFILES)) $(DRIVEROBJDIR)/$(PROJECT_NAME)
 # Below you'll need to add a target/dependency and rule to make the visual simulation 
 # create the executable similar to the one BELOW, but using the variables that 
 # you defined pointing to the  components of the visual simulation (WEBOBJDIR, 
-# WEBOBJFILES) that you defined earlier, for example:
+# WEBOBJFILES) that you defined earlier. The vis_sim target will also need the OBJDIR and OBJFILES.
+# For example:
 #vis_sim: ...
 
 %_test: $(DRIVEROBJDIR)/%_driver.o $(addprefix $(OBJDIR)/, $(OBJFILES)) | $(BINDIR)
