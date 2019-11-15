@@ -32,11 +32,13 @@ create a variable or variables OR add/modify a directive already present in the 
 
 When you reach the comment mentioning the need for include directives which are necessary to create the executable for the visual simulation, cut and paste the following include directives:
 
+```
 -I$(CS3081DIR)/web  
 -isystem$(CS3081DIR)/external/include  
 -isystem$(CS3081DIR)/external/include/cppwebserver  
 -isystem$(CS3081DIR)/external/include/gtest  
 -isystem$(CS3081DIR)/external/include/websockets  
+```
 
 onto the end of the line (preferably, all on the same line)
 
@@ -54,10 +56,13 @@ You should then run it - the instructions for doing so are  in the project/READM
 Final, once you have your makefile working,
 If you would like to cut down on the amount of output the makefile produces when it runs, 
 you can add an '@' in front of each line similar to the lines below in the makefile:  
+
+```
 @echo "=======...  
 @$(call make...)  
 @(echo "======...  
 @$(CXX)$(OMP)...  
+```
 
 Happy Programming!!!
 
