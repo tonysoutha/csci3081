@@ -55,7 +55,7 @@ EXEFILE = $(BINDIR)/$(PROJECT_NAME)
 SRCFILES = $(wildcard $(SRCDIR)/*.cc)
 # Below, you need to add a variable named WEBSRCFILES which will be similar to 
 # the SRCFILES but point to the directory that contains the source code files
-# (.h, .cc, and .ccp files) for the web server
+# (.cc, and .ccp files) for the web server
 
 # For each of the source files found above, replace .cpp (or .cc) with
 # .o in order to generate the list of .o files make should create.
