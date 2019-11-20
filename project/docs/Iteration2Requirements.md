@@ -1,6 +1,10 @@
 # ConfigSim and VisualizerSim: a Proof-of-Concept Transit System Vizualizer/Simulator
 
-## Iteration 2 - VERSION 1, November 7
+## Iteration 2 - VERSION 5, November 11 (updated bus position requirements in program functionality)
+### VERSION 4, November 11 (clarified that following Lab 10 branching model is required)
+### VERSION 3, November 11 (clarified necessity for project to build from _master_ branch and Google Style scope)
+### VERSION 2, November 8 (clarified FileOutputSimulator make and execute commands)
+### VERSION 1, November 7
 - NOTE, THIS DOCUMENT IS SUBJECT TO CHANGE. CHECK IT EVERY DAY OR TWO
 
 <hr>
@@ -17,7 +21,7 @@ As you've now seen in class, we're now moving on to incorporate some more practi
 
 | <span id="a1">Date</a> | Item | Description |
 |:----:|:-----|:------------|
-| WED, Nov 13, 11:55pm | [Domain Structs and File Output Simulator](#pre1) | submit via Github to 'devel' |
+| WED, Nov 13, 11:55pm | [Domain Structs and File Output Simulator](#pre1) | submit via Github |
 | WED, Nov 20, 11:55pm | [Configuration Builds from Makefile](#pre2) | Pass automated tests |
 | WED, Nov 27, 11:55pm<sup>[1](#f1)</sup> | [Code Implementation and Testing](#final) | Automated tests and inspection |
 
@@ -49,7 +53,7 @@ Below we specify the  three sets of  functionality you are to design and deliver
 
 #### <span id="pre1">Preliminary 1: Domain Structures (Structs) and File Output Simulator</span>
 
-In order to better understand how the make process and Simulator code works, the first task asks students to make a new version of the TransitSim. The new version works almost identically to the original, but makes use of a file to capture the output, rather than using standard out (i.e., std::cout). Create this new driver and any other necessary code. Then, incorporate it into the makefile by adding a new set of targets so that a command can be issued to run the simulation and place all output into a file specified on the command line (e.g., 'make capture_transit_sim run13.txt' or something similar).
+In order to better understand how the make process and Simulator code works, the first task asks students to make a new version of the TransitSim. The new version works almost identically to the original, but makes use of a file to capture the output, rather than using standard out (i.e., std::cout). Create this new driver and any other necessary code. Then, incorporate it into the makefile by adding a new set of targets so that a command can be issued to run the simulation and place all output into a file specified on the command line (e.g., 'make capture_transit_sim' followed by '../build/bin/capture_transit_sim run13.txt' or something similar).
 
 Next, you need to extend your domain objects so that they can be used by the visualizer. The visualizer code is much like any other simulation. But, in order for it to work, the VisualizerSimulator (which will be provided to you) needs to be able to retrieve structs from the domain objects (for example busses, routes, and stops) that you've built. So, you will need to add an accessor that returns a C++ struct from your domain objects (specifically, Bus and Route) which meet the needs of the visualizer. Definition and examples of the structs that need to be generated and returned will be provided in lab on November 8.
 
@@ -93,7 +97,7 @@ Regression tests:
 
 ## Assessment
 
-Your software **must compile on a cselabs machine or it will not be graded, and you will recieve a zero for your submission**. We will not grade your project unless it compiles. As long as you provide a version that compiles, we will evaluate those aspects that are partially functional for partial credit. In other words, <u>comment code out if it breaks compilation</u>.
+Your software **must compile on a cselabs machine or it will not be graded, and you will receive a zero for your submission**. Your software **must compile on the _master_ branch or it will not be graded, and you will receive a zero for your submission**. We will not grade your project unless it compiles. As long as you provide a version that compiles, we will evaluate those aspects that are partially functional for partial credit. In other words, <u>comment code out if it breaks compilation</u>.
 
 Your software will be assessed through automatic testing and by the TAs. If possible, we'll provide as much automated feedback as we can prior to the deadline. At the deadline, all submissions will be downloaded and the automated testing will no longer be available. Through both automated testing and the TAs, the process for testing will be to `make clean` then `make`. We **highly encourage** you to create a new folder on a **cselabs machine**, clone your repo on a **cselabs machine** in that folder, then run  `make clean` and `make` in your newly cloned repo, followed by a run of your tests to confirm all is working well before submitting your tests and code.
 
@@ -113,12 +117,14 @@ You can use this high-level grading rubric to better understand how we will grad
 50% - Program Functionality and Robustness (Typically graded by running the code, either using scripts or interactively)
 * Both program versions (configuration and visualization) build without error by running "make" in the root directory of the project, and the two programs run on the CSE Lab machines.
 * The code links with the visualizer code to produce working visualizations of a running simluation.
+* A Bus's position does not matter EXCEPT when a bus is at a stop. If a bus is dropping off/picking up, its position must show it is at the stop.
 * The configuration functionality is functional, allowing the use of a variety of configuration files.
 * Both unit tests and regression tests are implemented.
 * Tests cover valid/invalid command line options.
 * Tests cover different numbers of options specified on the command line.
 * Tests cover all domain objects (Bus, Route, Stop, Passenger) including their interactions with other objects.
-* The project follows Google Style as demonstrated by passing the cpplint.py checks.
+* The project follows Google Style as demonstrated by passing the cpplint.py checks. ALL code in within project/src will be processed.
+* The project follows the branching model recommended in Lab 10, including use of branches and issues
 
 ##Important notes to remember
 
