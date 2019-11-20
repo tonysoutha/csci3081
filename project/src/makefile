@@ -12,6 +12,10 @@ PROJECT_NAME = transit_sim
 # Path to root of repo
 REPOROOTDIR = $(shell git rev-parse --show-toplevel)
 
+# Path to web and library code
+CS3081DIR = /classes/grades/Fall-2019/csci3081/project
+# driver file for visualization_simulator is ‘main.cpp’ in the web directory of above --> Take a look
+
 ### Section I: Definitions ###
 
 # Root of the source tree for the project (e.g., could be just . or ./src)
@@ -24,7 +28,10 @@ BUILDDIR = $(PROJ_DIR)/build
 BINDIR = $(BUILDDIR)/bin
 OBJDIR = $(BUILDDIR)/obj/$(PROJECT_NAME)
 DRIVEROBJDIR = $(BUILDDIR)/objdrivers
-LIBDIR = $(BUILDDIR)/lib
+
+LIBS = -lCppWebServer -lwebsockets -lcrypto -lssl -lz
+LIBDIR = -L$(CS3081DIR)/external/lib
+
 EXTERNAL_DIR = $(PROJ_DIR)/src/external
 #MINGFX_DIR = $(EXTERNAL_DIR)/MinGfx/build/install  #not using in F19
 
@@ -44,8 +51,7 @@ OBJFILES = $(notdir $(patsubst %.cc,%.o,$(SRCFILES)))
 INCLUDEDIRS = -I.. -I$(SRCDIR) -I$(SRCDIR)/.. -I$(DRIVERDIR)
 
 # The command to run for the C++ compiler and linker
-#CXX = /soft/gcc/7.1.0/Linux_x86_64/bin/g++
-CXX = g++
+CXX = /soft/gcc/7.1.0/Linux_x86_64/bin/g++
 OMP = -fopenmp
 
 # Arguments to pass to the C++ compiler.
