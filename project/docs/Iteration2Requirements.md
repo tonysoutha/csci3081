@@ -1,6 +1,7 @@
 # ConfigSim and VisualizerSim: a Proof-of-Concept Transit System Vizualizer/Simulator
 
-## Iteration 2 - VERSION 5, November 11 (updated bus position requirements in program functionality)
+## Iteration 2 - VERSION 6, November 20 (clarified that 'make all' in tests should BUILD test executable, not run all tests)
+### VERSION 5, November 11 (updated bus position requirements in program functionality)
 ### VERSION 4, November 11 (clarified that following Lab 10 branching model is required)
 ### VERSION 3, November 11 (clarified necessity for project to build from _master_ branch and Google Style scope)
 ### VERSION 2, November 8 (clarified FileOutputSimulator make and execute commands)
@@ -79,7 +80,7 @@ In iteration 1, you wrote a couple of very simple tests.  This wasn’t enough t
 
 Overall structure:
 * Implement your tests using Google Test and by adding files to the tests directory, as we have been practicing so far.
-* Running “make all” inside the tests directory should run all the tests.
+* Running “make all” inside the tests directory should build all the tests.
 
 Unit tests:
 * Write a series of unit tests to thoroughly test your command line parsing.
