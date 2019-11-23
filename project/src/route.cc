@@ -16,6 +16,7 @@ double * distances, int num_stops, PassengerGenerator * passgen) {
   generator_ = passgen;
   destination_stop_ = stops_.front();
   route_complete = false;
+  UpdateRouteData();
 }
 
 void Route::Update() {
@@ -25,6 +26,7 @@ void Route::Update() {
   it != stops_.end(); it++) {
     (*it)->Update();
   }
+  UpdateRouteData();
 }
 
 void Route::Report(std::ostream & out) {
@@ -104,6 +106,9 @@ void Route::SetRouteComplete() {
 
 Stop * Route::GetPreviousStop() {
   std::list<Stop *>::iterator it = stops_.begin();
+  if (destination_stop_index_ == 0) {
+    std::advance(it, destination_stop_index_);
+  }
   std::advance(it, destination_stop_index_-1);
   return *it;
 }
@@ -122,17 +127,17 @@ void Route::UpdateRouteData() {
   for (std::list<Stop *>::const_iterator it = stops_.begin();
   it != stops_.end(); it++) {
     struct StopData temp_stop_;
-    temp_stop_.id = (*it)->GetId();
+    temp_stop_.id = std::to_string(((*it)->GetId()));
     struct Position stop_pos_;
-    stop_pos_.x = (*it)->GetLatitude();
-    stop_pos_.y = (*it)->GetLongitude();
-    temp_stop_.pos = stop_pos_;
-    temp_stop_.numPeople = (*it)->GetPassengersPresent();
+    stop_pos_.y = (*it)->GetLatitude();
+    stop_pos_.x = (*it)->GetLongitude();
+    temp_stop_.position = stop_pos_;
+    temp_stop_.num_people = (*it)->GetPassengersPresent();
     stop_data_vector_.push_back(temp_stop_);
   }
   route_data_.stops = stop_data_vector_;
 }
 
-RouteData Route::GetRouteData() {
+struct RouteData Route::GetRouteData() {
   return route_data_;
 }

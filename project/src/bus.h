@@ -63,11 +63,12 @@ class Bus {
    */
   void Report(std::ostream&);
   void UpdateBusData();
-  BusData GetBusData();
+  struct BusData GetBusData();
   std::string GetName() const;
-  Stop * GetNextStop();
+  // Stop * GetNextStop();
   size_t GetNumPassengers();
   int GetCapacity();
+  bool IsTripComplete();
 
  private:
   std::list<Passenger *> passengers_; // passengers on the bus
@@ -80,7 +81,6 @@ class Bus {
                               // AND next stop set
   struct BusData bus_data_;
   int num_passengers_;
-  struct Position bus_position_;
   // double revenue_; // revenue collected from passengers, doesn't include
                       // passengers who pay on deboard
   // double fuel_;   // may not be necessary for our simulation
