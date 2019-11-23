@@ -16,6 +16,17 @@ int main(int argc, char**argv) {
   std::cout << std::endl;
 
   // Check command line params for config file name
+  // if (argc == 0) {
+    // use default
+  // }
+  int time = 10;
+  ConfigManager cm;
+  cm.ReadConfig(argv[1]);
+  ConfigurationSimulator cs(cm);
+  cs.Start();
+  for (int i = 0; i < time; i++) {
+    cs.Update();
+  }
 
   // if filename arg present
   //   Create ConfigManager
@@ -24,7 +35,7 @@ int main(int argc, char**argv) {
   //   Call Start on ConfigurationSimulator
   //   Start for loop, length of simulation (where from?)
   //     Call Update on ConfigurationSimulator
-  // else 
+  // else
   //   echo info to the user about needing a config file name
 
   return 0;
