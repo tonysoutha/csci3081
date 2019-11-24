@@ -110,7 +110,7 @@ LDLIBS = $(LIBS)
 # The default target which will be run if the user just types "make"
 # Below, you'll need change the line to the make the "target" for the
 # visual simulation
-all: vis_sim config_sim
+all: vis_sim # config_sim
 
 # This rule says that each .o file in $(OBJDIR)/ depends on the
 # presence of the $(OBJDIR)/ directory.

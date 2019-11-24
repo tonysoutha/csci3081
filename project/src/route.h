@@ -77,6 +77,7 @@ class Route {
   std::list<Stop *> GetStops();
   void UpdateRouteData();
   struct RouteData GetRouteData();
+  int GetDestinationStopIndex();
  private:
   int GenerateNewPassengers();       // generates passengers on its route
   PassengerGenerator * generator_;

@@ -121,6 +121,10 @@ std::list<Stop *> Route::GetStops() {
   return stops_;
 }
 
+int Route::GetDestinationStopIndex() {
+  return destination_stop_index_;
+}
+
 void Route::UpdateRouteData() {
   route_data_.id = GetName();
   std::vector<StopData> stop_data_vector_;

@@ -123,20 +123,56 @@ int Bus::GetCapacity() {
   return passenger_max_capacity_;
 }
 
+// Position Bus::GetPosition() const {
+//   Position pos = Position();
+//   Route * cur_route;
+// }
 void Bus::UpdateBusData() {
   bus_data_.id = GetName();
-  Stop * previous;
-  Stop * next;
+  // Stop * previous;
+  // Stop * next;
+  // if (outgoing_route_->IsRouteComplete()) {
+  //   if (outgoing_route_->GetDestinationStopIndex() == 0) {  // Set previous and next to the same stop if there is no previous
+  //     previous = incoming_route_->GetDestinationStop();
+  //     next = incoming_route_->GetDestinationStop();
+  //   } else {
+  //     previous = incoming_route_->GetPreviousStop();
+  //     next = incoming_route_->GetDestinationStop();
+  //   }
+  // } else {
+  //   if (incoming_route_->GetDestinationStopIndex() == 0) {  // Set previous and next to the same stop if there is no previous
+  //     previous = outgoing_route_->GetDestinationStop();
+  //     next = outgoing_route_->GetDestinationStop();
+  //   } else {
+  //     previous = outgoing_route_->GetPreviousStop();
+  //     next = outgoing_route_->GetDestinationStop();
+  //   }
+  // }
+  Route * cur_route;
   if (outgoing_route_->IsRouteComplete()) {
-    previous = incoming_route_->GetPreviousStop();
-    next = incoming_route_->GetDestinationStop();
+    cur_route = incoming_route_;
   } else {
-    previous = outgoing_route_->GetPreviousStop();
-    next = outgoing_route_->GetDestinationStop();
+    cur_route = outgoing_route_;
   }
+
   struct Position bus_position_;
-  bus_position_.y = ((previous->GetLatitude() + next->GetLatitude()) / 2);
-  bus_position_.x = ((previous->GetLongitude() + next->GetLongitude()) / 2);
+
+  if (distance_remaining_ <= 0) {
+    bus_position_.x = cur_route->GetDestinationStop()->GetLongitude();
+    bus_position_.y = cur_route->GetDestinationStop()->GetLatitude();
+  } else {
+    Stop * prev = cur_route->GetPreviousStop();
+    Stop * next = cur_route->GetDestinationStop();
+
+    bus_position_.x = (prev->GetLongitude()+next->GetLongitude())/2;
+    bus_position_.y = (prev->GetLatitude()+next->GetLatitude())/2;
+  }
+  // if (distance_remaining_ <= 0) {
+  //   bus_position_.y = ((previous->GetLatitude() + next->GetLatitude()) / 2);
+  //   bus_position_.x = ((previous->GetLongitude() + next->GetLongitude()) / 2);
+  // }
+  // bus_position_.y = ((previous->GetLatitude() + next->GetLatitude()) / 2);
+  // bus_position_.x = ((previous->GetLongitude() + next->GetLongitude()) / 2);
   bus_data_.position = bus_position_;
   bus_data_.num_passengers = GetNumPassengers();
   bus_data_.capacity = GetCapacity();
