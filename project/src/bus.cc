@@ -38,13 +38,14 @@ bool Bus::Move() {
 // }
 
 void Bus::Update() {  // using common Update format
+  Move();
   for (std::list<Passenger *>::iterator it = passengers_.begin();
   it != passengers_.end(); it++) {  // Update passengers
     (*it)->Update();
   }
   if ((outgoing_route_->IsRouteComplete()) == false) {
   // Check whether to use outgoing or incoming route
-    if (distance_remaining_ < 0) {  // Check if at stop
+    if (distance_remaining_ <= 0) {  // Check if at stop
       if ((outgoing_route_->IsAtEnd()) == true) {  // We are at the last stop
         outgoing_route_->SetRouteComplete();
         // Complete outgoing route so we can begin incoming route next update
@@ -69,7 +70,7 @@ void Bus::Update() {  // using common Update format
       }
     }
   } else {  // Use incoming route instead
-    if (distance_remaining_ < 0) {
+    if (distance_remaining_ <= 0) {
       if ((incoming_route_->IsAtEnd()) == true) {
         incoming_route_->SetRouteComplete();
         while (passengers_.size() > 0) {
@@ -89,7 +90,6 @@ void Bus::Update() {  // using common Update format
       }
     }
   }
-  Move();
   UpdateBusData();
 }
 
