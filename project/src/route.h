@@ -78,6 +78,7 @@ class Route {
   void UpdateRouteData();
   struct RouteData GetRouteData();
   int GetDestinationStopIndex();
+  void UpdateDestinationStopIndex();
  private:
   int GenerateNewPassengers();       // generates passengers on its route
   PassengerGenerator * generator_;

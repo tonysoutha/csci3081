@@ -73,8 +73,11 @@ bool Route::IsAtEnd() const {
   return false;
 }
 
-void Route::NextStop() {
+void Route::UpdateDestinationStopIndex() {
   destination_stop_index_++;
+}
+
+void Route::NextStop() {
   for (std::list<Stop *>::const_iterator it = stops_.begin();
   it != stops_.end(); it++) {
     if ((*it) == destination_stop_) {
