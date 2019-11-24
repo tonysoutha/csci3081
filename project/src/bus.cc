@@ -9,7 +9,7 @@ Route * in, int capacity, double speed) {
   incoming_route_ = in;
   passenger_max_capacity_ = capacity;
   speed_ = speed;
-  distance_remaining_ = 0;
+  distance_remaining_ = outgoing_route_->NextDistance();
   num_passengers_ = 0;
   UpdateBusData();
 }
@@ -38,61 +38,41 @@ bool Bus::Move() {
 // }
 
 void Bus::Update() {  // using common Update format
+  UpdateBusData();
   Move();
   for (std::list<Passenger *>::iterator it = passengers_.begin();
   it != passengers_.end(); it++) {  // Update passengers
     (*it)->Update();
   }
-  if ((outgoing_route_->IsRouteComplete()) == false) {
-  // Check whether to use outgoing or incoming route
-    if (distance_remaining_ <= 0) {  // Check if at stop
-      outgoing_route_->UpdateDestinationStopIndex();
-      if ((outgoing_route_->IsAtEnd()) == true) {  // We are at the last stop
-        outgoing_route_->SetRouteComplete();
-        // Complete outgoing route so we can begin incoming route next update
-        while (passengers_.size() > 0) {
-          passengers_.pop_front();  // Unload all passengers still on bus
-        }
-      } else {
-        for (std::list<Passenger *>::iterator it = passengers_.begin();
-          it != passengers_.end(); it++) {
-          if ((*it)->GetDestination() ==
-          (outgoing_route_->GetDestinationStop())->GetId()) {
-          // Check if passengers need to be unloaded
-            passengers_.erase(it);
-          }
-        }
-      (outgoing_route_->GetDestinationStop())->LoadPassengers(this);
-      // Load passengers from stop onto bus
-      outgoing_route_->NextStop();
-      // Set next destination stop
-      distance_remaining_ = outgoing_route_->NextDistance();
-      // Set next distance in between the next stops
+
+  Route * current_route;
+  if (outgoing_route_->IsRouteComplete()) { // check which route to use
+    current_route = incoming_route_;
+  } else {
+    current_route = outgoing_route_;
+  }
+
+  if (distance_remaining_ <= 0) {
+    current_route->UpdateDestinationStopIndex();
+    if (current_route->IsAtEnd()) {
+      current_route->SetRouteComplete();
+      while (passengers_.size() > 0) {
+        passengers_.pop_front();  // Unload all passengers still on bus
       }
-    }
-  } else {  // Use incoming route instead
-    if (distance_remaining_ <= 0) {
-      incoming_route_->UpdateDestinationStopIndex();
-      if ((incoming_route_->IsAtEnd()) == true) {
-        incoming_route_->SetRouteComplete();
-        while (passengers_.size() > 0) {
-          passengers_.pop_front();
-        }
-      } else {
-        for (std::list<Passenger *>::iterator it = passengers_.begin();
+    } else {
+      for (std::list<Passenger *>::iterator it = passengers_.begin();
         it != passengers_.end(); it++) {
-          if ((*it)->GetDestination() ==
-          (outgoing_route_->GetDestinationStop())->GetId()) {
-            passengers_.erase(it);
-          }
+        if ((*it)->GetDestination() ==
+        (current_route->GetDestinationStop())->GetId()) {
+        // Check if passengers need to be unloaded
+          passengers_.erase(it);
         }
-        (incoming_route_->GetDestinationStop())->LoadPassengers(this);
-        incoming_route_->NextStop();
-        distance_remaining_ = incoming_route_->NextDistance();
       }
+      current_route->GetDestinationStop()->LoadPassengers(this);
+      current_route->NextStop();
+      distance_remaining_ = current_route->NextDistance();
     }
   }
-  UpdateBusData();
 }
 
 void Bus::Report(std::ostream & out) {
@@ -133,44 +113,44 @@ void Bus::UpdateBusData() {
   bus_data_.id = GetName();
   Stop * previous;
   Stop * next;
-  if (outgoing_route_->IsRouteComplete()) {
-    if (outgoing_route_->GetDestinationStopIndex() == 0) {  // Set previous and next to the same stop if there is no previous
-      previous = incoming_route_->GetDestinationStop();
-      next = incoming_route_->GetDestinationStop();
-    } else {
-      previous = incoming_route_->GetPreviousStop();
-      next = incoming_route_->GetDestinationStop();
-    }
-  } else {
-    if (incoming_route_->GetDestinationStopIndex() == 0) {  // Set previous and next to the same stop if there is no previous
-      previous = outgoing_route_->GetDestinationStop();
-      next = outgoing_route_->GetDestinationStop();
-    } else {
-      previous = outgoing_route_->GetPreviousStop();
-      next = outgoing_route_->GetDestinationStop();
-    }
-  }
-  // Route * cur_route;
   // if (outgoing_route_->IsRouteComplete()) {
-  //   cur_route = incoming_route_;
+  //   if (outgoing_route_->GetDestinationStopIndex() == 0) {  // Set previous and next to the same stop if there is no previous
+  //     previous = incoming_route_->GetDestinationStop();
+  //     next = incoming_route_->GetDestinationStop();
+  //   } else {
+  //     previous = incoming_route_->GetPreviousStop();
+  //     next = incoming_route_->GetDestinationStop();
+  //   }
   // } else {
-  //   cur_route = outgoing_route_;
+  //   if (incoming_route_->GetDestinationStopIndex() == 0) {  // Set previous and next to the same stop if there is no previous
+  //     previous = outgoing_route_->GetDestinationStop();
+  //     next = outgoing_route_->GetDestinationStop();
+  //   } else {
+  //     previous = outgoing_route_->GetPreviousStop();
+  //     next = outgoing_route_->GetDestinationStop();
+  //   }
   // }
-  //
+  Route * cur_route;
+  if (outgoing_route_->IsRouteComplete()) {
+    cur_route = incoming_route_;
+  } else {
+    cur_route = outgoing_route_;
+  }
+
   struct Position bus_position_;
-  //
-  // if (distance_remaining_ <= 0) {
-  //   bus_position_.x = cur_route->GetDestinationStop()->GetLongitude();
-  //   bus_position_.y = cur_route->GetDestinationStop()->GetLatitude();
-  // } else {
-  //   Stop * prev = cur_route->GetPreviousStop();
-  //   Stop * next = cur_route->GetDestinationStop();
-  //
-  //   bus_position_.x = (prev->GetLongitude()+next->GetLongitude())/2;
-  //   bus_position_.y = (prev->GetLatitude()+next->GetLatitude())/2;
-  // }
-  bus_position_.y = ((previous->GetLatitude() + next->GetLatitude()) / 2);
-  bus_position_.x = ((previous->GetLongitude() + next->GetLongitude()) / 2);
+
+  if (distance_remaining_ <= 0) {
+    bus_position_.x = cur_route->GetDestinationStop()->GetLongitude();
+    bus_position_.y = cur_route->GetDestinationStop()->GetLatitude();
+  } else {
+    Stop * prev = cur_route->GetPreviousStop();
+    Stop * next = cur_route->GetDestinationStop();
+
+    bus_position_.x = (prev->GetLongitude()+next->GetLongitude())/2;
+    bus_position_.y = (prev->GetLatitude()+next->GetLatitude())/2;
+  }
+  // bus_position_.y = ((previous->GetLatitude() + next->GetLatitude()) / 2);
+  // bus_position_.x = ((previous->GetLongitude() + next->GetLongitude()) / 2);
   bus_data_.position = bus_position_;
   bus_data_.num_passengers = GetNumPassengers();
   bus_data_.capacity = GetCapacity();
