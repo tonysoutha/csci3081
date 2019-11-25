@@ -17,7 +17,7 @@ _Note: This checklist is not authoratative. If something is missing on the check
 - [ ] **__`make` from project/src completes without error.__**
 - [ ] Both executables run without assert or a seg fault when given a config filename.
 - [ ] `cpplint-cse.sh *.cc` reports no errors for your code.
-- [ ] `cpplint.py --root=.. *.h` reports no errors for your code.
+- [ ] `cpplint-cse.sh --root=.. *.h` reports no errors for your code.
 - [ ] `doxygen docs/Doxyfile` generates the documentation.
 - [ ] Config files held in project/config.
 - [ ] Test files held in project/tests.
