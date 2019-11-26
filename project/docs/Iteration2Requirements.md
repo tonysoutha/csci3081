@@ -1,7 +1,6 @@
 # ConfigSim and VisualizerSim: a Proof-of-Concept Transit System Vizualizer/Simulator
 
-## Iteration 2 - VERSION 6, November 20 (clarified that 'make all' in tests should BUILD test executable, not run all tests)
-### VERSION 5, November 11 (updated bus position requirements in program functionality)
+## Iteration 2 - VERSION 5, November 11 (updated bus position requirements in program functionality)
 ### VERSION 4, November 11 (clarified that following Lab 10 branching model is required)
 ### VERSION 3, November 11 (clarified necessity for project to build from _master_ branch and Google Style scope)
 ### VERSION 2, November 8 (clarified FileOutputSimulator make and execute commands)
@@ -80,7 +79,7 @@ In iteration 1, you wrote a couple of very simple tests.  This wasn’t enough t
 
 Overall structure:
 * Implement your tests using Google Test and by adding files to the tests directory, as we have been practicing so far.
-* Running “make all” inside the tests directory should build all the tests.
+* Running “make all” inside the tests directory should run all the tests.
 
 Unit tests:
 * Write a series of unit tests to thoroughly test your command line parsing.
@@ -118,8 +117,8 @@ You can use this high-level grading rubric to better understand how we will grad
 50% - Program Functionality and Robustness (Typically graded by running the code, either using scripts or interactively)
 * Both program versions (configuration and visualization) build without error by running "make" in the root directory of the project, and the two programs run on the CSE Lab machines.
 * The code links with the visualizer code to produce working visualizations of a running simluation.
-* A Bus's position does not matter EXCEPT when a bus is at a stop. If a bus is dropping off/picking up, its position must show it is at the stop.
 * The configuration functionality is functional, allowing the use of a variety of configuration files.
+* A Bus's position does not matter EXCEPT when a bus is at a stop. If a bus is dropping off/picking up, its position must show it is at the stop.
 * Both unit tests and regression tests are implemented.
 * Tests cover valid/invalid command line options.
 * Tests cover different numbers of options specified on the command line.
