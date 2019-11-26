@@ -73,15 +73,14 @@ bool Route::IsAtEnd() const {
   return false;
 }
 
-void Route::UpdateDestinationStopIndex() {
-  destination_stop_index_++;
-}
 
 void Route::NextStop() {
+  destination_stop_index_++;;
   for (std::list<Stop *>::const_iterator it = stops_.begin();
   it != stops_.end(); it++) {
     if ((*it) == destination_stop_) {
     // Search for current stop in list
+      prev = *(it);
       destination_stop_ = *(it++);
       // Set the destination stop to the next stop in the list
     }
@@ -108,12 +107,13 @@ void Route::SetRouteComplete() {
 }
 
 Stop * Route::GetPreviousStop() {
-  std::list<Stop *>::iterator it = stops_.begin();
-  if (destination_stop_index_ == 0) {
-    std::advance(it, destination_stop_index_);
-  }
-  std::advance(it, destination_stop_index_-1);
-  return *it;
+  // std::list<Stop *>::iterator it = stops_.begin();
+  // if (destination_stop_index_ == 0) {
+  //   std::advance(it, destination_stop_index_);
+  // }
+  // std::advance(it, destination_stop_index_-1);
+  // return *it;
+  return prev;
 }
 
 std::string Route::GetName() {
@@ -145,6 +145,6 @@ void Route::UpdateRouteData() {
   route_data_.stops = stop_data_vector_;
 }
 
-struct RouteData Route::GetRouteData() {
+RouteData Route::GetRouteData() {
   return route_data_;
 }

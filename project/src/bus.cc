@@ -9,9 +9,9 @@ Route * in, int capacity, double speed) {
   incoming_route_ = in;
   passenger_max_capacity_ = capacity;
   speed_ = speed;
-  distance_remaining_ = outgoing_route_->NextDistance();
+  distance_remaining_ = 0;
   num_passengers_ = 0;
-  UpdateBusData();
+  // UpdateBusData();
 }
 
 bool Bus::LoadPassenger(Passenger * new_passenger) {
@@ -38,41 +38,63 @@ bool Bus::Move() {
 // }
 
 void Bus::Update() {  // using common Update format
-  UpdateBusData();
   Move();
+  UpdateBusData();
   for (std::list<Passenger *>::iterator it = passengers_.begin();
   it != passengers_.end(); it++) {  // Update passengers
     (*it)->Update();
   }
-
-  Route * current_route;
-  if (outgoing_route_->IsRouteComplete()) { // check which route to use
-    current_route = incoming_route_;
-  } else {
-    current_route = outgoing_route_;
-  }
-
-  if (distance_remaining_ <= 0) {
-    current_route->UpdateDestinationStopIndex();
-    if (current_route->IsAtEnd()) {
-      current_route->SetRouteComplete();
-      while (passengers_.size() > 0) {
-        passengers_.pop_front();  // Unload all passengers still on bus
-      }
-    } else {
-      for (std::list<Passenger *>::iterator it = passengers_.begin();
-        it != passengers_.end(); it++) {
-        if ((*it)->GetDestination() ==
-        (current_route->GetDestinationStop())->GetId()) {
-        // Check if passengers need to be unloaded
-          passengers_.erase(it);
+  if (!(outgoing_route_->IsRouteComplete())) {
+  // Check whether to use outgoing or incoming route
+    if (distance_remaining_ <= 0) {  // Check if at stop
+      if ((outgoing_route_->IsAtEnd()) == true) {  // We are at the last stop
+        outgoing_route_->SetRouteComplete();
+        // Complete outgoing route so we can begin incoming route next update
+        while (passengers_.size() > 0) {
+          passengers_.pop_front();  // Unload all passengers still on bus
         }
+        incoming_route_->GetDestinationStop()->LoadPassengers(this);
+        incoming_route_->NextStop();
+        distance_remaining_ = incoming_route_->NextDistance();
+      } else {
+        for (std::list<Passenger *>::iterator it = passengers_.begin();
+          it != passengers_.end(); it++) {
+          if ((*it)->GetDestination() ==
+          (outgoing_route_->GetDestinationStop())->GetId()) {
+          // Check if passengers need to be unloaded
+            passengers_.erase(it);
+          }
+        }
+      (outgoing_route_->GetDestinationStop())->LoadPassengers(this);
+      // Load passengers from stop onto bus
+      outgoing_route_->NextStop();
+      // Set next destination stop
+      distance_remaining_ = outgoing_route_->NextDistance();
+      // Set next distance in between the next stops
       }
-      current_route->GetDestinationStop()->LoadPassengers(this);
-      current_route->NextStop();
-      distance_remaining_ = current_route->NextDistance();
+    }
+  } else {  // Use incoming route instead
+    if (distance_remaining_ <= 0) {
+      if (incoming_route_->IsAtEnd()) {
+        incoming_route_->SetRouteComplete();
+        while (passengers_.size() > 0) {
+          passengers_.pop_front();
+        }
+      } else {
+        for (std::list<Passenger *>::iterator it = passengers_.begin();
+        it != passengers_.end(); it++) {
+          if ((*it)->GetDestination() ==
+          (outgoing_route_->GetDestinationStop())->GetId()) {
+            passengers_.erase(it);
+          }
+        }
+        (incoming_route_->GetDestinationStop())->LoadPassengers(this);
+        incoming_route_->NextStop();
+        distance_remaining_ = incoming_route_->NextDistance();
+      }
     }
   }
+
 }
 
 void Bus::Report(std::ostream & out) {
@@ -156,7 +178,7 @@ void Bus::UpdateBusData() {
   bus_data_.capacity = GetCapacity();
 }
 
-struct BusData Bus::GetBusData() {
+BusData Bus::GetBusData() {
   return bus_data_;
 }
 

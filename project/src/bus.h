@@ -63,7 +63,7 @@ class Bus {
    */
   void Report(std::ostream&);
   void UpdateBusData();
-  struct BusData GetBusData();
+  BusData GetBusData();
   std::string GetName() const;
   // Stop * GetNextStop();
   size_t GetNumPassengers();

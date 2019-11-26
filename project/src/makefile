@@ -237,9 +237,9 @@ vis_sim: $(addprefix $(OBJDIR)/, $(OBJFILES)) $(addprefix $(WEBOBJDIR)/, $(WEBOB
 	@echo "==== Linking $@. ===="
 	@$(CXX) $(OMP) $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) $(addprefix $(WEBOBJDIR)/, $(WEBOBJFILES)) -o $(BINDIR)/$@ $(LDLIBS)
 
-#config_sim: $(DRIVEROBJDIR)/configuration_sim $(addprefix $(OBJDIR)/, $(OBJFILES)) | $(BINDIR)
-#	@echo "==== Linking $@. ===="
-#	@$(CXX) $(OMP) $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) $< -o $(BINDIR)/$@ $(LDLIBS)
+# config: $(addprefix $(OBJDIR)/, $(OBJFILES)) $(DRIVEROBJDIR)/$(PROJECT_NAME).o | $(BINDIR)
+# 	@echo "==== Linking $@. ===="
+# 	$(CXX) $(OMP) $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) $(DRIVEROBJDIR)/$(PROJECT_NAME).o -o $@ $(LDLIBS)
 
 %_test: $(DRIVEROBJDIR)/%_driver.o $(addprefix $(OBJDIR)/, $(OBJFILES)) | $(BINDIR)
 	@echo "==== Linking $@. ===="

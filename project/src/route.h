@@ -76,9 +76,8 @@ class Route {
   std::string GetName();
   std::list<Stop *> GetStops();
   void UpdateRouteData();
-  struct RouteData GetRouteData();
+  RouteData GetRouteData();
   int GetDestinationStopIndex();
-  void UpdateDestinationStopIndex();
  private:
   int GenerateNewPassengers();       // generates passengers on its route
   PassengerGenerator * generator_;
@@ -91,6 +90,7 @@ class Route {
   Stop * destination_stop_;
   bool route_complete;
   struct RouteData route_data_;
+  Stop * prev;
   // double trip_time_; // derived data - total distance travelled on route
 };
 #endif  // PROJECT_SRC_ROUTE_H_

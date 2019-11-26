@@ -54,3 +54,7 @@ double Stop::GetLongitude() {
 int Stop::GetPassengersPresent() {
   return passengers_present_;
 }
+
+std::list<Passenger *> Stop::GetPassengerList() {
+  return passengers_;
+}

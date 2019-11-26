@@ -52,6 +52,7 @@ class Stop {
   double GetLongitude();
   double GetLatitude();
   int GetPassengersPresent();
+  std::list<Passenger *> GetPassengerList();
 
  private:
   int id_;
