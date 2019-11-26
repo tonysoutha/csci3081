@@ -92,9 +92,9 @@ Unit tests:
 
 __Pushed to Iteration 3__
 ~~Regression tests:
-* For regression tests, the goal is to verify that features that worked once stay working, even as you continue to add to the code.
-* For our simulations, that probably means some relatively simple and structured scenario that can be reused and in which we know the exact output.
-* To use this testing strategy with Google Test, you should add a PROJ/resources directory to your repo where you can store your config file and anything else that might be helpful when trying to ensure that changes didn't break anything that was already working.~~
+  * For regression tests, the goal is to verify that features that worked once stay working, even as you continue to add to the code.~~
+~~* For our simulations, that probably means some relatively simple and structured scenario that can be reused and in which we know the exact output.~~
+~~* To use this testing strategy with Google Test, you should add a PROJ/resources directory to your repo where you can store your config file and anything else that might be helpful when trying to ensure that changes didn't break anything that was already working.~~
 
 
 <hr>
