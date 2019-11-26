@@ -17,7 +17,7 @@ The emphasis in this iteration will be on getting your project to the point wher
 
 	Most development focuses on getting the most important functionality working under the most common circumstances. Bug fixing is when we can finally stop worrying so much about adding the next top-level function set, and instead fix what's already there (and broken). 
 	**Note:** This particular section could potentially be worth lots of your time. 
-	**_You can receive up to 100% of the points for any simulation functionality for which you points in Iteration 2 functionality (development) by fixing the bugs_** __- IF you properly tracked those bugs using GitHub Issues.__
+	**_You can receive up to 100% of the points for any simulation functionality for which you lost points in Iteration 2 functionality (development) by fixing the bugs_** __- IF you properly tracked those bugs using GitHub Issues before the Iteration 2 deadline.__
 	**However**, _if you did **not** create GitHub Issues for your bugs and fixes_, __you can receive up to 50% of the points for any simulation functionality for which you lost points in Iteration 2.__
 
 	Your mainpage is the entry-point to your documentation. Each of your user sets will use it as the landing page. We've started the Developer guide. Now, we add a short User Guide. How does a non-developer user (any of the stakeholders we identify in our class and lab discussions) get and use your system? How do they run (and tweak) simulations?
@@ -67,7 +67,6 @@ The goal of this iteration is to wrap up functionality and increase quality befo
 
 #### <a name="reqs_doc">Documentation Requirements</a>
 
-- UML diagram
 - Doxygen generated index.html that is the entry point to your software.
 - Google Style compliance
 - Bug Reporting through issues
@@ -110,7 +109,7 @@ In this iteration, you will be fixing bugs.
 
 - ##### <a name="bugfix">Bug Fixing</a>
 
-  You should fix all of your bugs, so that the code functions as required in Iterations 1 & 2. As described above, not only will Iteration 1 & 2 functionality be tested again, you may receive up to 100% of any value you lost in Iteration 2 functionality (development) for bugs YOU HAD, and HAVE ENTERED GITHUB ISSUES FOR (during iteration 2), AND SUBSEQUENTLY FIX AND CLOSE IN ITERATION 3.
+  You should fix all of your bugs, so that the code functions as required in Iterations 1 & 2. As described above, not only will Iteration 1 & 2 functionality be tested again, you may receive up to 100% of any value you lost in Iteration 2 functionality (development) for bugs YOU HAD, and HAVE ENTERED GITHUB ISSUES FOR (during iteration 2), AND SUBSEQUENTLY FIX AND CLOSE IN ITERATION 3. You will receive up to 50% of any value you lost in Iteration 2 functionality (development) for bugs you begin to track now, by entering GitHub Issues for these defects, fixing the defect, and then closing the issue.
 
   For Iteration 3 grading, no bugs which would be considered critical should remain. Minor bugs (small functionality irregularities, typos, rare occurrences, etc.) will not reduce your score. If you are unsure whether your bug is critical or minor, go to an office hour or speak to an instructor.
 
@@ -171,16 +170,16 @@ In this iteration, you will be fixing bugs.
 
 - ##### <a name="testing">Regression Testing</a>
 
-Regression tests (pushed from Iteration 3):
-* For regression tests, the goal is to verify that features that worked once stay working, even as you continue to add to the code.
-* For our simulations, that probably means some relatively simple and structured scenario that can be reused and in which we know the exact output.
-* To use this testing strategy with Google Test, you should add store any config files you need in project/config/ and anything else that might be helpful in project/resources/, while attempting to ensure that changes didn't break anything that was already working.
+	Regression tests (pushed from Iteration 3):
+	* For regression tests, the goal is to verify that features that worked once stay working, even as you continue to add to the code.
+	* For our simulations, that probably means some relatively simple and structured scenario that can be reused and in which we know the exact output.
+	* To use this testing strategy with Google Test, you should add store any config files you need in project/config/ and anything else that might be helpful in project/resources/, while attempting to ensure that changes didn't break anything that was already working.
 
 <hr>
 
 #### <a name="peer">Peer Response</a>
 
-We will be working in class to complete peer responses regarding your choices for refactoring, so you must have a draft of your refactoring that is well formatted, grammar, and spell checked ready to bring to class on Thrusday December 5th. You are REQUIRED to bring 2 printed copies to class on Thursday December 5th to participate in the peer review / response or you will recieve a zero for the refarctoring portion of your grade on iteration 3. 
+We will be working in class to complete peer responses regarding your choices for refactoring, so you must have a draft of your refactoring that is well formatted, grammar, and spell checked ready to bring to class on Thrusday December 5th. You are REQUIRED to bring 2 printed copies to class on Thursday December 5th to participate in the peer review / response or you will recieve a zero for the refactoring portion of your grade on iteration 3. 
 
 <hr>
 
@@ -200,10 +199,11 @@ This is the breakdown for point distribution:
 
 20% : Iteration \#3
 - 30% : Doxygen
-  - 15% : Updated User Guide
-  - 15% : Developer Guide
+  - 15% : User Guide
+  - 15% : Updated Developer Guide
 - 10% : Style Compliance
-- 20% : Refactoring Completed
+- 10% : Refactoring 1 Completed
+- 10% : Refactoring 2 Completed
 - 10% : Regression Testing
 - 15% : Git Usage (Issues, commit messages and branching)
 - 15% : Compiles and runs without seg fault
