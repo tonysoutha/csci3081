@@ -1,33 +1,36 @@
-/**
- * @file configuration_simulator.h
- *
- * @copyright 2019 3081 Staff, All rights reserved.
- */
-#ifndef SRC_CONFIGURATION_SIMULATOR_H_
-#define SRC_CONFIGURATION_SIMULATOR_H_
+#ifndef CONFIGURATION_SIMULATOR_H_
+#define CONFIGURATION_SIMULATOR_H_
 
 #include <vector>
+#include <list>
 
-#include "src/simulator.h"
-#include "src/config_manager.h"
+#include "config_manager.h"
 
-class ConfigurationSimulator : public Simulator {
-  public:
-   ConfigurationSimulator(ConfigManager * cm);
-   bool Start() override;
-   bool Update() override;
-   void SetOutput(std::ostream * f);
-  private:
-   std::vector<int> bus_counters_;
-   std::vector<int> bus_start_timings_;
-   std::vector<int> time_since_last_bus_generation_;
-   int simulation_time_elapsed_;
-   std::ostream * f_ptr;
-   ConfigManager * configManager_;
+class Route;
+class Bus;
+class Stop;
 
-   int numTimeSteps_;
+class ConfigurationSimulator {
+    public:
+        ConfigurationSimulator();
+        ~ConfigurationSimulator();
 
-   int busId = 1000;
+        void Start(const std::vector<int>&, const int&);
+        void Update();
+        void SetConfigManager(ConfigManager * cm);
+
+    private:
+        ConfigManager* configManager_;
+
+        std::vector<int> busStartTimings_;
+        std::vector<int> timeSinceLastBus_;
+        int numTimeSteps_;
+        int simulationTimeElapsed_;
+
+        std::vector<Route *> prototypeRoutes_;
+        std::vector<Bus *> busses_;
+
+        int busId = 1000;
 };
 
-#endif  // SRC_CONFIGURATION_SIMULATOR_H_
+#endif // CONFIGURATION_SIMULATOR_H_

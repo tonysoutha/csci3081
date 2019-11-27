@@ -110,7 +110,7 @@ LDLIBS = $(LIBS)
 # The default target which will be run if the user just types "make"
 # Below, you'll need change the line to the make the "target" for the
 # visual simulation
-all: vis_sim # config_sim
+all: vis_sim config_sim
 
 # This rule says that each .o file in $(OBJDIR)/ depends on the
 # presence of the $(OBJDIR)/ directory.
@@ -181,6 +181,12 @@ $(DRIVEROBJDIR)/$(PROJECT_NAME).o: $(DRIVERDIR)/$(PROJECT_NAME).cc | $(DRIVEROBJ
 	@echo "==== Compiling $< into $@. ===="
 	$(CXX) $(OMP) $(CXXFLAGS) $(CXXLIBDIRS) -c -fPIC -o  $@ $<
 
+$(DRIVEROBJDIR)/configuration_simulator.o: $(DRIVERDIR)/configuration_sim.cc | $(DRIVEROBJDIR)
+	@echo "==== Auto-Generating Dependencies for $<. ===="
+	$(call make-depend-cxx,$<,$@,$(subst .o,.d,$@))
+	@echo "==== Compiling $< into $@. ===="
+	$(CXX) $(OMP) $(CXXFLAGS) $(CXXLIBDIRS) -c -fPIC -o $@ $<
+
 # WITH AUTO-GENERATED DEPENDENCIES:
 # Note that there are actually two steps to the compiling recipe above.  The second
 # step should be familiar, it just calls g++ to compile the .cpp into a .o.  But,
@@ -237,9 +243,9 @@ vis_sim: $(addprefix $(OBJDIR)/, $(OBJFILES)) $(addprefix $(WEBOBJDIR)/, $(WEBOB
 	@echo "==== Linking $@. ===="
 	@$(CXX) $(OMP) $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) $(addprefix $(WEBOBJDIR)/, $(WEBOBJFILES)) -o $(BINDIR)/$@ $(LDLIBS)
 
-# config: $(addprefix $(OBJDIR)/, $(OBJFILES)) $(DRIVEROBJDIR)/$(PROJECT_NAME).o | $(BINDIR)
-# 	@echo "==== Linking $@. ===="
-# 	$(CXX) $(OMP) $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) $(DRIVEROBJDIR)/$(PROJECT_NAME).o -o $@ $(LDLIBS)
+config_sim: $(addprefix $(OBJDIR)/, $(OBJFILES)) $(DRIVEROBJDIR)/configuration_simulator.o | $(BINDIR)
+	@echo "==== Linking $@. ===="
+	$(CXX) $(OMP) $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) $(DRIVEROBJDIR)/configuration_simulator.o -o $(BINDIR)/$@ $(LDLIBS)
 
 %_test: $(DRIVEROBJDIR)/%_driver.o $(addprefix $(OBJDIR)/, $(OBJFILES)) | $(BINDIR)
 	@echo "==== Linking $@. ===="

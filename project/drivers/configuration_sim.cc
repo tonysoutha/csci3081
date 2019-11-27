@@ -12,6 +12,7 @@ int main(int argc, char**argv) {
   // NOTE: this usage will change depending on
   //       how you build your config_sim classes
   //   E.g., how will you handle getting the length of simulation value?
+
   std::cout << "Usage: ./build/bin/configuration_sim <config_filename>";
   std::cout << std::endl;
 
@@ -19,13 +20,19 @@ int main(int argc, char**argv) {
   // if (argc == 0) {
     // use default
   // }
-  int time = 10;
-  ConfigManager cm;
-  cm.ReadConfig(argv[1]);
-  ConfigurationSimulator cs(cm);
-  cs.Start();
-  for (int i = 0; i < time; i++) {
-    cs.Update();
+  ConfigManager * cm = new ConfigManager;
+  std::string file = argv[1];
+  cm->ReadConfig(file);
+  ConfigurationSimulator * cs = new ConfigurationSimulator;
+  std::vector<int> busStartTimings;
+  for (int i = 0; i < cm->GetRoutes().size()-1; i++) {
+    busStartTimings.push_back(0.5);
+  }
+  int numTimeSteps = 25;
+  cs->SetConfigManager(cm);
+  cs->Start(busStartTimings, numTimeSteps);
+  for (int i = 0; i < numTimeSteps; i++) {
+    cs->Update();
   }
 
   // if filename arg present
