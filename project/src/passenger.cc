@@ -28,6 +28,16 @@ void Passenger::GetOnBus() {
   time_on_bus_ = 1;
 }
 
+int Passenger::GetTimeAtStop() const {
+// Returns total time at stop and on bus
+  return wait_at_stop_;
+}
+
+int Passenger::GetTimeOnBus() const {
+// Returns total time at stop and on bus
+  return time_on_bus_;
+}
+
 int Passenger::GetTotalWait() const {
 // Returns total time at stop and on bus
   return time_on_bus_ + wait_at_stop_;

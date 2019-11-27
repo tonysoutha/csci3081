@@ -48,6 +48,8 @@ class Passenger {  // : public Reporter {
    */
   int GetDestination() const;
   void Report(std::ostream&) const;
+  int GetTimeOnBus() const;
+  int GetTimeAtStop() const;
  private:
   std::string name_;
   int destination_stop_id_;
