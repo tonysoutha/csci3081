@@ -8,7 +8,7 @@
 #include "../src/route.h"
 #include "../src/random_passenger_generator.h"
 
-class StopTests : public ::testing::Test {
+class BusTests : public ::testing::Test {
  protected:
     Stop * stop1;
     Stop * stop2;
@@ -104,71 +104,61 @@ class StopTests : public ::testing::Test {
     }
 };
 
-TEST_F(StopTests, AddPassengers) {
-  EXPECT_EQ(stop1->GetPassengersPresent(), 0);
-  EXPECT_EQ(stop1->GetPassengerList().empty(), true);
-  stop1->AddPassengers(pass1);
-  EXPECT_EQ(stop1->GetPassengersPresent(), 1) <<
-  "AddPassengers does not correctly update passengers_present_ member variable";
-  EXPECT_EQ(stop1->GetPassengerList().front(), pass1) <<
-  "AddPassengers does not correctly add passenger to the passenger_ list";
+TEST_F(BusTests, Constructor) {
+  EXPECT_EQ(bus->GetName(), "bus1") <<
+  "Name of bus not set correctly";
+  EXPECT_EQ(bus->GetOutgoing(), out) <<
+  "Outgoing route not set correctly";
+  EXPECT_EQ(bus->GetIncoming(), in) <<
+  "Incoming route not set correctly";
+  EXPECT_EQ(bus->GetCapacity(), 50) <<
+  "Capacity not instantiated correctly";
+  EXPECT_EQ(bus->GetSpeed(), 1) <<
+  "Speed not instantiated correctly";
 }
 
-TEST_F(StopTests, Update) {
-  stop1->AddPassengers(pass1);
-  pass1->Update();
-  pass2->Update();
-  EXPECT_EQ(pass1->GetTimeOnBus(), 0) <<
-  "Update increments time_on_bus when passenger is at stop";
-  EXPECT_EQ(pass1->GetTimeAtStop(), 1) <<
-  "Update does not correctly increment wait_at_stop_ when passenger is at stop";
-  pass1->GetOnBus();
-  pass1->Update();
-  EXPECT_EQ(pass1->GetTimeOnBus(), 2) <<
-  "Update does not correctly inremement time_on_bus when passenger is on bus";
-  EXPECT_EQ(pass1->GetTimeAtStop(), 1) <<
-  "Update increments wait_at_stop_ when passenger is on bus";
+TEST_F(BusTests, LoadPassenger) {
+  bus->LoadPassenger(pass1);
+  EXPECT_EQ(bus->GetNumPassengers(), 1) <<
+  "LoadPassenger does not correctly increment num_passengers_";
+  EXPECT_EQ(bus->GetPassengers().front(), pass1) <<
+  "Passenger not added to passenger list";
 }
 
-TEST_F(StopTests, GetOnBus) {
-  pass1->GetOnBus();
-  EXPECT_EQ(pass1->GetTimeOnBus(), 1) <<
-  "GetOnBus does not correctly increment passenger time on bus";
+TEST_F(BusTests, Move) {
+  bus->Move();
+  EXPECT_EQ(bus->GetDistanceRemaining(), -1) <<
+  "Move does not correctly update distance_remaining_";
 }
 
-TEST_F(StopTests, LoadPassengers) {
-  stop1->AddPassengers(pass1);
-  stop1->AddPassengers(pass2);
-  stop1->LoadPassengers(bus);
-  EXPECT_EQ(stop1->GetPassengersPresent(), 0) <<
-  "LoadPassengers does not load all passengers from the stop";
-  EXPECT_EQ(bus->GetNumPassengers(), 2) <<
-  "LoadPassengers does not load passengers onto the bus";
+TEST_F(BusTests, GetName) {
+  EXPECT_EQ(bus->GetName(), "bus1") <<
+  "Get name returns incorrect name";
 }
 
-TEST_F(StopTests, GetLatitude) {
-  EXPECT_EQ(stop1->GetLatitude(), 100) <<
-  "GetLatitude returns the wrong value";
+TEST_F(BusTests, GetNumPassengers) {
+  EXPECT_EQ(bus->GetNumPassengers(), 0) <<
+  "GetNumPassengers returns incorrect value";
 }
 
-TEST_F(StopTests, GetLongitude) {
-  EXPECT_EQ(stop1->GetLongitude(), 50) <<
-  "GetLongitude returns the wrong value";
+TEST_F(BusTests, GetCapacity) {
+  EXPECT_EQ(bus->GetCapacity(), 50) <<
+  "GetCapacity returns incorrect value";
 }
 
-TEST_F(StopTests, GetPassengersPresent) {
-  stop1->AddPassengers(pass1);
-  stop1->AddPassengers(pass2);
-  EXPECT_EQ(stop1->GetPassengersPresent(), 2) <<
-  "GetPassengersPresent returns the wrong value";
+TEST_F(BusTests, IsTripComplete) {
+  in->SetRouteComplete();
+  out->SetRouteComplete();
+  EXPECT_EQ(bus->IsTripComplete(), true) <<
+  "IsTripComplete returns incorrect bool value";
 }
 
-TEST_F(StopTests, GetPassengerList) {
-  stop1->AddPassengers(pass1);
-  stop1->AddPassengers(pass2);
-  std::list<Passenger *> pass_list;
-  pass_list.push_back(pass1);
-  pass_list.push_back(pass2);
-  EXPECT_EQ(stop1->GetPassengerList(), pass_list) <<
-  "GetPassengerList returns an incorrect list of passengers";
+TEST_F(BusTests, Update) {
+  bus->LoadPassenger(pass1);
+  bus->LoadPassenger(pass2);
+  //bus->Update();
+  EXPECT_EQ(bus->GetDistanceRemaining(), -1) <<
+  "Update does not move bus";
+  EXPECT_EQ(bus->GetPassengers().front()->GetTotalWait(), 1);
 }
+

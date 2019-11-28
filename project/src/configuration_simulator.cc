@@ -1,8 +1,5 @@
-/**
- * @file new_local_simulator.cc
- *
- * @copyright 2019 3081 Staff, All rights reserved.
- */
+// Copyright Tony Southa 2019 
+
 #include "src/configuration_simulator.h"
 
 #include <vector>

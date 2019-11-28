@@ -69,6 +69,11 @@ class Bus {
   size_t GetNumPassengers();
   int GetCapacity();
   bool IsTripComplete();
+  Route * GetOutgoing();
+  Route * GetIncoming();
+  std::list<Passenger *> GetPassengers();
+  double GetSpeed();
+  int GetDistanceRemaining();
 
  private:
   std::list<Passenger *> passengers_; // passengers on the bus

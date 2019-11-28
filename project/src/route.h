@@ -78,6 +78,8 @@ class Route {
   void UpdateRouteData();
   RouteData GetRouteData();
   int GetDestinationStopIndex();
+  std::list<double> GetDistances();
+  int GetNumStops();
  private:
   int GenerateNewPassengers();       // generates passengers on its route
   PassengerGenerator * generator_;

@@ -40,6 +40,10 @@ bool Stop::LoadPassengers(Bus * bus) {
   for (std::list<Passenger *>::iterator it = passengers_.begin(); it != passengers_.end(); it++) {
     bus->LoadPassenger(*it);
   }
+  while (passengers_.size() > 0) {
+    passengers_.pop_front();
+  }
+  passengers_present_ = 0;
   return true;
 }
 

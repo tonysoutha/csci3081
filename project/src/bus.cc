@@ -127,6 +127,26 @@ int Bus::GetCapacity() {
   return passenger_max_capacity_;
 }
 
+Route * Bus::GetOutgoing() {
+  return outgoing_route_;
+}
+
+Route * Bus::GetIncoming() {
+  return incoming_route_;
+}
+
+std::list<Passenger *> Bus::GetPassengers() {
+  return passengers_;
+}
+
+int Bus::GetDistanceRemaining() {
+  return distance_remaining_;
+}
+
+double Bus::GetSpeed() {
+  return speed_;
+}
+
 // Position Bus::GetPosition() const {
 //   Position pos = Position();
 //   Route * cur_route;
@@ -183,7 +203,7 @@ BusData Bus::GetBusData() {
 }
 
 bool Bus::IsTripComplete() {
-  if (outgoing_route_->IsRouteComplete()) {
+  if (outgoing_route_->IsRouteComplete() && incoming_route_->IsRouteComplete()) {
     return true;
   }
   return false;

@@ -4,6 +4,8 @@
  * @copyright 2019 3081 Staff, All rights reserved.
  */
 #include <iostream>
+#include <fstream>
+#include <string>
 
 #include "src/config_manager.h"
 #include "src/configuration_simulator.h"
@@ -17,12 +19,26 @@ int main(int argc, char**argv) {
   std::cout << std::endl;
 
   // Check command line params for config file name
-  // if (argc == 0) {
-    // use default
-  // }
   ConfigManager * cm = new ConfigManager;
-  std::string file = argv[1];
+  std::string file = "config.txt";  // Default file
+  if (argc > 1) {
+    file = argv[1];  // Use file passed in from command line
+  }
+
+  const std::string filename = argv[1];
+  std::ifstream input_file("config/" + filename);
+  if (!(input_file.is_open())) {  // Ensures the file passed in is valid
+    std::cout << "Error: Unable to open file" << std::endl;
+    return 1;
+  } 
+
   cm->ReadConfig(file);
+
+  if(cm->GetRoutes().size() == 0) {  // Handles case where empty config file is passed in
+    std::cout << "Error: Empty file" << std::endl;
+    return 1;
+  }
+
   ConfigurationSimulator * cs = new ConfigurationSimulator;
   std::vector<int> busStartTimings;
   for (int i = 0; i < cm->GetRoutes().size()-1; i++) {
@@ -34,16 +50,5 @@ int main(int argc, char**argv) {
   for (int i = 0; i < numTimeSteps; i++) {
     cs->Update();
   }
-
-  // if filename arg present
-  //   Create ConfigManager
-  //   Call ReadConfig
-  //   Create ConfigurationSimulator
-  //   Call Start on ConfigurationSimulator
-  //   Start for loop, length of simulation (where from?)
-  //     Call Update on ConfigurationSimulator
-  // else
-  //   echo info to the user about needing a config file name
-
   return 0;
 }

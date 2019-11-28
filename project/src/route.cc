@@ -15,8 +15,11 @@ double * distances, int num_stops, PassengerGenerator * passgen) {
   num_stops_ = num_stops;
   generator_ = passgen;
   destination_stop_ = stops_.front();
+  prev = NULL;
   route_complete = false;
-  UpdateRouteData();
+  destination_stop_index_ = 0;
+
+  // UpdateRouteData();
 }
 
 void Route::Update() {
@@ -62,6 +65,14 @@ Route * Route::Clone() {
   return newRoute;
 }
 
+std::list<double> Route::GetDistances() {
+  return distances_between_;
+}
+
+int Route::GetNumStops() {
+  return num_stops_;
+}
+
 Stop * Route::GetDestinationStop() const {
   return destination_stop_;
 }
@@ -85,9 +96,15 @@ void Route::NextStop() {
       // Set the destination stop to the next stop in the list
     }
   }
-//  std::list<Stop *>::iterator it = stops_.begin();
-//  std::advance(it, destination_stop_index_);
-//  destination_stop_ = *it;
+
+  // destination_stop_index_++;
+  // std::list<Stop *>::iterator it = stops_.begin();
+  // while ((*it) != destination_stop_) {
+  //   it++;
+  // }
+  // prev = *(it);
+  // it++;
+  // destination_stop_ = *(it);
 }
 
 double Route::NextDistance() {
