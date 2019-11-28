@@ -13,10 +13,15 @@
 
 #include "./passenger_generator.h"
 #include "./stop.h"
+#include "./data_structs.h"
 
 class PassengerGenerator;
 class Stop;
 
+/**
+* @brief Class that creates routes which are a collection of stops
+* and generates passengers at those stops
+**/
 class Route {
  public:
   /**
@@ -26,7 +31,7 @@ class Route {
   * @param[in] Array of pointers to stops
   * @param[in] Array of distances
   * @param[in] Number of stops in route
-  * @param[in] Passenger Generator used to generate passengers on the route 
+  * @param[in] Passenger Generator used to generate passengers on the route
   *
   * @return route with name, array of stops and distances, number of stops, and a
   * passenger generator
@@ -34,39 +39,49 @@ class Route {
   Route(std::string name, Stop ** stops, double * distances, int num_stops,
         PassengerGenerator *);
   /**
-   * @brief Clones current route to a new one
-   *
-   * @return New cloned route of current one
+   * @brief Creates a clone of the current route
    */
   Route * Clone();
+  /**
+   * @brief Updating the route will call update on all stops on the route
+   */
   void Update();
   void Report(std::ostream&);
   /**
    * @brief Tells us if the current route is at the last stop
-   *
-   * @return true if at last stop, false otherwise
    */
   bool IsAtEnd() const;
   void NextStop();  // Change destination_stop_ to next stop
   Stop * GetDestinationStop() const;    // Get pointer to next stop
   /**
    * @brief Look the distance array and return to next distance
-   *
-   * @return Distance between current and next stop
    */
   double NextDistance();
   /**
-   * @brief Tell us if the current route has been completed 
-   *
-   * @return True if route is complete, false otherwise
+   * @brief Tell us if the current route has been completed
    */
   bool IsRouteComplete();
   /**
    * @brief Sets the route to complete
    */
   void SetRouteComplete();
-  //double GetTotalRouteDistance() const;
-  //double GetNextStopDistance() const;
+  // double GetTotalRouteDistance() const;
+  // double GetNextStopDistance() const;
+  Stop * GetPreviousStop();
+  std::string GetName();
+  std::list<Stop *> GetStops();
+  /**
+   * @brief Update the RouteData struct with current route information
+   */
+  void UpdateRouteData();
+  /**
+   * @brief Return the RouteData struct
+   */
+  RouteData GetRouteData();
+  int GetDestinationStopIndex();
+  std::list<double> GetDistances();
+  int GetNumStops();
+
  private:
   int GenerateNewPassengers();       // generates passengers on its route
   PassengerGenerator * generator_;
@@ -78,6 +93,8 @@ class Route {
   int destination_stop_index_;  // always starts at zero, no init needed
   Stop * destination_stop_;
   bool route_complete;
+  struct RouteData route_data_;
+  Stop * prev;
   // double trip_time_; // derived data - total distance travelled on route
 };
 #endif  // SRC_ROUTE_H_

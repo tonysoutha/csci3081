@@ -1,16 +1,18 @@
-
 /**
  * @file passenger.h
  *
  * @copyright 2019 3081 Staff, All rights reserved.
  */
 
-#ifndef PASSENGER_H_
-#define PASSENGER_H_
+#ifndef SRC_PASSENGER_H_
+#define SRC_PASSENGER_H_
 
 #include <iostream>
 #include <string>
 
+/**
+* @brief Class that creates passengers who will ride the bus
+*/
 class Passenger {  // : public Reporter {
  public:
   /**
@@ -36,16 +38,16 @@ class Passenger {  // : public Reporter {
   int GetTotalWait() const;
   /**
    * @brief Determine if passenger is on a bus
-   *
-   * @return true if passenger is on a bus false otherwise
    */
   bool IsOnBus() const;
   /**
    * @brief Get the destination of a passenger
-   * @return the id # of the destination stop
    */
   int GetDestination() const;
   void Report(std::ostream&) const;
+  int GetTimeOnBus() const;
+  int GetTimeAtStop() const;
+
  private:
   std::string name_;
   int destination_stop_id_;
@@ -54,4 +56,4 @@ class Passenger {  // : public Reporter {
   int id_;
   static int count_;   // global count, used to set ID for new instances
 };
-#endif  // PASSENGER_H_
+#endif  // SRC_PASSENGER_H_

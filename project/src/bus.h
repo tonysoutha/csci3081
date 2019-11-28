@@ -13,6 +13,7 @@
 #include "src/passenger.h"
 #include "src/route.h"
 #include "src/stop.h"
+#include "src/data_structs.h"
 
 class PassengerUnloader;
 class PassengerLoader;
@@ -20,7 +21,8 @@ class Route;
 class Stop;
 
 /**
- * @brief Bus class that follows a route and picks up and unloads passengers
+ * @brief Class that creates a bus that will follow a
+ * route to pick up and unload passengers
  */
 class Bus {
  public:
@@ -32,37 +34,53 @@ class Bus {
    * @param[in] inbound route
    * @param[in] max capacity of passengers
    * @param[in] speed of bus (distance it will travel in one time step)
-   *
-   * @return Bus object that travels on the outbound and inbound route
    */
-  Bus(std::string name, Route * out, Route * in, int capacity = 60, double speed = 1);
+  Bus(std::string name, Route * out, Route * in,
+  int capacity = 60, double speed = 1);
    /**
-   * @brief Loads a passenger onto the bus
+   * @brief Loads a passenger onto the bus from a stop
    *
    * @param[in] a passenger object
-   *
-   * @return returns a bool based on whether the load was successful (bus was not at max capacity)
    */
   bool LoadPassenger(Passenger *);  // returning revenue delta
   /**
    * @brief Moves the bus, updating the distance based on the speed of the bus
-   *
-   * @return returns a bool based on whether the move was successful
    */
   bool Move();
   /**
-   * @brief Updates the passengers on the bus and performs the loading and unloading of passengers
+   * @brief Updates the passengers on the bus and performs
+   * the loading and unloading of passengers
    */
   void Update();
   /**
-   * @brief Prints information on the bus at the current time step.
+   * @brief Prints information on the bus at the current time step
    *
    * @param[in] ostream where the information will be outputted
    */
   void Report(std::ostream&);
+  /**
+   * @brief Updates the BusData struct with current information about the bus
+   */
+  void UpdateBusData();
+  /**
+   * @brief Returns the BusData struct
+   */
+  BusData GetBusData();
+  std::string GetName() const;
+  size_t GetNumPassengers();
+  int GetCapacity();
+  /**
+   * @brief Returns true if both outgoing and incoming routes are complete
+   */
+  bool IsTripComplete();
+  Route * GetOutgoing();
+  Route * GetIncoming();
+  std::list<Passenger *> GetPassengers();
+  double GetSpeed();
+  int GetDistanceRemaining();
 
  private:
-  std::list<Passenger *> passengers_;
+  std::list<Passenger *> passengers_;  // passengers on the bus
   int passenger_max_capacity_;
   std::string name_;
   double speed_;  // could also be called "distance travelled in one time step"
@@ -70,6 +88,8 @@ class Bus {
   Route * incoming_route_;
   double distance_remaining_;  // when negative?, unload/load procedure occurs
                               // AND next stop set
+  struct BusData bus_data_;
+  int num_passengers_;
   // double revenue_; // revenue collected from passengers, doesn't include
                       // passengers who pay on deboard
   // double fuel_;   // may not be necessary for our simulation
