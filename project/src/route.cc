@@ -124,12 +124,6 @@ void Route::SetRouteComplete() {
 }
 
 Stop * Route::GetPreviousStop() {
-  // std::list<Stop *>::iterator it = stops_.begin();
-  // if (destination_stop_index_ == 0) {
-  //   std::advance(it, destination_stop_index_);
-  // }
-  // std::advance(it, destination_stop_index_-1);
-  // return *it;
   return prev;
 }
 
@@ -151,8 +145,10 @@ void Route::UpdateRouteData() {
   for (std::list<Stop *>::const_iterator it = stops_.begin();
   it != stops_.end(); it++) {
     struct StopData temp_stop_;
+    // Create a StopData struct to store in route_data_
     temp_stop_.id = std::to_string(((*it)->GetId()));
     struct Position stop_pos_;
+    // Create Position struct to store in temp_stop_
     stop_pos_.y = (*it)->GetLatitude();
     stop_pos_.x = (*it)->GetLongitude();
     temp_stop_.position = stop_pos_;

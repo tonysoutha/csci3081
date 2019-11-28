@@ -4,8 +4,8 @@
  * @copyright 2019 3081 Staff, All rights reserved.
  */
 
-#ifndef PROJECT_SRC_PASSENGER_H_
-#define PROJECT_SRC_PASSENGER_H_
+#ifndef SRC_PASSENGER_H_
+#define SRC_PASSENGER_H_
 
 #include <iostream>
 #include <string>
@@ -38,18 +38,16 @@ class Passenger {  // : public Reporter {
   int GetTotalWait() const;
   /**
    * @brief Determine if passenger is on a bus
-   *
-   * @return true if passenger is on a bus false otherwise
    */
   bool IsOnBus() const;
   /**
    * @brief Get the destination of a passenger
-   * @return the id # of the destination stop
    */
   int GetDestination() const;
   void Report(std::ostream&) const;
   int GetTimeOnBus() const;
   int GetTimeAtStop() const;
+
  private:
   std::string name_;
   int destination_stop_id_;
@@ -58,4 +56,4 @@ class Passenger {  // : public Reporter {
   int id_;
   static int count_;   // global count, used to set ID for new instances
 };
-#endif  // PROJECT_SRC_PASSENGER_H_
+#endif  // SRC_PASSENGER_H_

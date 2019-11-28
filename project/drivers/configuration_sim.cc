@@ -11,10 +11,6 @@
 #include "src/configuration_simulator.h"
 
 int main(int argc, char**argv) {
-  // NOTE: this usage will change depending on
-  //       how you build your config_sim classes
-  //   E.g., how will you handle getting the length of simulation value?
-
   std::cout << "Usage: ./build/bin/configuration_sim <config_filename>";
   std::cout << std::endl;
 
@@ -25,26 +21,27 @@ int main(int argc, char**argv) {
     file = argv[1];  // Use file passed in from command line
   }
 
-  const std::string filename = argv[1];
+  const std::string filename = file;
   std::ifstream input_file("config/" + filename);
   if (!(input_file.is_open())) {  // Ensures the file passed in is valid
     std::cout << "Error: Unable to open file" << std::endl;
     return 1;
-  } 
+  }
 
   cm->ReadConfig(file);
 
-  if(cm->GetRoutes().size() == 0) {  // Handles case where empty config file is passed in
+  if (cm->GetRoutes().size() == 0) {
+  // Handles case where empty config file is passed in
     std::cout << "Error: Empty file" << std::endl;
     return 1;
   }
 
   ConfigurationSimulator * cs = new ConfigurationSimulator;
-  std::vector<int> busStartTimings;
+  std::vector<int> busStartTimings;  // Set default busstarttimings
   for (int i = 0; i < cm->GetRoutes().size()-1; i++) {
     busStartTimings.push_back(0.5);
   }
-  int numTimeSteps = 25;
+  int numTimeSteps = 25;  // Set default numtimesteps
   cs->SetConfigManager(cm);
   cs->Start(busStartTimings, numTimeSteps);
   for (int i = 0; i < numTimeSteps; i++) {

@@ -4,8 +4,8 @@
  * @Copyright 2019 3081 Staff, All rights reserved.
  */
 
-#ifndef PROJECT_SRC_ROUTE_H_
-#define PROJECT_SRC_ROUTE_H_
+#ifndef SRC_ROUTE_H_
+#define SRC_ROUTE_H_
 
 #include <list>
 #include <iostream>
@@ -40,46 +40,48 @@ class Route {
         PassengerGenerator *);
   /**
    * @brief Creates a clone of the current route
-   *
-   * @return New route
    */
   Route * Clone();
+  /**
+   * @brief Updating the route will call update on all stops on the route
+   */
   void Update();
   void Report(std::ostream&);
   /**
    * @brief Tells us if the current route is at the last stop
-   *
-   * @return true if at last stop, false otherwise
    */
   bool IsAtEnd() const;
   void NextStop();  // Change destination_stop_ to next stop
   Stop * GetDestinationStop() const;    // Get pointer to next stop
   /**
    * @brief Look the distance array and return to next distance
-   *
-   * @return Distance between current and next stop
    */
   double NextDistance();
   /**
    * @brief Tell us if the current route has been completed
-   *
-   * @return True if route is complete, false otherwise
    */
   bool IsRouteComplete();
   /**
    * @brief Sets the route to complete
    */
   void SetRouteComplete();
-  //double GetTotalRouteDistance() const;
-  //double GetNextStopDistance() const;
+  // double GetTotalRouteDistance() const;
+  // double GetNextStopDistance() const;
   Stop * GetPreviousStop();
   std::string GetName();
   std::list<Stop *> GetStops();
+  /**
+   * @brief Update the RouteData struct with current route information
+   */
   void UpdateRouteData();
+  /**
+   * @brief Return the RouteData struct
+   */
   RouteData GetRouteData();
   int GetDestinationStopIndex();
   std::list<double> GetDistances();
   int GetNumStops();
+
  private:
   int GenerateNewPassengers();       // generates passengers on its route
   PassengerGenerator * generator_;
@@ -95,4 +97,4 @@ class Route {
   Stop * prev;
   // double trip_time_; // derived data - total distance travelled on route
 };
-#endif  // PROJECT_SRC_ROUTE_H_
+#endif  // SRC_ROUTE_H_
