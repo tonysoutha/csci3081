@@ -36,9 +36,18 @@ int RandomPassengerGenerator::GeneratePassengers() {
        prob_iter != generation_probabilities_.end()
                     && stop_iter != stops_.end();
        prob_iter++, stop_iter++) {
+
+
+
     // get this stop's probability
+
     double initial_generation_probability = *prob_iter;
     double current_generation_probability = initial_generation_probability;
+
+    if (++stop_iter == stops_.end()) {
+      current_generation_probability = 0;
+      --stop_iter;
+    }
 
     // while there is still a (>.01%) chance of generating a passenger, try
     while (current_generation_probability > .0001) {
