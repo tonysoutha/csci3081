@@ -1,0 +1,13 @@
+Files being changed:
+bus.cc, bus.h
+
+Methods being changed:
+Update, UnloadPassengers
+
+Location of the changes:
+Changes were made in the bus Update method at the point where passengers must
+be unloaded. A method called UnloadPassengers was implemented to check if
+passengers are at their stop and to remove them from the bus passenger list 
+if so. This improves the bus Update method because it shortens the method,
+making it more readable. It also avoids having the same code written twice
+for outgoing and incoming routes.
