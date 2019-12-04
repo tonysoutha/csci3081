@@ -42,18 +42,22 @@ void Stop::Report(std::ostream & out) const {
 
 bool Stop::LoadPassengers(Bus * bus) {
   // Calls the bus LoadPassenger method to load passengers from stop onto bus
-  for (std::list<Passenger *>::iterator it = passengers_.begin();
-  it != passengers_.end(); it++) {
-    bool loaded = bus->LoadPassenger(*it);
-    if (loaded) {
-      bus->LoadPassenger(*it);
-      passengers_present_--;
-      passengers_.pop_front();
-    }
-  }
+ // for (std::list<Passenger *>::iterator it = passengers_.begin();
+ // it != passengers_.end(); it++) {
+ //   bool loaded = bus->LoadPassenger(*it);
+ //   if (loaded) {
+ //     passengers_present_--;
+ //     passengers_.pop_front();
+ //   }
+ // }
   // while (passengers_.size() > passengers_present_) {  // Remove passengers from the stop
   //   passengers_.pop_front();
   // }
+  while (bus->LoadPassenger(passengers_.front())) {
+      passengers_present_--;
+      passengers_.pop_front();
+    
+  }
   return true;
 }
 

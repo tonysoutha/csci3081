@@ -16,7 +16,6 @@ Route * in, int capacity, double speed) {
 
 bool Bus::LoadPassenger(Passenger * new_passenger) {
   if (num_passengers_ < passenger_max_capacity_) {
-    passenger_max_capacity_--;
     passengers_.push_back(new_passenger);
     new_passenger->GetOnBus();
     num_passengers_++;
@@ -39,7 +38,7 @@ bool Bus::Move() {
 
 void Bus::Update() {  // using common Update format
   Move();
-  // UpdateBusData();
+  UpdateBusData();
   for (std::list<Passenger *>::iterator it = passengers_.begin();
   it != passengers_.end(); it++) {  // Update passengers
     (*it)->Update();
