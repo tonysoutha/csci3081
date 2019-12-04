@@ -86,28 +86,28 @@ bool Route::IsAtEnd() const {
 
 
 void Route::NextStop() {
-  // destination_stop_index_++;;
-  // for (std::list<Stop *>::const_iterator it = stops_.begin();
-  // it != stops_.end(); it++) {
-  //   if ((*it) == destination_stop_) {
-  //   // Search for current stop in list
-  //     prev = *(it);
-  //     destination_stop_ = *(it++);
-  //     // Set the destination stop to the next stop in the list
-  //   }
-  // }
+   destination_stop_index_++;;
+   for (std::list<Stop *>::const_iterator it = stops_.begin();
+   it != stops_.end(); it++) {
+     if ((*it) == destination_stop_) {
+     // Search for current stop in list
+       prev = *(it);
+       destination_stop_ = *(it++);
+       // Set the destination stop to the next stop in the list
+     }
+   }
 
-  destination_stop_index_++;
-  std::list<Stop *>::iterator it = stops_.begin();
-  while ((*it) != destination_stop_) {
-    it++;
-  }
-  prev = *(it);
-  it++;
-  destination_stop_ = *(it);
+ // destination_stop_index_++;
+ // std::list<Stop *>::iterator it = stops_.begin();
+ // while ((*it) != destination_stop_) {
+ //   it++;
+ // }
+ // prev = *(it);
+ // it++;
+ // destination_stop_ = *(it);
 }
 
-double Route::NextDistance() {
+double Route::GetNextStopDistance() {
   // looks in the distances_between_ list to find
   // the next distance in between stops
   std::list<double>::iterator it = distances_between_.begin();

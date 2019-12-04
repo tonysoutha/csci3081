@@ -46,6 +46,7 @@ bool Stop::LoadPassengers(Bus * bus) {
   it != passengers_.end(); it++) {
     bool loaded = bus->LoadPassenger(*it);
     if (loaded) {
+      bus->LoadPassenger(*it);
       passengers_present_--;
       passengers_.pop_front();
     }

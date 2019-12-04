@@ -57,7 +57,7 @@ void Bus::Update() {  // using common Update format
         // and update next stop and distance
         incoming_route_->GetDestinationStop()->LoadPassengers(this);
         incoming_route_->NextStop();
-        distance_remaining_ = incoming_route_->NextDistance();
+        distance_remaining_ = incoming_route_->GetNextStopDistance();
       } else {
         for (std::list<Passenger *>::iterator it = passengers_.begin();
         it != passengers_.end(); it++) {
@@ -71,7 +71,7 @@ void Bus::Update() {  // using common Update format
         // Load passengers from stop onto bus
         outgoing_route_->NextStop(); // SEGFAULTING
         // Set next destination stop
-        distance_remaining_ = outgoing_route_->NextDistance();
+        distance_remaining_ = outgoing_route_->GetNextStopDistance();
         // Set next distance in between the next stops
       }
     }
@@ -92,7 +92,7 @@ void Bus::Update() {  // using common Update format
         }
         (incoming_route_->GetDestinationStop())->LoadPassengers(this);
         incoming_route_->NextStop();
-        distance_remaining_ = incoming_route_->NextDistance();
+        distance_remaining_ = incoming_route_->GetNextStopDistance();
       }
     }
   }
