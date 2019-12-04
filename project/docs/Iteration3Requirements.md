@@ -77,7 +77,7 @@ Code documentation comes in many forms for many audiences. For this iteration, *
 
 - ##### <a name="doxy">Doxygen</a>
 
-  The index page of your Doxygen html documentation should be complete and well written. This will be a second draft of the writing in mainpage.h, and probably the final draft. It should provide a brief overview/introduction to the software, then discuss specifics in the design and implementation that will assist any programmer who will be a new contributor to the code, and finally provide a user guide for non-technical users to be able to download, configure, and operate the simulator. If the text were on an 8.5x11 piece of paper, your entire mainpage.h should be 3-4 pages. Moreover, the font size you should use should be 10 or 11 point, and the line spacing should be the word default, which is 1.15 points. 
+  The index page of your Doxygen html documentation should be complete and well written. This will be a second draft of the writing in mainpage.h, and probably the final draft. It should provide a brief overview/introduction to the software, then discuss specifics in the design and implementation that will assist any programmer who will be a new contributor to the code, and finally provide a user guide for non-technical users to be able to download, configure, and operate the simulator. If the text were on an 8.5x11 piece of paper, your ~~entire mainpage.h~~ user guide should be 3-4 pages. Moreover, the font size you should use should be 10 or 11 point, and the line spacing should be the word default, which is 1.15 points. 
 
   As part of your fresh clone prior to submission, please also compile the Doxygen and look at the generated webpages.
 
