@@ -15,7 +15,7 @@ Route * in, int capacity, double speed) {
 }
 
 bool Bus::LoadPassenger(Passenger * new_passenger) {
-  if (passenger_max_capacity_ > 0) {
+  if (num_passengers_ < passenger_max_capacity_) {
     passenger_max_capacity_--;
     passengers_.push_back(new_passenger);
     new_passenger->GetOnBus();
@@ -39,7 +39,7 @@ bool Bus::Move() {
 
 void Bus::Update() {  // using common Update format
   Move();
-  UpdateBusData();
+  // UpdateBusData();
   for (std::list<Passenger *>::iterator it = passengers_.begin();
   it != passengers_.end(); it++) {  // Update passengers
     (*it)->Update();
@@ -60,19 +60,19 @@ void Bus::Update() {  // using common Update format
         distance_remaining_ = incoming_route_->NextDistance();
       } else {
         for (std::list<Passenger *>::iterator it = passengers_.begin();
-          it != passengers_.end(); it++) {
+        it != passengers_.end(); it++) {
           if ((*it)->GetDestination() ==
           (outgoing_route_->GetDestinationStop())->GetId()) {
           // Check if passengers need to be unloaded
             passengers_.erase(it);
           }
         }
-      (outgoing_route_->GetDestinationStop())->LoadPassengers(this);
-      // Load passengers from stop onto bus
-      outgoing_route_->NextStop();
-      // Set next destination stop
-      distance_remaining_ = outgoing_route_->NextDistance();
-      // Set next distance in between the next stops
+        (outgoing_route_->GetDestinationStop())->LoadPassengers(this);
+        // Load passengers from stop onto bus
+        outgoing_route_->NextStop(); // SEGFAULTING
+        // Set next destination stop
+        distance_remaining_ = outgoing_route_->NextDistance();
+        // Set next distance in between the next stops
       }
     }
   } else {  // Use incoming route instead
