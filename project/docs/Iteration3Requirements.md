@@ -125,11 +125,11 @@ In this iteration, you will be fixing bugs.
 
 	We also want to refactor one element of the project which could cause errors, especially now that we're pulling from user-defined configuration files. The current version of the probability list for stops includes the value for the final stop on a route. With nowhere to go, that probability needs to be 0. But, with configuration files, this can't be guaranteed without some changes to our code. Refactor the code so that there is no probability (even if provided by configuration) for the final stop in a route, and that the simulator does not use or try to access such a probability for the final stop in a route.	
 	
-	_If you have completed this refactoring in iteration 2, merge it into its own branch named **refactor/iter2** and remove the refactoring from the final version of the code you submit via your master branch.  
+	* If you have completed this refactoring in iteration 2, merge it into its own branch named **refactor/iter2** and remove the refactoring from the final version of the code you submit via your master branch.  
 	
-	If you have not yet done this refactoring, you should do it in its own branch, named: **refactor/iter2** - and make sure it is not included in final version of the code you submit via your master branch. 
+	* If you have not yet done this refactoring, you should do it in its own branch, named: **refactor/iter2** - and make sure it is not included in final version of the code you submit via your master branch. 
 	
-	Otherwise, if you have already completed this refactoring and the refactoring for iteration 3 in the branch named: **refactor/iter3** - that is perfectly acceptable. Hoever,  remember, the code for the refactoring should not be in the final version of the code that you merge into and sumbit via your master branch. 
+	* Otherwise, if you have already completed this refactoring and the refactoring for iteration 3 in the branch named: **refactor/iter3** - that is perfectly acceptable. Hoowever, note that the code for the refactoring should not be in the final version of the code that you merge into and sumbit via your master branch. 
 	
 	###### Refactoring 2
 	
