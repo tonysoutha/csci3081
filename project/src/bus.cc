@@ -37,6 +37,17 @@ bool Bus::Move() {
 //  fuel_ = max_fuel_;
 // }
 
+void Bus::UnloadPassengers() {
+  for (std::list<Passenger *>::iterator it = passengers_.begin();
+    it != passengers_.end(); it++) {
+    if ((*it)->GetDestination() ==
+    (outgoing_route_->GetDestinationStop())->GetId()) {
+    // Check if passengers need to be unloaded
+      passengers_.erase(it);
+    }
+  }
+}
+
 void Bus::Update() {  // using common Update format
   Move();
   UpdateBusData();
@@ -59,14 +70,7 @@ void Bus::Update() {  // using common Update format
         incoming_route_->NextStop();
         distance_remaining_ = incoming_route_->NextDistance();
       } else {
-        for (std::list<Passenger *>::iterator it = passengers_.begin();
-          it != passengers_.end(); it++) {
-          if ((*it)->GetDestination() ==
-          (outgoing_route_->GetDestinationStop())->GetId()) {
-          // Check if passengers need to be unloaded
-            passengers_.erase(it);
-          }
-        }
+      UnloadPassengers();
       (outgoing_route_->GetDestinationStop())->LoadPassengers(this);
       // Load passengers from stop onto bus
       outgoing_route_->NextStop();
@@ -83,13 +87,7 @@ void Bus::Update() {  // using common Update format
           passengers_.pop_front();
         }
       } else {
-        for (std::list<Passenger *>::iterator it = passengers_.begin();
-        it != passengers_.end(); it++) {
-          if ((*it)->GetDestination() ==
-          (outgoing_route_->GetDestinationStop())->GetId()) {
-            passengers_.erase(it);
-          }
-        }
+        UnloadPassengers();
         (incoming_route_->GetDestinationStop())->LoadPassengers(this);
         incoming_route_->NextStop();
         distance_remaining_ = incoming_route_->NextDistance();

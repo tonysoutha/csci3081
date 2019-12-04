@@ -78,6 +78,7 @@ class Bus {
   std::list<Passenger *> GetPassengers();
   double GetSpeed();
   int GetDistanceRemaining();
+  void UnloadPassengers();
 
  private:
   std::list<Passenger *> passengers_;  // passengers on the bus
