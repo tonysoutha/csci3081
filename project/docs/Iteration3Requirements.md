@@ -187,7 +187,7 @@ In this iteration, you will be fixing bugs.
 
 #### <a name="peer">Peer Response</a>
 
-We will be working in class to complete peer responses regarding your choices for refactoring, so you must have a draft of your refactoring that is well formatted, grammar, and spell checked ready to bring to class on Thrusday December 5th. You are REQUIRED to bring 2 printed copies to class on Thursday December 5th to participate in the peer review / response or you will recieve a zero for the refactoring portion of your grade on iteration 3. 
+We will be working in class to complete peer responses regarding your choices for refactoring, so you must have a draft of your refactoring that is well formatted, grammar, and spell checked ready to bring to class on Thrusday December 5th. You are REQUIRED to bring 3 printed copies to class on Thursday December 5th to participate in the peer review / response or you will recieve a zero for the refactoring portion of your grade on iteration 3. 
 
 <hr>
 
