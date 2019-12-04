@@ -7,7 +7,7 @@ You can convert this requirements document to pdf using this tool: <http://www.m
 
 >Your software is a reflection of your understanding of the requirements as specified in this document. If you do not understand any portion of the requirements or you think that the requirements are underspecified, it is your responsibility to get clarification from the instructor or a TA. Please read this document carefully and review it often _WELL IN ADVANCE_ and often before turning in your iteration for assessment.
 
-## Version 2: December 4th, 2019 - added instructions on mainpage.h font and line spacing; instructions for including the iteration 2 and iteration 3 refactoring requirements in branches, and requirements for adding a release_notes.document specifying the branch or branches that contain the refactoring 1  and the refactoring 2 code.
+## Version 2: December 4th, 2019 - added instructions on mainpage.h font and line spacing; instructions for including the code for refactoring 1 and refactoring 2 in branches, and requirements for adding a release_notes.document specifying the branch or branches that contain the refactoring 1  and the refactoring 2 code.
 
 # Releasing to the public: Iteration 3  
 
