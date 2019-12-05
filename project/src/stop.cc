@@ -53,10 +53,13 @@ bool Stop::LoadPassengers(Bus * bus) {
   // while (passengers_.size() > passengers_present_) {  // Remove passengers from the stop
   //   passengers_.pop_front();
   // }
-  while (bus->LoadPassenger(passengers_.front())) {
+  while (!(passengers_.empty())) {
+    if (bus->LoadPassenger(passengers_.front())) {
       passengers_present_--;
       passengers_.pop_front();
-    
+    // } else {
+    //   return false;
+    }
   }
   return true;
 }

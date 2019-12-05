@@ -64,6 +64,7 @@ void Bus::Update() {  // using common Update format
           (outgoing_route_->GetDestinationStop())->GetId()) {
           // Check if passengers need to be unloaded
             passengers_.erase(it);
+            it--;
           }
         }
         (outgoing_route_->GetDestinationStop())->LoadPassengers(this);
@@ -87,6 +88,7 @@ void Bus::Update() {  // using common Update format
           if ((*it)->GetDestination() ==
           (outgoing_route_->GetDestinationStop())->GetId()) {
             passengers_.erase(it);
+            it--;
           }
         }
         (incoming_route_->GetDestinationStop())->LoadPassengers(this);
