@@ -25,12 +25,9 @@ Once assembled, the regression test you create in this lab will produce the same
 it is executed (**once you make some changes to the passenger_factory.cc that we will discuss later**). 
 
    The lab 15 regression test uses many of the same classes and functionality as the __config_sim__ and __vis_sim__ -  but not all of the same classes
-and functionality. Thus, the lab 15 regression test will test only the classes and functionality specified in the files that it shares with __config_sim__ and __vis_sim__.
-  Note, however, that the lab 15 regression test does not share classes and functionality provided by the following files with __config_sim__ and __vis_sim__, which we are giving to 
-you so you can create the lab 15 regression test (the files listed below are in the lab 15 directory):
+and functionality. Thus, the lab 15 regression test will only test the classes and functionality in the files that it _shares_ with __config_sim__ and __vis_sim__. Note, however, that the following files do not share classes and functionality with __config_sim__ and __vis_sim__. We are providing these new files to you so that you can create the lab 15 regression test:
 
-* regression_driver.cc    
-
+* regression_driver.cc
 * r_local_simulator.h
 * r_local_simulator.ccc
 * rtest_passenger_generator.h
@@ -40,12 +37,11 @@ We have also provided an updated version of:
 
 * passenger_factory.cc 
 
-in the lab 15 directory.  The methods in the file *passenger_factory.cc* can be configured to work in random or determistic (repeatable) mode using a MACRO.
+The methods in this new *passenger_factory.cc* can be configured to work in random or deterministic (repeatable) mode using a MACRO.
 
 #### Creating the Lab 15 regression test executable
 
-To create the regression test executable
-, perform the following steps with the files in the lab 15 folder:
+To create the regression test executable, perform the following steps with the files in the lab 15 folder:
 
 1) Copy the file **regression_driver.cc** into your _project/drivers_ directory
 
@@ -54,21 +50,20 @@ To create the regression test executable
 
 3) The makefile in your _project/src_ directory should have the following target: **%_test**
 
-  Provided it does, you can create the regression test driver using your makefile noted in step 4 below:
+  Provided it does, you can create the regression test driver using your makefile as shown in step 4 below:
 
 4) In your project/src directory, type the following on a command line: **make regression_test**
 
-  If your make executes successfully, your regression test driver executable will be a file named: *regression_test* in the directory:
-_project/build/bin_. 
+  If your make executes successfully, your regression test driver executable will be a file named: *regression_test* in the directory: _project/build/bin_. 
 
-  If your makefile in the _project/src_ directory does *not* successfully create an executable file named *regression_test* in the _project/build/bin_ directory, make a backup copy of your makefile in your _project/src_ directory,
+  If your makefile in the _project/src_ directory does **not** successfully create an executable file named *regression_test* in the _project/build/bin_ directory, make a backup copy of your makefile in your _project/src_ directory,
 and copy the makefile from lab14 into your _project/src_ directory. Make sure your are in the _project/src_ directory. 
 
   Then type: **make regression_test** on the command line. 
   
   If your second attempt does not successfully create an executable file named: *regression_test* in the _project/build/bin_ directory, seek help from a TA.
 
-5) Next, change directory to the _project/build/bin_ directory.  Then run the regression test twice as follows:
+5) Next, change directory to the _project/build/bin_ directory.  Then run the regression test twice, piping each output to a different output file as such:
 
   a) ./regression_test > rtout1
   
