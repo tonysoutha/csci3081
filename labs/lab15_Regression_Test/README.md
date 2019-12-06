@@ -6,7 +6,7 @@ verify that features in your simulation that were already working continue to wo
 (that is, code). 
 
   The regression test you will assemble and run in this lab can also be used as a basis for creating another regression 
-test.  Even though though the regression test requirement from iteration 2 specified the need for 3 regression tests, 
+test.  Even though the regression test requirement from iteration 2 specified the need for 3 regression tests, 
 that requirement has been relaxed for iteration 3 as follows:  
 __To get full credit for regression testing in iteration 3, you should create (and deliver) at least ONE other 
 working regression test - that is in some way different than the one provided in this lab (lab 15).__ _We will provide more 
@@ -61,7 +61,7 @@ To create the regression test executable
   If your make executes successfully, your regression test driver executable will be a file named: *regression_test* in the directory:
 _project/build/bin_. 
 
-  If your makefile in the _project/src_ directory does successfully create an executable file named *regression_test* in the _project/build/bin_ directory, make a backup copy of your makefile in your _project/src_ directory,
+  If your makefile in the _project/src_ directory does *not* successfully create an executable file named *regression_test* in the _project/build/bin_ directory, make a backup copy of your makefile in your _project/src_ directory,
 and copy the makefile from lab14 into your _project/src_ directory. Make sure your are in the _project/src_ directory. 
 
   Then type: **make regression_test** on the command line. 
@@ -76,7 +76,7 @@ and copy the makefile from lab14 into your _project/src_ directory. Make sure yo
   
 6) Compare the output of rtout1 and rtout2 by checking for differences between the two files (there should not be any differences).
 
-  You can do this by typing the followng command on the terminal command line: *diff rtout1 rtout2*
+  You can do this by typing the following command on the terminal command line: *diff rtout1 rtout2*
 
 **What happened?**  _There is output, so the output files produced by two successive runs of the regression_test executable are not the same_ - which means either the test failed or the test is not working correctly.
 _In this case, the test is not working correctly because the methods in the file *passenger_factory.cc* are still using random behavior!_
