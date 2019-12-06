@@ -124,13 +124,13 @@ driver runs faster.  For example,  the eastbound route stops could be:
 
 * SPSC, Buford & Gartner, Fairgrounds, tway, before_transit
 
-Then create a new regression test driver (named something like regression_test2.cc) that uses the new version of r_local_simulator, compile it, and test it out!
+Then create a new regression test driver (named something like my_regression_driver.cc) that uses the new version of r_local_simulator, compile it, and test it out! To make this driver specifically, do 'make my_regression_test'. This is just an example name. Please use one that makes more sense.
 
 2) You could create a new version of all of the lab 15 files (**with the exception of passenger_factory.cc**). The files would use a
 new version the passenger generator that adds a constant number
 of passengers at each stop each time passengers are generated in a different way that the lab 15 regression test does (for example, each stop adds stop_id + 1 passengers each time a generation takes place)
 
-Then create a new regression test driver (named something like regression_test3.cc) that uses the new versions of the files , compile it, and test it out!
+Then create a new regression test driver (named something like my_regression2_driver.cc) that uses the new versions of the files , compile it, and test it out! To make this driver specifically, do 'make my_regression2_test'. This is just an example name. Please use one that makes more sense.
 
 3) If you have config_sim working, you could make a copy of configuration_sim, and use the copy as the basis of a new regression test driver. 
 You could then create a new versions of config_manager.cc. The new version of config_manager.cc could use
