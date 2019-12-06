@@ -41,7 +41,7 @@
 | Refactoring 1 does not require changes to config file structure |  |  |  |  |
 | Refactoring 1 removes possibility of users changing probability of a route's final stop to be non-zero |  |  |  
 | **__Refactoring 2__** |
-| File refactor.xxx exists within project/docs/ |  |  |  |  |
+| File refactor.xxx exists within project/docs/ (where x = pdf or doc or txt or rtf) |  |  |  |  |
 | Refactoring is clearly identified and explained |  |  |  |  |
 | **__Regression Testing__** |
 | Regression testing exercises full breadth of functionality |  |  |  |  |
@@ -51,7 +51,7 @@
 
 <hr>
 
-For the table below, please identify which aspects were fixed. You should put an "x" in one of the three columns. We will restore points only for those elements that are complete and correct.
+For the table below, please specify which aspects were fixed. You should put an "x" in one of the three columns. We will restore points only for those elements that are complete and correct.
 
 ### THIS IS ESSENTIAL FOR RESTORING POINTS FOR FUNCTIONALITY. 
 *You can potentially get back lost functionality points from Iteration 2, but we have to know what to look for. We will not spend time tracking down what didn't work in earlier iterations and trying to see if it is working in iteration 3. We need you to tell us what to look for, and then we will review your github issues and your updated functionality to determine your score for that item*
