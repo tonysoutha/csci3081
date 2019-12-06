@@ -7,6 +7,8 @@ You can convert this requirements document to pdf using this tool: <http://www.m
 
 >Your software is a reflection of your understanding of the requirements as specified in this document. If you do not understand any portion of the requirements or you think that the requirements are underspecified, it is your responsibility to get clarification from the instructor or a TA. Please read this document carefully and review it often _WELL IN ADVANCE_ and often before turning in your iteration for assessment.
 
+## Version 3: December 6th, 2019 - updated instructions on length of mainpage. User guide must be  3 - 4 pages _IN ADDITION TO_ the developers guide you created for iteration 1 (and are updating for this iteration). Also, the number of regression tests required for iteration 3 has been updated. Review the sections in the specification below that discuss the aforementioned items for more details. 
+
 ## Version 2: December 4th, 2019 - added instructions on mainpage.h font and line spacing; instructions for including the code for refactoring 1 and refactoring 2 in branches, and requirements for adding a release_notes.document specifying the branch or branches that contain the refactoring 1  and the refactoring 2 code. Clarified Bug Fixing requirement in assessment.
 
 # Releasing to the public: Iteration 3  
@@ -129,7 +131,7 @@ In this iteration, you will be fixing bugs.
 	
 	* If you have not yet done this refactoring, you should do it in its own branch, named: **refactor/iter2** - and make sure it is not included in final version of the code you submit via your master branch. 
 	
-	* Otherwise, if you have already completed this refactoring and the refactoring for iteration 3 in the branch named: **refactor/iter3** - that is perfectly acceptable. Hoowever, note that the code for the refactoring should not be in the final version of the code that you merge into and sumbit via your master branch. 
+	* Otherwise, if you have already completed this refactoring and the refactoring for iteration 3 in the branch named: **refactor/iter3** - that is perfectly acceptable. However, note that the code for the refactoring should not be in the final version of the code that you merge into and sumbit via your master branch. 
 	
 	###### Refactoring 2
 	
@@ -178,10 +180,13 @@ In this iteration, you will be fixing bugs.
 
 - ##### <a name="testing">Regression Testing</a>
 
-	Regression tests (pushed from Iteration 3):
+	Regression tests (pushed from Iteration 2 to Iteration 3):
+
 	* For regression tests, the goal is to verify that features that worked once stay working, even as you continue to add to the code.
 	* For our simulations, that probably means some relatively simple and structured scenario that can be reused and in which we know the exact output.
-	* To use this testing strategy with Google Test, you should add store any config files you need in project/config/ and anything else that might be helpful in project/resources/, while attempting to ensure that changes didn't break anything that was already working.
+	* To use this testing strategy with Google Test, you should add store any config files you need in project/config/ and anything else that might be helpful in project/resources/, while attempting to ensure that changes you make to create the regression test do not  break anything that was already working.
+	
+**One important change to this iteration 2 regression test requirment is that for iteration 3 you are required to create only ONE (1) regression test. As specified in lab 15, the regression test you create _must be different_ than the regression test we give you in lab 15.**
 
 <hr>
 
