@@ -34,7 +34,7 @@
 | Refactoring 1 is completed |  |  |  |  |
 | Refactoring 1 exists within either branch refactor/iter3 or branch refactor/iter2 |  |  |  |  |
 | Refactoring 2 is completed |  |  |  |  |
-| Refactoring 2 exists within either branch refactor/iter3 |  |  |  |  |
+| Refactoring 2 exists within branch refactor/iter3 |  |  |  |  |
 | Refactorings do not change observable functionality |  |  |  |  |
 | File release_notes.md exists and identifies locations of Refactorings | | | | |
 | **__Refactoring 1__** |
