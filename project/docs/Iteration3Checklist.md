@@ -54,12 +54,12 @@
 For the table below, please identify which aspects were fixed. You should put an "x" in one of the three columns. We will restore points only for those elements that are complete and correct.
 
 ### THIS IS ESSENTIAL FOR RESTORING POINTS FOR FUNCTIONALITY. 
-*You can potentially get back lost functionality points from Iteration 2, but we have to know what to look for. We will not spend time tracking down what didn't work in earlier iterations and trying to see if it is working in iteration 3. We need you to tell us what to look for.*
+*You can potentially get back lost functionality points from Iteration 2, but we have to know what to look for. We will not spend time tracking down what didn't work in earlier iterations and trying to see if it is working in iteration 3. We need you to tell us what to look for, and then we will review your github issues and your updated functionality to determine your score for that item*
 
 
 | Functionality | Complete in it2 | | Fixed in it3 | Still Buggy |
 | -------- | -------- |-| -------- | -------- |
-| **__NEED TO UPDATE THIS LIST__** |  ||  |   |
+| **__YOU NEED TO UPDATE THIS LIST__** |  ||  |   |
 
 
 ### Documentation
@@ -68,6 +68,7 @@ For the table below, please identify which aspects were fixed. You should put an
 - [ ] The mainpage includes a user guide for technical users.
 - [ ] The mainpage includes a user guide for non-technical users.
 - [ ] I commented my code where necessary.
+- [ ] A document named **release_notes.md** specifying names of branch(es) that hold refactoring 1 and 2, and any other assumptions is in project/src directory.
 
 ### Linter and Git
 - [ ] The code complies with naming conventions for classes, methods, and members.
