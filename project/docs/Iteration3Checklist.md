@@ -1,5 +1,5 @@
 ### CSCI3081W: VERSION 2 -- Updated where doxygen is ran to generate documentation
-##Version 1: Iteration 3 Submission Checklist
+## Version 1: Iteration 3 Submission Checklist
 
 > The iteration 3 code and documentation is due on WEDNESDAY, December 11 at 11:55pm.
 
