@@ -7,6 +7,8 @@ You can convert this requirements document to pdf using this tool: <http://www.m
 
 >Your software is a reflection of your understanding of the requirements as specified in this document. If you do not understand any portion of the requirements or you think that the requirements are underspecified, it is your responsibility to get clarification from the instructor or a TA. Please read this document carefully and review it often _WELL IN ADVANCE_ and often before turning in your iteration for assessment.
 
+## Version 4: December 8th, 2019 - updating instructions regarding where to run doxygen from
+
 ## Version 3: December 6th, 2019 - updated instructions on length of mainpage. User guide must be  3 - 4 pages _IN ADDITION TO_ the developers guide you created for iteration 1 (and are updating for this iteration). Also, the number of regression tests required for iteration 3 has been updated. Review the sections in the specification below that discuss the aforementioned items for more details. 
 
 ## Version 2: December 4th, 2019 - added instructions on mainpage.h font and line spacing; instructions for including the code for refactoring 1 and refactoring 2 in branches, and requirements for adding a release_notes.document specifying the branch or branches that contain the refactoring 1  and the refactoring 2 code. Clarified Bug Fixing requirement in assessment.
@@ -83,7 +85,7 @@ Code documentation comes in many forms for many audiences. For this iteration, *
 
   As part of your fresh clone prior to submission, please also compile the Doxygen and look at the generated webpages.
 
-  > Make sure to place the Doxyfile in _project/docs_.  Set the output directory to: `OUTPUT_DIRECTORY = ./docs` so that when it is compiled from the _project_ directory it will put the html and latex folders in the docs directory/folder.
+  > Make sure to place the Doxyfile in _project/docs_.  (The following is only for running doxygen from the project directory. We will run from the docs/ directory) ~~Set the output directory to: `OUTPUT_DIRECTORY = ./docs` so that when it is compiled from the _project_ directory it will put the html and latex folders in the docs directory/folder.~~
   
   Additionally, continue to refine your in-code Doxygen documentation. This should include a brief description for **all** classes in the src directory and full documentation of Bus, Stop, Route and Passenger, as well as any other classes you made to assist in their primary responsibilities (PassengerLoaders, RouteFactory, etc.), if you made them. 
 
