@@ -52,6 +52,7 @@ void Bus::Update() {  // using common Update format
         while (passengers_.size() > 0) {
           passengers_.pop_front();  // Unload all passengers still on bus
         }
+        num_passengers_ = 0;
         // Load passengers on the incoming route
         // and update next stop and distance
         incoming_route_->GetDestinationStop()->LoadPassengers(this);

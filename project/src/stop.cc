@@ -57,8 +57,8 @@ bool Stop::LoadPassengers(Bus * bus) {
     if (bus->LoadPassenger(passengers_.front())) {
       passengers_present_--;
       passengers_.pop_front();
-    // } else {
-    //   return false;
+    } else {
+      return false;
     }
   }
   return true;
