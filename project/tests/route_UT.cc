@@ -109,7 +109,6 @@ TEST_F(RouteTests, Update) {
   out->Update();
   EXPECT_EQ(stop1->GetPassengerList().front()->GetTimeAtStop(), 1) <<
   "Update does not update stops";
-
 }
 
 TEST_F(RouteTests, Clone) {
@@ -146,7 +145,6 @@ TEST_F(RouteTests, IsAtEnd) {
   out->NextStop();
   EXPECT_EQ(out->IsAtEnd(), false);
   out->NextStop();
-  out->NextStop();
   EXPECT_EQ(out->IsAtEnd(), true);
 }
 
@@ -158,9 +156,10 @@ TEST_F(RouteTests, NextStop) {
   "NextStop incorrectly updates prev";
 }
 
-TEST_F(RouteTests, NextDistance) {
-  EXPECT_EQ(in->NextDistance(), 7) <<
-  "NextDistance returns incorrect distance";
+TEST_F(RouteTests, GetNextStopDistance) {
+  in->NextStop();
+  EXPECT_EQ(in->GetNextStopDistance(), 7) <<
+  "GetNextStopDistance returns incorrect distance";
 }
 
 TEST_F(RouteTests, IsRouteComplete) {
@@ -191,6 +190,9 @@ TEST_F(RouteTests, GetStops) {
 }
 
 TEST_F(RouteTests, GetDestinationStopIndex) {
+  EXPECT_EQ(in->GetDestinationStopIndex(), 0) <<
+  "GetDestinationStopIndex returns incorrect value";
+  in->NextStop();
   EXPECT_EQ(in->GetDestinationStopIndex(), 1) <<
   "GetDestinationStopIndex returns incorrect value";
 }
