@@ -58,7 +58,7 @@ For the table below, please specify which aspects were fixed. You should put an 
 *You can potentially get back lost functionality points from Iteration 2, but we have to know what to look for. We will not spend time tracking down what didn't work in earlier iterations and trying to see if it is working in iteration 3. We need you to tell us what to look for, and then we will review your github issues and your updated functionality to determine your score for that item*
 
 
-| Functionality | Complete in it2 | | Fixed in it3 | Still Buggy |
+| Functionality | Complete in it2 (issue was identified before it2 deadline) | | Fixed in it3 (issue was identified after it2 deadline) | Still Buggy |
 | -------- | -------- |-| -------- | -------- |
 | **__YOU NEED TO UPDATE THIS LIST__** |  ||  |   |
 | vis_sim buses didn't move | x || | |
