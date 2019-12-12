@@ -41,15 +41,15 @@ void Stop::Report(std::ostream & out) const {
 }
 
 bool Stop::LoadPassengers(Bus * bus) {
-  // Calls the bus LoadPassenger method to load passengers from stop onto bus
-  for (std::list<Passenger *>::iterator it = passengers_.begin();
-  it != passengers_.end(); it++) {
-    bus->LoadPassenger(*it);
+  // Load passengers until passengers_ is empty or bus is at max capacity
+  while (!(passengers_.empty())) {
+    if (bus->LoadPassenger(passengers_.front())) {
+      passengers_present_--;
+      passengers_.pop_front();
+    } else {
+      return false;
+    }
   }
-  while (passengers_.size() > 0) {  // Remove passengers from the stop
-    passengers_.pop_front();
-  }
-  passengers_present_ = 0;
   return true;
 }
 

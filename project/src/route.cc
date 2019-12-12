@@ -10,7 +10,6 @@ double * distances, int num_stops, PassengerGenerator * passgen) {
   for (int i = 0; i < num_stops - 1; i++) {
     distances_between_.push_back(distances[i]);
   }
-
   name_ = name;
   num_stops_ = num_stops;
   generator_ = passgen;
@@ -18,8 +17,6 @@ double * distances, int num_stops, PassengerGenerator * passgen) {
   prev = NULL;
   route_complete = false;
   destination_stop_index_ = 0;
-
-  // UpdateRouteData();
 }
 
 void Route::Update() {
@@ -78,7 +75,7 @@ Stop * Route::GetDestinationStop() const {
 }
 
 bool Route::IsAtEnd() const {
-  if (destination_stop_index_ == (num_stops_)) {
+  if (destination_stop_index_ == (num_stops_-1)) {
     return true;
   }
   return false;
@@ -86,28 +83,17 @@ bool Route::IsAtEnd() const {
 
 
 void Route::NextStop() {
-  destination_stop_index_++;;
-  for (std::list<Stop *>::const_iterator it = stops_.begin();
-  it != stops_.end(); it++) {
-    if ((*it) == destination_stop_) {
-    // Search for current stop in list
-      prev = *(it);
-      destination_stop_ = *(it++);
-      // Set the destination stop to the next stop in the list
-    }
+  destination_stop_index_++;
+  std::list<Stop *>::iterator it = stops_.begin();
+  while ((*it) != destination_stop_) {  // Look for current destination_stop_
+    it++;
   }
-
-  // destination_stop_index_++;
-  // std::list<Stop *>::iterator it = stops_.begin();
-  // while ((*it) != destination_stop_) {
-  //   it++;
-  // }
-  // prev = *(it);
-  // it++;
-  // destination_stop_ = *(it);
+  prev = *(it);  // Set prev to current destination_stop_
+  it++;
+  destination_stop_ = *(it);  // Set destination_stop_ to next stop in stops_
 }
 
-double Route::NextDistance() {
+double Route::GetNextStopDistance() {
   // looks in the distances_between_ list to find
   // the next distance in between stops
   std::list<double>::iterator it = distances_between_.begin();

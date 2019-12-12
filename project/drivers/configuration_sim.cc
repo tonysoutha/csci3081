@@ -24,7 +24,7 @@ int main(int argc, char**argv) {
   const std::string filename = file;
   std::ifstream input_file("config/" + filename);
   if (!(input_file.is_open())) {  // Ensures the file passed in is valid
-    std::cout << "Error: Unable to open file" << std::endl;
+    file = "config.txt";  //  Use default file if an invalid file is passed in
     return 1;
   }
 

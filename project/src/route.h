@@ -56,7 +56,7 @@ class Route {
   /**
    * @brief Look the distance array and return to next distance
    */
-  double NextDistance();
+  double GetNextStopDistance();
   /**
    * @brief Tell us if the current route has been completed
    */

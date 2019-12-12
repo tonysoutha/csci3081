@@ -156,9 +156,12 @@ TEST_F(BusTests, IsTripComplete) {
 TEST_F(BusTests, Update) {
   bus->LoadPassenger(pass1);
   bus->LoadPassenger(pass2);
-  //bus->Update();
-  EXPECT_EQ(bus->GetDistanceRemaining(), -1) <<
+  bus->Update();
+  EXPECT_EQ(bus->GetDistanceRemaining(), 5) <<
   "Update does not move bus";
-  EXPECT_EQ(bus->GetPassengers().front()->GetTotalWait(), 1);
+  bus->Update();
+  EXPECT_EQ(bus->GetDistanceRemaining(), 4) <<
+  "Update does not move bus";
+  EXPECT_EQ(bus->GetPassengers().front()->GetTotalWait(), 3) <<
+  "Update doesn't update passengers on bus";
 }
-
