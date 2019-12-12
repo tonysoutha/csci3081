@@ -2,7 +2,7 @@
 #include <iostream>
 #include <random>
 
-#include "local_simulator.h"
+#include "src/local_simulator.h"
 
 int main() {
 
