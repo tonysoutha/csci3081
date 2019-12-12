@@ -61,8 +61,8 @@ For the table below, please specify which aspects were fixed. You should put an 
 | Functionality | Complete in it2 | | Fixed in it3 | Still Buggy |
 | -------- | -------- |-| -------- | -------- |
 | **__YOU NEED TO UPDATE THIS LIST__** |  ||  |   |
-| vis_sim buses didn't move | x |-| -------- | -------- |
-| config_sim didn't use default config file when an invalid file was passed in | -------- |-| x | --------|
+| vis_sim buses didn't move | x || | |
+| config_sim didn't use default config file when an invalid file was passed in | || x | |
 
 
 ### Documentation
@@ -87,8 +87,8 @@ For the table below, please specify which aspects were fixed. You should put an 
 
 When everything above is as you want it (or it is 11:50pm on Wednesday), it is time to submit!
 
-- [ ] I pushed this file and any changes resulting from this checklist.
-- [ ] Everything is in the **__master__** branch.
+- [x] I pushed this file and any changes resulting from this checklist.
+- [x] Everything is in the **__master__** branch.
 
 _One more thing -- check that what you think you pushed was really pushed to github on the master branch. Go to your repo on github.umn.edu and look at your files. If you can see it there, we can see it. If you can't, we can't._
 
