@@ -7,9 +7,9 @@
 #define SRC_NEW_LOCAL_SIMULATOR_H_
 
 #include <vector>
-
-#include "src/simulator.h"
 #include <fstream>
+
+#include "src/new_local_simulator.h"
 
 class NewLocalSimulator : public Simulator {
  public:

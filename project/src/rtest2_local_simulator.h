@@ -21,4 +21,4 @@ class r2LocalSimulator : public Simulator {
   int simulation_time_elapsed_;
 };
 
-#endif  // SRC_LOCAL_SIMULATOR_H_
+#endif  // SRC_RTEST2_LOCAL_SIMULATOR_H_

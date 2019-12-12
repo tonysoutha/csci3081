@@ -11,11 +11,11 @@ Route * in, int capacity, double speed) {
   speed_ = speed;
   distance_remaining_ = 0;
   num_passengers_ = 0;
-  // UpdateBusData();
 }
 
 bool Bus::LoadPassenger(Passenger * new_passenger) {
   if (num_passengers_ < passenger_max_capacity_) {
+    // Add passenger to passenger list and load them onto bus
     passengers_.push_back(new_passenger);
     new_passenger->GetOnBus();
     num_passengers_++;
@@ -70,7 +70,7 @@ void Bus::Update() {  // using common Update format
         }
         (outgoing_route_->GetDestinationStop())->LoadPassengers(this);
         // Load passengers from stop onto bus
-        outgoing_route_->NextStop(); // SEGFAULTING
+        outgoing_route_->NextStop();
         // Set next destination stop
         distance_remaining_ = outgoing_route_->GetNextStopDistance();
         // Set next distance in between the next stops
@@ -142,11 +142,6 @@ int Bus::GetDistanceRemaining() {
 double Bus::GetSpeed() {
   return speed_;
 }
-
-// Position Bus::GetPosition() const {
-//   Position pos = Position();
-//   Route * cur_route;
-// }
 
 void Bus::UpdateBusData() {
   bus_data_.id = GetName();

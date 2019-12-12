@@ -27,13 +27,16 @@ bool r2LocalSimulator::Start() {
   std::list<Stop *> CC_EB_stops_list;
   std::list<Stop *> CC_WB_stops_list;
 
-  //Staticly defined objects get destroyed at end of Start()!
-  //Must be dynamic...
+  // Staticly defined objects get destroyed at end of Start()!
+  // Must be dynamic...
 
   // CC Eastbound stops
-  // Stop * stop_CC_EB_1 = new Stop(0, 44.972392, -93.243774);  // West bank station
-  // Stop * stop_CC_EB_2 = new Stop(1, 44.973580, -93.235071);  // student union station
-  // Stop * stop_CC_EB_3 = new Stop(2, 44.975392, -93.226632);  // Oak St & Washington Ave
+  // Stop * stop_CC_EB_1 = new Stop(0, 44.972392, -93.243774);
+  // West bank station
+  // Stop * stop_CC_EB_2 = new Stop(1, 44.973580, -93.235071);
+  // student union station
+  // Stop * stop_CC_EB_3 = new Stop(2, 44.975392, -93.226632);
+  // Oak St & Washington Ave
   Stop * stop_CC_EB_4 = new Stop(1, 44.975837, -93.222174);  // before transit
   Stop * stop_CC_EB_5 = new Stop(2, 44.980753, -93.180669);  // tway
   Stop * stop_CC_EB_6 = new Stop(3, 44.983375, -93.178810);  // Fairgrounds
@@ -107,48 +110,53 @@ bool r2LocalSimulator::Start() {
   // CC_WB_distances[7] = 3;
 
 
-  std::list<double> CC_EB_probs;  //realistic .15, .3, .025, .05, .05, 0
-  // CC_EB_probs.push_back(.15); //WB
-  // CC_EB_probs.push_back(.3); //CMU
-  // CC_EB_probs.push_back(.025); //O&W
-  CC_EB_probs.push_back(.05); //Pre-transit
-  CC_EB_probs.push_back(.05); //post-transit
-  CC_EB_probs.push_back(.01); //State fair
-  CC_EB_probs.push_back(.01); //Buford
-  CC_EB_probs.push_back(0); //SPSC - MUST BE 0
-  //TODO: is this always true? If so, we may want to reduce the length of probs to_char_type
-  //        remove possibility of generating passengers with nowhere to go
+  std::list<double> CC_EB_probs;  // realistic .15, .3, .025, .05, .05, 0
+  // CC_EB_probs.push_back(.15); // WB
+  // CC_EB_probs.push_back(.3); // CMU
+  // CC_EB_probs.push_back(.025); // O&W
+  CC_EB_probs.push_back(.05);  // Pre-transit
+  CC_EB_probs.push_back(.05);  // post-transit
+  CC_EB_probs.push_back(.01);  // State fair
+  CC_EB_probs.push_back(.01);  // Buford
+  CC_EB_probs.push_back(0);  // SPSC - MUST BE 0
+  // remove possibility of generating passengers with nowhere to go
 
-  std::list<double> CC_WB_probs; //realistic .35, .05, .01, .01, .2, 0
-  CC_WB_probs.push_back(.35); //SPSC
-  CC_WB_probs.push_back(.05); //Buford
-  CC_WB_probs.push_back(.01); //State fair
-  CC_WB_probs.push_back(.01); //post-transit
-  CC_WB_probs.push_back(.025); //pre-transit
-  // CC_WB_probs.push_back(.05); //Ridder
-  // CC_WB_probs.push_back(.1); //Jones-Eddy
-  // CC_WB_probs.push_back(.3); //Bruininks
-  // CC_WB_probs.push_back(0); //Blegen
+  std::list<double> CC_WB_probs;  // realistic .35, .05, .01, .01, .2, 0
+  CC_WB_probs.push_back(.35);  // SPSC
+  CC_WB_probs.push_back(.05);  // Buford
+  CC_WB_probs.push_back(.01);  // State fair
+  CC_WB_probs.push_back(.01);  // post-transit
+  CC_WB_probs.push_back(.025);  // pre-transit
+  // CC_WB_probs.push_back(.05);  // Ridder
+  // CC_WB_probs.push_back(.1);  // Jones-Eddy
+  // CC_WB_probs.push_back(.3);  // Bruininks
+  // CC_WB_probs.push_back(0);  // Blegen
 
-  //Staticly defined objects get destroyed at end of Start()!
-  //Must be dynamic...
-  //RandomPassengerGenerator CC_EB_generator(CC_EB_probs, CC_EB_stops_list);
-  //RandomPassengerGenerator CC_WB_generator(CC_WB_probs, CC_WB_stops_list);
+  // Staticly defined objects get destroyed at end of Start()!
+  // Must be dynamic...
+  // RandomPassengerGenerator CC_EB_generator(CC_EB_probs, CC_EB_stops_list);
+  // RandomPassengerGenerator CC_WB_generator(CC_WB_probs, CC_WB_stops_list);
 
- RtestPassengerGenerator * CC_EB_generator = new RtestPassengerGenerator (CC_EB_probs, CC_EB_stops_list);
- RtestPassengerGenerator * CC_WB_generator = new RtestPassengerGenerator (CC_WB_probs, CC_WB_stops_list);
+  RtestPassengerGenerator * CC_EB_generator =
+  new RtestPassengerGenerator (CC_EB_probs, CC_EB_stops_list);
+  RtestPassengerGenerator * CC_WB_generator =
+  new RtestPassengerGenerator (CC_WB_probs, CC_WB_stops_list);
 
-  //Test to ensure generators are working
-  //Helpful for debugging
-  //CC_EB_generator.GeneratePassengers();
-  //CC_WB_generator.GeneratePassengers();
+  // Test to ensure generators are working
+  // Helpful for debugging
+  // CC_EB_generator.GeneratePassengers();
+  // CC_WB_generator.GeneratePassengers();
 
-  //Again, MUST be dynamic...
-  //Route CC_EB("Campus Connector - Eastbound", CC_EB_stops, CC_EB_distances, 8, &CC_EB_generator);
-  //Route CC_WB("Campus Connector - Westbound", CC_WB_stops, CC_WB_distances, 9, &CC_WB_generator);
+  // Again, MUST be dynamic...
+  // Route CC_EB("Campus Connector - Eastbound", CC_EB_stops, CC_EB_distances,
+  // 8, &CC_EB_generator);
+  // Route CC_WB("Campus Connector - Westbound", CC_WB_stops, CC_WB_distances,
+  // 9, &CC_WB_generator);
 
-  Route * CC_EB = new Route("Campus Connector - Eastbound", CC_EB_stops, CC_EB_distances, 5, CC_EB_generator);
-  Route * CC_WB = new Route("Campus Connector - Westbound", CC_WB_stops, CC_WB_distances, 5, CC_WB_generator);
+  Route * CC_EB = new Route("Campus Connector - Eastbound", CC_EB_stops,
+  CC_EB_distances, 5, CC_EB_generator);
+  Route * CC_WB = new Route("Campus Connector - Westbound", CC_WB_stops,
+  CC_WB_distances, 5, CC_WB_generator);
 
   prototype_routes_.push_back(CC_EB);
   prototype_routes_.push_back(CC_WB);
@@ -158,7 +166,7 @@ bool r2LocalSimulator::Start() {
 
   bus_counters_.push_back(10000);
 
-  //This will eventually be replaced by configuration/command line argument
+  // This will eventually be replaced by configuration/command line argument
   bus_start_timings_.push_back(10);
 
   // Do we want a bus on start? Or let the update handle this?
@@ -216,14 +224,14 @@ bool r2LocalSimulator::Update() {
     // bus report
     (*bus_iter)->Report(std::cout);
 
-    //REQUIRES USE OF IsTripComplete, which was not required
-    //Buses which are "done" will just keep having Update() called
-    //  Students MAY need to deal with this, not sure yet...
+    // REQUIRES USE OF IsTripComplete, which was not required
+    // Buses which are "done" will just keep having Update() called
+    // Students MAY need to deal with this, not sure yet...
     // remove bus if trip is complete
-    //if ((*bus_iter)->IsTripComplete()) {
-    //  bus_iter = active_buses_.erase(bus_iter);
-    //  bus_iter--;
-    //}
+    // if ((*bus_iter)->IsTripComplete()) {
+    // bus_iter = active_buses_.erase(bus_iter);
+    // bus_iter--;
+    // }
   }
 
   // for each stop
@@ -233,6 +241,5 @@ bool r2LocalSimulator::Update() {
     (*route_iter)->Update();
     (*route_iter)->Report(std::cout);
   }
-
   return true;
 }

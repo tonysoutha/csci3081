@@ -15,7 +15,7 @@
 #include "src/random_passenger_generator.h"
 
 void NewLocalSimulator::SetOutput(std::ostream * f) {
-   f_ptr = f;
+  f_ptr = f;
 }
 
 bool NewLocalSimulator::Start() {
@@ -187,7 +187,7 @@ bool NewLocalSimulator::Start() {
 
   bus_counters_.push_back(10000);
 
-  //This will eventually be replaced by configuration/command line argument
+  // This will eventually be replaced by configuration/command line argument
   // This will eventually be replaced by configuration/command line argument
   bus_start_timings_.push_back(10);
 
