@@ -47,15 +47,7 @@
  the terminal. \n
  \code make \endcode
  This will output several lines of text to the command line. Once the process
- completes, executables will be created for transit_sim, config_sim,
- and vis_sim.
-
- \subsection tsim Running the Transit Simulator
- Running transit_sim will output the result of the software onto the terminal
- using routes that have already been created. This might give you a good idea
- of what the output of this software is. In order to run transit_sim, enter
- the following line into the terminal: \n
- \code ./build/bin/transit_sim \endcode
+ completes, executables will be created for config_sim and vis_sim.
 
  \subsection csim Running the Configuration Simulator
  Running config_sim gives you the option of providing a configuration
@@ -87,8 +79,8 @@
  Once you are in the project directory, enter the following line into the
  terminal: \n
  \code ./build/bin/config_sim “config file” \endcode
- The output of the simulation will be very similar to transit_sim, but the
- stops and routes that are used will be different.
+ The output of the simulation will be produced on the terminal, with the
+ stops and routes that are used dependent on the config file used.
 
  Alternatively, you can run the config_sim with a default config file which is
  the config.txt file in the config folder. To do so, ensure that you are in the
@@ -100,9 +92,9 @@
  in, the simulator will use the default config file “config.txt”.
 
  \subsection vsim Running the Visualization Simulator
- The most interesting of all the simulators is vis_sim. Running vis_sim will
+ The more interesting of the two simulators is vis_sim. Running vis_sim will
  allow you to see the output of the software on the terminal just like
- transit_sim and config_sim, but it will also allow you to see a visual
+ config_sim, but it will also allow you to see a visual
  representation of the software.
 
  Vis_sim also gives you the option of providing a config file just like
@@ -146,9 +138,8 @@
  	For stops: number of people waiting \n
 
 
- Notice that in addition to the visual representation of the simulation on the
- web server, there is also output on the terminal just like the other
- simulations.
+ Again, notice that in addition to the visual representation of the simulation
+ on the web server, there is also output on the terminal just like config_sim.
 
 \section devel_guide_sec Developer Guide
 
@@ -157,7 +148,7 @@ stop, and passenger. These four classes are the root of the simulation’s
 functionality and all four interact with each other in some way. Understanding
 how these four classes were implemented will allow you to understand the
 system. Furthermore, understanding the relationship between these four classes
-and how they are used in the three simulators (transit, configuration, visual)
+and how they are used in the two simulators (configuration and visual)
 will give you the opportunity to enhance this software.
 
 \subsection Passenger
@@ -205,25 +196,21 @@ bus moving along its route as it loads and unloads passengers.
 
 \subsection Simulators
 
-Three simulations were implemented. To make the simulations, move to the
+Two simulations were implemented. To make the simulations, move to the
 project directory and enter “make” into the terminal.
 Then call... \n
-<b> transit_sim </b> with \code ./build/bin/transit_sim \endcode \n
 <b> config_sim </b> with \code ./build/bin/config_sim "optional config file”
 \endcode \n
 <b> vis_sim </b> with \code ./build/bin/vis_sim 8081 "optional config file"
 \endcode\n
 
-Transit sim runs the simulation on a route that has already been created.
-This outputs the result of the simulation to the terminal.
-
-Config_sim is identical to transit_sim, however it can take in a config file.
-To see this config file, navigate to the config folder and view the config.txt
-file inside. If no config file is provided or an invalid file is passed in,
-the simulator simply uses the default config file config.txt. My implementation
-of config_sim does not give the user the opportunity to change the number of
-time steps or the bus start timings for the simulation, as this has been set
-as a default in the configuration driver. \n
+Config_sim can take in a config file to run the simulation.
+To see a config file, navigate to the config folder and view the config.txt
+file inside. This is the default config file. If no config file is provided or
+an invalid file is passed in, the simulator simply uses the default config file
+config.txt. My implementation of config_sim does not give the user the
+opportunity to change the number of time steps or the bus start timings for
+the simulation, as this has been set as a default in the configuration driver.
 
 Vis_sim is like config_sim in that it can take in an optional config file,
 but it also opens a web server to create a visual representation of the
@@ -232,6 +219,15 @@ http://127.0.0.1:8081/web_graphics/project.html
 This web page will allow you to change the bus start timings and number of
 time steps for the simulation. Hitting “start” will initiate the simulation,
 displaying routes, stops, and buses moving through the routes.
+
+To add your own simulator apart from config and vis sim, create a driver
+in the drivers folder. The driver has two important functions, to start
+the simulation and update it for the number of time steps desired.
+The driver uses a separate simulator which you must create in the src folder.
+The simulator is where the start and update methods must be implemented.
+The start function must initialize the stops, distances, and passenger
+generation probabilities. The update function is responsible for updating
+routes and buses and keeping track of the time steps.
 
 \subsection Testing
 Unit tests and regression tests were implemented. Unit tests can be found
