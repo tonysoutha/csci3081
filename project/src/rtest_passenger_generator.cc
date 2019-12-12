@@ -12,7 +12,7 @@ RtestPassengerGenerator::RtestPassengerGenerator(std::list<double> probs,
 
 /*
  * This method adds one passenger at each stop every time generation occurs
- * You could build a formula based on stop index / count to add a 
+ * You could build a formula based on stop index / count to add a
  * passenger to alternate stops each time through the loop or figure
  * out some other way to generate the same number of passengers
  * each time the simulation is run
@@ -29,18 +29,18 @@ int RtestPassengerGenerator::GeneratePassengers() {
   int last_stop_index = (*stop_iter)->GetId(); // get the last stop index
 
   std::cout << "Time to generate!" << std::endl;
-  
+
   int count = 0;
   for (stop_iter = stops_.begin(); (*stop_iter)->GetId() < last_stop_index; stop_iter++) {
-	    
+
 	    stop_index = (*stop_iter)->GetId();
-	    
+
 	    Passenger * tmp = PassengerFactory::
                           Generate(stop_index,
                                  last_stop_index);
         passengers_added += (*stop_iter)->AddPassengers(tmp);
-        count++; 
+        count++;
   }
-  
+
   return passengers_added;
 }
