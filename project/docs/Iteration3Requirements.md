@@ -7,6 +7,8 @@ You can convert this requirements document to pdf using this tool: <http://www.m
 
 >Your software is a reflection of your understanding of the requirements as specified in this document. If you do not understand any portion of the requirements or you think that the requirements are underspecified, it is your responsibility to get clarification from the instructor or a TA. Please read this document carefully and review it often _WELL IN ADVANCE_ and often before turning in your iteration for assessment.
 
+## Version 5: December 10th, 2019 - Added instructions on REGRESSION TESTING and setting the CONSTPASS MACRO in src/passenger_factory.cc. See the section discussion regression test requirements for details. 
+
 ## Version 4: December 8th, 2019 - updating instructions regarding where to run doxygen from
 
 ## Version 3: December 6th, 2019 - updated instructions on length of mainpage. User guide must be  3 - 4 pages _IN ADDITION TO_ the developers guide you created for iteration 1 (and are updating for this iteration). Also, the number of regression tests required for iteration 3 has been updated. Review the sections in the specification below that discuss the aforementioned items for more details. 
@@ -189,6 +191,16 @@ In this iteration, you will be fixing bugs.
 	* To use this testing strategy with Google Test, you should add store any config files you need in project/config/ and anything else that might be helpful in project/resources/, while attempting to ensure that changes you make to create the regression test do not  break anything that was already working.
 	
 **One important change to this iteration 2 regression test requirment is that for iteration 3 you are required to create only ONE (1) regression test. As specified in lab 15, the regression test you create _must be different_ than the regression test we give you in lab 15.**
+
+**Also,  at least three solutions exist to defining/undefining the MACRO CONSTPASS when building the vis_sim, config_sim, and your regression test executable(s).**
+
+**1) You can comment out CONSTPASS in passenger_factory.cc in your final delivery**  
+
+**2) You can create an alternate passenger_factory class (deterministic_passenger_factory  .h and .cc)  to use with your regression test.  This is a more elegant solution since you will not have to edit the passenger_factory.cc file and undefine the CONSTPASS MACRO each time you make vis_sim or config_sim (and then edit passenger_factory.cc and define the CONSTPASS MACRO when you make your regression test driver(s)).** 
+
+**3) Yet another solution (and the most elegant of the three) is to comment out the CONSTPASS MACRO in passenger_factory.cc and set the -D flag in the CXX options for your _%\_test_ target in the makefile in the project/src directory (that is, -D=CONSTPASS). That will define the CONSTPASS MACRO in the file _passenger_factory.cc_ when make compiles your regression test executable(s) and leave it undefined when vis_sim and config_sim executables are built.**  
+
+**Any of the above solutions is acceptable, but make sure to document which alternative you select in your release_notes file.** 
 
 <hr>
 
